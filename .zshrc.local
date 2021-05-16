@@ -28,9 +28,9 @@ if [ -e "$HOME/.zsh/pure" ]; then
 fi
 
 # use fzf completions and keybindings: https://github.com/junegunn/fzf
-if [ -e "$HOME/.zsh/fzf" ]; then
-    source "$HOME/.zsh/fzf/completion.zsh"
-    source "$HOME/.zsh/fzf/key-bindings.zsh"
+if [ -e "/usr/share/fzf" ]; then
+    source "/usr/share/zsh/site-functions/fzf"
+    source "/usr/share/fzf/shell/key-bindings.zsh"
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
