@@ -1,0 +1,56 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+
+    "modules-left": ["sway/workspaces"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+
+    "tray": {
+        "icon-size": 22,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        "format": "{:%a %d %b %H:%M}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 15,
+            "critical": 5
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "! {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ""
+        },
+        "on-click": "pavucontrol"
+    },
+}
+
