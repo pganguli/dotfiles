@@ -229,9 +229,11 @@ bar {
 # Import sway's environment variables
 # into systemd user manager
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
-# Notifier daemon
+# User autostart
+exec lxpolkit
 exec mako
-# User systemd units
+exec nm-applet --indicator
+exec pulseeffects --gapplication-service
 exec systemctl --user start gammastep
 # XDG autostart
 exec dex-autostart -a
