@@ -1,0 +1,35 @@
+#!/bin/sh
+
+function androsync() {
+    rsync --archive \
+          --no-perms --no-group --no-owner \
+          --compress --compress \
+          --human-readable --human-readable \
+          --partial \
+          --info=stats1 --info=name1 --info=progress2 \
+          --modify-window=1 \
+          --rsh='ssh -p 2222' "$@"
+}
+
+if [ "x$4" = "x" ]; then
+    ANDRO_IP="192.168.42.129"
+else
+    ANDRO_IP="$4"
+fi
+STUFF_PATH="stuff/$2/"
+
+case "$1" in
+    pull) if [ "x$3" = "x" ]; then
+              androsync "$ANDRO_IP:/sdcard/$STUFF_PATH" "/media/$STUFF_PATH"
+          else
+              androsync --compare-dest="/media/$STUFF_PATH" "$ANDRO_IP:/sdcard/$STUFF_PATH" "$3"
+          fi;;
+    push) if [ "x$3" = "x" ]; then
+              androsync "/media/$STUFF_PATH" "$ANDRO_IP:/sdcard/$STUFF_PATH"
+          else
+              androsync --compare-dest="/sdcard/$STUFF_PATH" "/media/$STUFF_PATH" "$ANDRO_IP:/sdcard/$3"
+          fi;;
+       *) echo -e "Usage: $0 push|pull RELATIVE_SRC_PATH [COMPARE_DEST_PATH]" \
+                "\nRELATIVE_SRC_PATH must not have a trailing slash." \
+              "\n\nSyncs files using rsync.";;
+esac
