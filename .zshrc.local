@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+
+# source ~/.profile
+[ -e "$HOME/.profile" ] && source "$HOME/.profile"
+
+# source common shell aliases
+[ -e "$HOME/.shell_aliases" ] && source "$HOME/.shell_aliases"
+
+# use vi keybindings
+bindkey -v
+
+# syntax highlight shell programming
+if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# use pure prompt: https://github.com/sindresorhus/pure
+if [ -e "$HOME/.zsh/pure" ]; then
+    fpath+="$HOME/.zsh/pure"
+    if [ "$TERM" = "linux" ]; then
+        PURE_PROMPT_SYMBOL='>'
+        PURE_PROMPT_VICMD_SYMBOL='<'
+    fi
+    PURE_CMD_MAX_EXEC_TIME=1
+    zstyle :prompt:pure:prompt:success color green
+    autoload -U promptinit; promptinit
+    prompt pure
+fi
+
+# use fzf completions and keybindings: https://github.com/junegunn/fzf
+if [ -e "$HOME/.zsh/fzf" ]; then
+    source "$HOME/.zsh/fzf/completion.zsh"
+    source "$HOME/.zsh/fzf/key-bindings.zsh"
+fi
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

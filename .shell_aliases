@@ -1,0 +1,50 @@
+# use vim as default editor
+export EDITOR=nvim
+export VISUAL=nvim-qt
+
+# tell gpg-agent to use pinentry on current tty
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# use vim as a pager; strip ANSI escape codes and pipe to vim's less macro
+export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | nvim -c 'set nolist nomodified' -\""
+export MANPAGER="nvim -c Man!"
+
+alias zoom="firejail zoom"
+alias xc="xclip -selection clipboard"
+alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
+alias lvim="$PAGER"
+
+function cpr() {
+    rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
+}
+
+function startw() {
+    for VAR in $(cat ~/.config/sway/env); do
+        export "$VAR"
+    done
+    exec systemd-cat --identifier=sway sway
+}
+
+function wlrec() {
+    wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
+                -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+}
+
+function x11rec() {
+    ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
+           -f pulse -ac 2 -i 0 \
+           -codec:a libopus -application voip \
+           -codec:v libx264rgb -crf 27 -preset ultrafast \
+           "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+}
+
+function pulserec() {
+    ffmpeg -f pulse -ac 2 -i 0 \
+           -codec:a libopus -application voip \
+           "$(date +%Y-%m-%d_%H.%M.%S).opus"
+}
