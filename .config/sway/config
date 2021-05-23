@@ -56,7 +56,7 @@ input type:keyboard {
     repeat_rate 50
     repeat_delay 250
     xkb_layout "us,us"
-    xkb_variant "dvorak,"
+    xkb_variant ",dvorak"
     xkb_options "grp:menu_toggle,caps:escape,shift:both_capslock_cancel"
 }
 # Touchpad configuration
@@ -233,8 +233,7 @@ exec "systemctl --user import-environment; systemctl --user start sway-session.t
 exec lxpolkit
 exec mako
 exec nm-applet --indicator
-exec pulseeffects --gapplication-service
-exec systemctl --user start gammastep
+exec gammastep -m wayland -O 2700
 # XDG autostart
 exec dex-autostart -a
 
