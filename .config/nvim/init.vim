@@ -1,6 +1,6 @@
 set nocompatible " not compatible with vi
 colorscheme industry " industrial color palette
-set guifont=DejaVu\ Sans\ Mono\ 13 " font for gvim
+set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
 set ruler " show position in status bar
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
@@ -79,6 +79,12 @@ nnoremap ,m :make<CR>
 nnoremap ,t :vsplit <Bar> terminal<CR>
 " run executable with same name as source file
 nnoremap ,r :terminal ./'%<'<CR>
+" do not print page numbers
+set printheader=%<%f%h%m%=
+" font size for printing
+set printfont=courier:h14
+" print to PS
+nnoremap ,p :hardcopy > %.ps<CR>
 
 " load GDB plugin and start it, putting source window on right
 nnoremap ,d :packadd termdebug<CR>:Termdebug %<<CR><C-w>k<C-w>k<C-w>L
