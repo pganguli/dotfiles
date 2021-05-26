@@ -205,8 +205,8 @@ bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@
 bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 2%+
 # Print Screen
-bindsym Print exec grimshot save active "$HOME/.cache/screenshots/$(date +%Y-%m-%d_%H.%M.%S).png"
-bindsym shift+Print exec grimshot save area "$HOME/.cache/screenshots/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Print exec grimshot save active "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym shift+Print exec grimshot save area "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
 
 #
 # Status Bar:
