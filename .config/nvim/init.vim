@@ -69,6 +69,11 @@ set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
 " move cursor to previous window
 nnoremap <Space> <C-w>p
+" move between buffers with Alt+Arrow
+nnoremap <M-Left> :bp<CR>
+nnoremap <M-Right> :bn<CR>
+nnoremap <M-Up> :bf<CR>
+nnoremap <M-Down> :bl<CR>
 
 " autowrite files before commands like `make`
 set autowrite
@@ -141,6 +146,34 @@ xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 " add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+" ------------------------------------------------------------------
+
+" ------------------------------------------------------------------
+" Use local perl to handle substitution
+" ------------------------------------------------------------------
+" Invoke via :S/pattern/replace/flags
+function s:Substitute(line1, line2, sstring)
+  let l:lines=getline(a:line1, a:line2)
+  " Call perl using utf8.  #line etc makes error messages prettier
+  let l:sysresult=system("perl -e 'use utf8;' -e '#line 1 \"perl substitution\"' -pe ".
+        \shellescape("s".escape(a:sstring,"%!").";"), l:lines)
+  if v:shell_error
+    echo l:sysresult
+    return
+  endif
+  let l:result=split(l:sysresult, "\n", 1)  " 1: don't drop blank lines
+  " delete lines but don't put in register:
+  execute a:line1.",".a:line2." normal \"_dd"
+  call append(a:line1-1, l:result)  " add lines
+  call cursor(a:line1, 1)  " back to starting place
+  if a:line1 == a:line2
+    echom "Substitution on line" a:line1
+  else
+    echom "Substitution on lines" a:line1 "to" a:line2
+  endif
+endfunction
+
+command -range -nargs=1 S call s:Substitute(<line1>, <line2>, <q-args>)
 " ------------------------------------------------------------------
 
 " write de-duplicated file preserving order of lines
