@@ -336,9 +336,6 @@ nnoremap ,c :write | edit $MYVIFMRC | restart<CR>
 " Toggle wrap setting
 nnoremap ,w :set wrap!<CR>
 
-" Toggle showing hidden files and directories
-nnoremap ,d :set dotfiles!<CR>
-
 " ------------------------------------------------------------------------------
 
 " Various customization examples
