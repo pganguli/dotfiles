@@ -17,7 +17,8 @@ export MANPAGER="nvim -c Man!"
 alias zoom="firejail zoom"
 alias xc="xclip -selection clipboard"
 alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
-alias lvim="$PAGER"
+alias lv="$PAGER"
+alias nv="nvim"
 
 function cpr() {
     rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
