@@ -31,6 +31,7 @@
     ignore = !git update-index --assume-unchanged
     unignore = !git update-index --no-assume-unchanged
     ignored = !git ls-files -v |grep ^[a-z]
+	ds = diff --staged
 [commit]
     gpgsign = true
 [gpg]
