@@ -100,12 +100,12 @@ nmap <leader>r :Run<CR>
 runtime! ftplugin/man.vim
 
 " netrw config
-let g:netrw_liststyle=3 " tree style listing
 let g:netrw_banner=0 " suppress top banner
 let g:netrw_browse_split=3 " open file in new tab
-let g:netrw_browse_split=4 " open file in previous window
-let g:netrw_winsize=20 " set netrw window size
+let g:netrw_bufsettings="noma nomod nonu nowrap ro nobl nu rnu nolist"
 let g:netrw_keepdir=0 " sync netrw $PWD with vim
+let g:netrw_liststyle=1 " long listing style
+let g:netrw_winsize=20 " set netrw window size
 
 " ------------------------------------------------------------------
 " coc config
