@@ -13,7 +13,7 @@ URxvt.iso14755_52: false
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
-URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,vtwheel
+URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,vtwheel,font-size
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
