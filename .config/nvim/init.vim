@@ -99,13 +99,16 @@ nmap <leader>r :Run<CR>
 " load man plugin
 runtime! ftplugin/man.vim
 
+" load fzf plugin
+set rtp+=/usr/share/doc/fzf/examples/
+
 " netrw config
+let g:netrw_liststyle=3 " tree style listing
 let g:netrw_banner=0 " suppress top banner
 let g:netrw_browse_split=3 " open file in new tab
-let g:netrw_bufsettings="noma nomod nonu nowrap ro nobl nu rnu nolist"
-let g:netrw_keepdir=0 " sync netrw $PWD with vim
-let g:netrw_liststyle=1 " long listing style
+let g:netrw_browse_split=4 " open file in previous window
 let g:netrw_winsize=20 " set netrw window size
+let g:netrw_keepdir=0 " sync netrw $PWD with vim
 
 " ------------------------------------------------------------------
 " coc config
