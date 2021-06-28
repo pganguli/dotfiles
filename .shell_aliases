@@ -20,6 +20,14 @@ alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
 alias lv="$PAGER"
 alias nv="nvim"
 
+function cz() {
+    cd "$(fzf)"
+}
+
+function nz() {
+    nvim "$(fzf)"
+}
+
 function cpr() {
     rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
 }
