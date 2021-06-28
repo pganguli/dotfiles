@@ -11,7 +11,7 @@ set $right Right
 # Terminal emulator
 set $term urxvt
 # File manager
-set $fm vifm
+set $fm urxvt -e vifm
 # Application launcher
 set $menu rofi -modi run -show run -location 1 -width 100 -lines 1 -columns 12 -separator-style none -theme android_notification
 # Screen locker
@@ -27,7 +27,7 @@ font pango:DejaVu Sans Mono 12
     # Start a terminal
     bindsym $mod+Return exec $term
     # Start a file manager
-    bindsym $mod+Shift+Return exec $term -e $fm
+    bindsym $mod+Shift+Return exec $fm
     # Kill focused window
     bindsym $mod+Shift+q kill
     # Start your launcher
