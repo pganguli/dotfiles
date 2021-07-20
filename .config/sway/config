@@ -11,7 +11,7 @@ set $down Down
 set $up Up
 set $right Right
 # Your preferred terminal emulator
-set $term urxvt
+set $term urxvtc -e tmux
 # Your preferred file manager
 set $fm vifm
 # Your preferred application launcher
@@ -79,7 +79,7 @@ bindsym --whole-window button2 noop
     # Start a terminal
     bindsym $mod+Return exec $term
     # Start a file manager
-    bindsym $mod+Shift+Return exec $term -e $fm
+    bindsym $mod+Shift+Return exec $term -c $fm
     # Kill focused window
     bindsym $mod+Shift+q kill
     # Start your launcher
@@ -233,6 +233,7 @@ bar {
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 # User autostart
 exec lxpolkit
+exec urxvtd -q -o -f
 exec mako
 exec nm-applet --indicator
 exec gammastep -m wayland -O 2700

@@ -11,18 +11,12 @@ URxvt.saveLine: 100000
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
-URxvt.perl-ext-common: eval,readline,searchable-scrollback,selection,matcher,vtwheel,font-size,keyboard-select
+URxvt.perl-ext-common:
+URxvt.perl-ext:
 URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keyboard-select.clipboard: true
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Control-Meta-c: builtin-string:
-URxvt.keysym.Control-Meta-v: builtin-string:
 
 !! Color Scheme
 
