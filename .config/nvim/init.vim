@@ -74,6 +74,9 @@ nnoremap <M-Left> :bp<CR>
 nnoremap <M-Right> :bn<CR>
 nnoremap <M-Up> :bf<CR>
 nnoremap <M-Down> :bl<CR>
+" Page-Up and Page-Down
+nnoremap <C-k> <C-b>
+nnoremap <C-j> <C-f>
 
 " autowrite files before commands like `make`
 set autowrite
