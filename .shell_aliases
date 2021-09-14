@@ -19,6 +19,7 @@ alias xc="xclip -selection clipboard"
 alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
 alias lv="$PAGER"
 alias nv="nvim"
+alias nvq="nvim-qt"
 
 function cz() {
     cd "$(fzf)"
@@ -56,4 +57,31 @@ function pulserec() {
     ffmpeg -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
            "$(date +%Y-%m-%d_%H.%M.%S).opus"
+}
+
+function ffmpeg-concat() {
+    echo > ffmpeg-concat.tmp
+    for i in "$@"; do
+        echo "file '$i'" >> ffmpeg-concat.tmp
+    done
+
+    ffmpeg -f concat -safe 0 -i ffmpeg-concat.tmp -c copy "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+    rm ffmpeg-concat.tmp
+}
+
+function gpg-enc {
+    gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
+}
+
+function gpg-dec {
+    gpg --output "${1%.gpg}" --decrypt "$1"
+}
+
+function gpg-export-keys {
+    cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
+    gpg --armor --output keys.asc --symmetric --cipher-algo AES256
+}
+
+function ddupe {
+    jdupes -ZrdN $1 $2
 }

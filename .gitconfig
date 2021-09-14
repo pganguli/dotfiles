@@ -32,10 +32,11 @@
     unignore = !git update-index --no-assume-unchanged
     ignored = !git ls-files -v |grep ^[a-z]
     brh = "!f() { git branch --force \"$1\" HEAD; }; f"
-	ds = diff --staged
+    ds = diff --staged
+    ap = add --patch
 [commit]
     gpgsign = true
-	verbose = true
+    verbose = true
 [gpg]
     program = gpg
 [push]

@@ -55,9 +55,7 @@ exec swayidle -w \
 input type:keyboard {
     repeat_rate 50
     repeat_delay 250
-    xkb_layout "us,us"
-    xkb_variant ",dvorak"
-    xkb_options "grp:menu_toggle,caps:escape,shift:both_capslock_cancel"
+    xkb_options "caps:escape,shift:both_capslock_cancel"
 }
 # Touchpad configuration
 input type:touchpad {
@@ -232,11 +230,11 @@ bar {
 # into systemd user manager
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 # User autostart
+exec gammastep -m wayland -O 2700
 exec lxpolkit
-exec urxvtd -q -o -f
 exec mako
 exec nm-applet --indicator
-exec gammastep -m wayland -O 2700
+exec urxvtd -q -o -f
 # XDG autostart
 exec dex-autostart -a
 
