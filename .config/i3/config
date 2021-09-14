@@ -1,3 +1,4 @@
+# i3 config file (v4)
 ###
 ### Variables
 ###
@@ -9,9 +10,9 @@ set $down Down
 set $up Up
 set $right Right
 # Terminal emulator
-set $term urxvt
+set $term urxvtc -e tmux
 # File manager
-set $fm urxvt -e vifm
+set $fm vifm
 # Application launcher
 set $menu rofi -modi run -show run -location 1 -width 100 -lines 1 -columns 12 -separator-style none -theme android_notification
 # Screen locker
@@ -27,7 +28,7 @@ font pango:DejaVu Sans Mono 12
     # Start a terminal
     bindsym $mod+Return exec $term
     # Start a file manager
-    bindsym $mod+Shift+Return exec $fm
+    bindsym $mod+Shift+Return exec $term -c $fm
     # Kill focused window
     bindsym $mod+Shift+q kill
     # Start your launcher
@@ -159,15 +160,18 @@ bindsym Shift+Print exec maim -s -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).
 bar {
     position top
     status_command i3status -c ~/.config/i3/status.conf
+    tray_output eDP1
 }
 
 ###
 ### Autostart
 ###
 # User autostart
-exec lxpolkit
-exec nm-applet --indicator
 exec gammastep -m randr -O 2700
+exec lxpolkit
+exec dunst
+exec nm-applet --indicator
+exec urxvtd -q -o -f
 # XDG autostart
 exec dex-autostart -a
 # Lock screen if idle for 11 minutes
