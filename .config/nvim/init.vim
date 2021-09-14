@@ -1,12 +1,18 @@
-set nocompatible " not compatible with vi
-colorscheme slate " color palette
+if &compatible " only if not set before:
+    set nocompatible " not compatible with vi
+endif
+
+colorscheme slate " set color palette
 set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
 set ruler " show position in status bar
+set matchpairs+=<:> " match <:> too
+set title " show filename
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
-set scrollback=100000 " more scrollback lines in terminal
 set updatetime=1000 " write to swap file if idle for 1s
 set shortmess+=I " disable startup message
+set confirm " get dialog when buffer save fails
+set lazyredraw " do not redraw without interaction
 set laststatus=2 " always show status line
 set autochdir " set current directory to directory of last opened file
 set hidden " allow hidden buffers (not displayed in any window)
@@ -15,6 +21,25 @@ set signcolumn=yes " always show sign column
 set cursorline " highlight current line
 " toggle cursor line
 nnoremap ,c :set cursorline!<CR>
+
+" ------------------------------------------------------------------
+" Set status line
+" ------------------------------------------------------------------
+" %< truncate-at-start if too long
+"   %f path to file in buffer
+"     \_ blank space
+"        %m modified flag
+"          %r readonly flag
+"            %= equal-space section alignment
+"              %B\_ value of character under cursor in hex
+"                  %y file type in Vim
+"                    [%{&fileencoding}] file encoding format in Vim
+"                       [%{&fileformat}] line ending format in Vim
+"                          %-14. left-justify-item with minwidth=14.maxwidth=inf
+"                               (%l,%c%V%) line-number,column-number,virtual-column-number
+"                                         \ %P\ %L percentage-through-file total-lines
+set statusline=%<%f\ %m%r%=%B\ %y[%{&fileencoding}][%{&fileformat}]\ %-14.(%l,%c%V%)\ %P\ %L
+" ------------------------------------------------------------------
 
 filetype on " turn on filetype detection
 syntax on " turn on syntax highlighting
@@ -65,15 +90,17 @@ set dictionary+=spell
 " use the dictionary for autocomplete
 set complete+=k
 
+" list buffers and offer to change
+nnoremap ,b :buffers<CR>:buffer<Space>
 set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
 " move cursor to previous window
 nnoremap <Space> <C-w>p
 " move between buffers with Alt+Arrow
-nnoremap <M-Left> :bp<CR>
-nnoremap <M-Right> :bn<CR>
-nnoremap <M-Up> :bf<CR>
-nnoremap <M-Down> :bl<CR>
+nnoremap <M-Left> :bprevious<CR>
+nnoremap <M-Right> :bnext<CR>
+nnoremap <M-Up> :bfirst<CR>
+nnoremap <M-Down> :blast<CR>
 " Page-Up and Page-Down
 nnoremap <C-k> <C-b>
 nnoremap <C-j> <C-f>
@@ -182,8 +209,23 @@ endfunction
 command -range -nargs=1 S call s:Substitute(<line1>, <line2>, <q-args>)
 " ------------------------------------------------------------------
 
+" handle w -> W typo
+command -nargs=0 W :wall
+
+" handle q -> Q typo
+command -nargs=0 Q :qall
+
+" handle wq -> Wq typo
+command -nargs=0 Wq :wq
+
 " write de-duplicated file preserving order of lines
 command -nargs=0 Rdupe :%!awk '\!visited[$0]++'
+
+" write file with DOS line endings
+command -nargs=? -complete=file Dosw :w ++ff=dos <args>
+
+" write file with Unix line endings
+command -nargs=? -complete=file Unixw :w ++ff=unix <args>
 
 " sudo write file
 command -nargs=0 Sudow :write !SUDO_ASKPASS='/usr/libexec/openssh/x11-ssh-askpass' sudo --askpass tee % >/dev/null
