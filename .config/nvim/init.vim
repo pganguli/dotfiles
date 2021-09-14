@@ -2,7 +2,13 @@ if &compatible " only if not set before:
     set nocompatible " not compatible with vi
 endif
 
-colorscheme slate " set color palette
+filetype on " turn on filetype detection
+syntax on " turn on syntax highlighting
+filetype plugin on " load file-type specific plugin files
+filetype indent on " load file-type specific indent files
+" take cursor to first line, reformat till last line, return cursor
+nnoremap ,i gg=G<C-o>
+
 set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
@@ -41,12 +47,21 @@ nnoremap ,c :set cursorline!<CR>
 set statusline=%<%f\ %m%r%=%B\ %y[%{&fileencoding}][%{&fileformat}]\ %-14.(%l,%c%V%)\ %P\ %L
 " ------------------------------------------------------------------
 
-filetype on " turn on filetype detection
-syntax on " turn on syntax highlighting
-filetype plugin on " load file-type specific plugin files
-filetype indent on " load file-type specific indent files
-" take cursor to first line, reformat till last line, return cursor
-nnoremap ,i gg=G<C-o>
+" ------------------------------------------------------------------
+" Set Colors
+" ------------------------------------------------------------------
+if (has("termguicolors")) " if available:
+    set termguicolors " use Truecolor
+endif
+
+colorscheme slate " set color palette
+
+" link ugly color groups to saner ones
+highlight! link Pmenu Folded
+highlight! link PreProc Include
+" tweak some other groups
+highlight CursorLine guibg=black
+" ------------------------------------------------------------------
 
 set autoindent " copy indent from current line to new line
 set smartindent " indent after brackets and more
