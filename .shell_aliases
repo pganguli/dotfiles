@@ -21,31 +21,31 @@ alias lv="$PAGER"
 alias nv="nvim"
 alias nvq="nvim-qt"
 
-function cz() {
+cz() {
     cd "$(fzf)"
 }
 
-function nz() {
+nz() {
     nvim "$(fzf)"
 }
 
-function cpr() {
+cpr() {
     rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
 }
 
-function startw() {
+startw() {
     for VAR in $(cat ~/.config/sway/env); do
         export "$VAR"
     done
     exec systemd-cat --identifier=sway sway
 }
 
-function wlrec() {
+wlrec() {
     wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
                 -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
-function x11rec() {
+x11rec() {
     ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
            -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
@@ -53,13 +53,13 @@ function x11rec() {
            "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
-function pulserec() {
+pulserec() {
     ffmpeg -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
            "$(date +%Y-%m-%d_%H.%M.%S).opus"
 }
 
-function ffmpeg-concat() {
+ffmpeg-concat() {
     echo > ffmpeg-concat.tmp
     for i in "$@"; do
         echo "file '$i'" >> ffmpeg-concat.tmp
@@ -69,19 +69,19 @@ function ffmpeg-concat() {
     rm ffmpeg-concat.tmp
 }
 
-function gpg-enc {
+gpg-enc() {
     gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
 }
 
-function gpg-dec {
+gpg-dec() {
     gpg --output "${1%.gpg}" --decrypt "$1"
 }
 
-function gpg-export-keys {
+gpg-export-keys() {
     cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
     gpg --armor --output keys.asc --symmetric --cipher-algo AES256
 }
 
-function ddupe {
+ddupe() {
     jdupes -ZrdN $1 $2
 }
