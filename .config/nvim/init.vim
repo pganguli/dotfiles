@@ -248,5 +248,11 @@ command -nargs=0 Sudow :write !SUDO_ASKPASS='/usr/libexec/openssh/x11-ssh-askpas
 " remove trailing spaces and tabs
 command -nargs=0 Rtrail :%s/\s\+$//g
 
+" open terminal in horizontal split
+command -nargs=0 Ster :split|:terminal
+
+" open terminal in vertical split
+command -nargs=0 Vter :vsplit|:terminal
+
 " Set up persistent undo across all files
 set undofile
