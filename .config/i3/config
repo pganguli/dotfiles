@@ -171,7 +171,7 @@ exec gammastep -m randr -O 2700
 exec lxpolkit
 exec dunst
 exec nm-applet --indicator
-exec urxvtd -q -o -f
+exec "systemctl --user start urxvtd"
 # XDG autostart
 exec dex-autostart -a
 # Lock screen if idle for 11 minutes

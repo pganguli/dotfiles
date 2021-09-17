@@ -1,0 +1,12 @@
+[Unit]
+Description=RXVT-Unicode Terminal Daemon
+Documentation=man:urxvtd(1)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/urxvtd -q -o
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
