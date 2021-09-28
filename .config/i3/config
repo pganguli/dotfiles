@@ -167,12 +167,12 @@ bar {
 ### Autostart
 ###
 # User autostart
-exec gammastep -m randr -O 4000
+exec gammastep -m randr -O 4500
 exec lxpolkit
 exec dunst
 exec nm-applet --indicator
 exec "systemctl --user start urxvtd"
 # XDG autostart
 exec dex-autostart -a
-# Lock screen if idle for 11 minutes
-exec xautolock -detectsleep -time 11 -locker "$lock" &
+# Lock screen if idle for 15 minutes
+exec xautolock -detectsleep -time 15 -locker "$lock" &
