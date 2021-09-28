@@ -167,7 +167,7 @@ bar {
 ### Autostart
 ###
 # User autostart
-exec gammastep -m randr -O 2700
+exec gammastep -m randr -O 4000
 exec lxpolkit
 exec dunst
 exec nm-applet --indicator
