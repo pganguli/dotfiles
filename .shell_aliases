@@ -16,7 +16,6 @@ export MANPAGER="nvim -c Man!"
 
 alias zoom="firejail zoom"
 alias xc="xclip -selection clipboard"
-alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
 alias lv="$PAGER"
 alias nv="nvim"
 alias nvq="nvim-qt"
