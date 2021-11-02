@@ -15,6 +15,7 @@ export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | nvim -c 'set nolist 
 export MANPAGER="nvim -c Man!"
 
 alias zoom="firejail zoom"
+alias element="dbus-run-session flatpak run im.riot.Riot"
 alias xc="xclip -selection clipboard"
 alias lv="$PAGER"
 alias nv="nvim"
@@ -81,6 +82,12 @@ gpg-export-keys() {
     gpg --armor --output keys.asc --symmetric --cipher-algo AES256
 }
 
-ddupe() {
-    jdupes -ZrdN $1 $2
+dirminus() {
+    jdupes -ZrdNO $1 $2
+}
+
+ncmuck() {
+    trap "rm ncmuck_stdin 2> /dev/null" INT
+    mkfifo ncmuck_stdin 2> /dev/null
+    tail -f ncmuck_stdin | nc --ssl "$1" "$2" -o "/tmp/ncmuck-$(date +%Y-%m-%d_%H.%M.%S).tmp"
 }
