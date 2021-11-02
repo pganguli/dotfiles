@@ -909,6 +909,8 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
  * in your threat model, and you want Real-Time Communication, this is the pref for you
  * [1] https://www.privacytools.io/#webrtc ***/
    // user_pref("media.peerconnection.enabled", false);
+user_pref("media.webrtc.hw.h264.enabled", true);
+user_pref("media.peerconnection.video.vp9_enabled", false);
 /* 2002: limit WebRTC IP leaks if using WebRTC
  * In FF70+ these settings match Mode 4 (Mode 3 in older versions) [3]
  * [TEST] https://browserleaks.com/webrtc
@@ -926,7 +928,7 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
    // user_pref("webgl.disabled", true);
    // user_pref("webgl.enable-webgl2", false);
 /* 2012: limit WebGL ***/
-user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
+//user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
 /* 2022: disable screensharing ***/
    // user_pref("media.getusermedia.screensharing.enabled", false);
    // user_pref("media.getusermedia.browser.enabled", false);
