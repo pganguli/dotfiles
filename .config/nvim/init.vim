@@ -12,6 +12,8 @@ nnoremap ,i gg=G<C-o>
 set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
+set wildmode=longest:full,full " bash like tab-completion
+set completeopt=longest,menu,preview " bash like ctrl-[np] completion
 set title " show filename
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
@@ -140,6 +142,9 @@ nnoremap ,p :hardcopy > %.ps<CR>
 nnoremap ,d :packadd termdebug<CR>:Termdebug %<<CR><C-w>k<C-w>k<C-w>L
 nmap <leader>b :Break<CR>
 nmap <leader>r :Run<CR>
+
+" behave like `[t]ail -[f]`
+nnoremap <leader>tf :set autoread <Bar> au CursorHold * checktime <Bar> call feedkeys("lh")<CR>
 
 " load man plugin
 runtime! ftplugin/man.vim
