@@ -12,8 +12,6 @@ nnoremap ,i gg=G<C-o>
 set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
-set wildmode=longest:full,full " bash like tab-completion
-set completeopt=longest,menu,preview " bash like ctrl-[np] completion
 set title " show filename
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
@@ -143,9 +141,6 @@ nnoremap ,d :packadd termdebug<CR>:Termdebug %<<CR><C-w>k<C-w>k<C-w>L
 nmap <leader>b :Break<CR>
 nmap <leader>r :Run<CR>
 
-" behave like `[t]ail -[f]`
-nnoremap <leader>tf :set autoread <Bar> au CursorHold * checktime <Bar> call feedkeys("lh")<CR>
-
 " load man plugin
 runtime! ftplugin/man.vim
 
@@ -160,15 +155,9 @@ let g:netrw_browse_split=4 " open file in previous window
 let g:netrw_winsize=20 " set netrw window size
 let g:netrw_keepdir=0 " sync netrw $PWD with vim
 
-" ------------------------------------------------------------------
-" coc config
-" ------------------------------------------------------------------
-" Notify coc.nvim to format on <CR>
-inoremap <silent> <expr> <CR> pumvisible() ? "\<CR>" :
-                            \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " use <Tab> for trigger completion with characters ahead and navigate
 inoremap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" :
-                  \ <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+                  \ <SID>check_back_space() ? "\<Tab>" : "\<C-n>"
 " use <S-Tab> to navigate backwards if completion menu is visible,
 " else insert literal <Tab>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-v>\<Tab>"
@@ -181,25 +170,6 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" GoTo code navigation
-nmap [g <Plug>(coc-diagnostic-prev)
-nmap ]g <Plug>(coc-diagnostic-next)
-nmap gd <Plug>(coc-definition)
-nmap gy <Plug>(coc-type-definition)
-nmap gi <Plug>(coc-implementation)
-nmap gr <Plug>(coc-references)
-nmap gk :call CocActionAsync('doHover')<CR>
-" highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-" formatting selected code
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
-" add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-" ------------------------------------------------------------------
 
 " ------------------------------------------------------------------
 " Use local perl to handle substitution
@@ -252,12 +222,6 @@ command -nargs=0 Sudow :write !SUDO_ASKPASS='/usr/libexec/openssh/x11-ssh-askpas
 
 " remove trailing spaces and tabs
 command -nargs=0 Rtrail :%s/\s\+$//g
-
-" open terminal in horizontal split
-command -nargs=0 Ster :split|:terminal
-
-" open terminal in vertical split
-command -nargs=0 Vter :vsplit|:terminal
 
 " Set up persistent undo across all files
 set undofile

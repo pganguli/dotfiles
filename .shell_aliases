@@ -15,37 +15,37 @@ export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | nvim -c 'set nolist 
 export MANPAGER="nvim -c Man!"
 
 alias zoom="firejail zoom"
-alias element="dbus-run-session flatpak run im.riot.Riot"
 alias xc="xclip -selection clipboard"
+alias tt++="tt++ -G -r $HOME/.tintin/ttrc"
 alias lv="$PAGER"
 alias nv="nvim"
 alias nvq="nvim-qt"
 
-cz() {
+function cz() {
     cd "$(fzf)"
 }
 
-nz() {
+function nz() {
     nvim "$(fzf)"
 }
 
-cpr() {
+function cpr() {
     rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
 }
 
-startw() {
+function startw() {
     for VAR in $(cat ~/.config/sway/env); do
         export "$VAR"
     done
     exec systemd-cat --identifier=sway sway
 }
 
-wlrec() {
+function wlrec() {
     wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
                 -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
-x11rec() {
+function x11rec() {
     ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
            -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
@@ -53,13 +53,13 @@ x11rec() {
            "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
-pulserec() {
+function pulserec() {
     ffmpeg -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
            "$(date +%Y-%m-%d_%H.%M.%S).opus"
 }
 
-ffmpeg-concat() {
+function ffmpeg-concat() {
     echo > ffmpeg-concat.tmp
     for i in "$@"; do
         echo "file '$i'" >> ffmpeg-concat.tmp
@@ -69,25 +69,19 @@ ffmpeg-concat() {
     rm ffmpeg-concat.tmp
 }
 
-gpg-enc() {
+function gpg-enc {
     gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
 }
 
-gpg-dec() {
+function gpg-dec {
     gpg --output "${1%.gpg}" --decrypt "$1"
 }
 
-gpg-export-keys() {
+function gpg-export-keys {
     cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
     gpg --armor --output keys.asc --symmetric --cipher-algo AES256
 }
 
-dirminus() {
-    jdupes -ZrdNO $1 $2
-}
-
-ncmuck() {
-    trap "rm ncmuck_stdin 2> /dev/null" INT
-    mkfifo ncmuck_stdin 2> /dev/null
-    tail -f ncmuck_stdin | nc --ssl "$1" "$2" -o "/tmp/ncmuck-$(date +%Y-%m-%d_%H.%M.%S).tmp"
+function ddupe {
+    jdupes -ZrdN $1 $2
 }

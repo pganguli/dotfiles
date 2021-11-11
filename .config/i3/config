@@ -108,8 +108,6 @@ font pango:DejaVu Sans Mono 12
     bindsym $mod+e layout toggle split
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen toggle
-    # Toggle orientation between portrait and back
-    bindsym $mod+Shift+p exec x-toggle-orient
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
     # Swap focus between the tiling area and the floating area
@@ -153,8 +151,8 @@ bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@
 bindsym XF86MonBrightnessDown exec xbacklight -2%
 bindsym XF86MonBrightnessUp exec xbacklight +2%
 # Print Screen
-bindsym Print exec maim -i "$(xdotool getactivewindow)" -u "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).png"
-bindsym Shift+Print exec maim -s -u "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Print exec maim -i "$(xdotool getactivewindow)" -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Shift+Print exec maim -s -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
 
 ###
 ### Status Bar
@@ -169,12 +167,10 @@ bar {
 ### Autostart
 ###
 # User autostart
-exec gammastep -m randr -O 3500
-exec lxpolkit
+exec sct 2700
+exec urxvtd -q -o -f
 exec dunst
-exec nm-applet --indicator
-exec "systemctl --user start urxvtd"
 # XDG autostart
-exec dex-autostart -a
-# Lock screen if idle for 15 minutes
-exec xautolock -detectsleep -time 15 -locker "$lock" &
+exec dex -a
+# Lock screen if idle for 11 minutes
+exec xautolock -detectsleep -time 11 -locker "$lock" &

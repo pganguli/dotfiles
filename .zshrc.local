@@ -9,10 +9,6 @@
 # use vi keybindings
 bindkey -v
 
-# ring bell before prompt
-ring_bell() { printf '\a' }
-precmd_functions=(ring_bell $precmd_functions)
-
 # syntax highlight shell programming
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -32,9 +28,9 @@ if [ -e "$HOME/.zsh/pure" ]; then
 fi
 
 # use fzf completions and keybindings: https://github.com/junegunn/fzf
-if [ -e "/usr/share/fzf" ]; then
-    source "/usr/share/zsh/site-functions/fzf"
-    source "/usr/share/fzf/shell/key-bindings.zsh"
+if [ -e "/usr/share/zsh/vendor-completions/_fzf" ]; then
+    source "/usr/share/zsh/vendor-completions/_fzf"
+    source "/usr/share/doc/fzf/examples/key-bindings.zsh"
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
