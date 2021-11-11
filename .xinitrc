@@ -8,7 +8,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap -option caps:escape
 # Turn on Capslock on both Shift (single Shift cancels)
 setxkbmap -option shift:both_capslock_cancel
-# Load keymap
-xmodmap ~/.Xmodmap
+# Set keyboard layout toggle
+setxkbmap -layout us,us -variant dvorak, -option grp:menu_toggle
 
 exec /usr/bin/i3

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Redshift
+Exec=redshift -l 20:90 -t 4000:3500 -m randr
+NoDisplay=true

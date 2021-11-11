@@ -43,8 +43,8 @@ set undolevels=100
 " If would rather use a plain text help file set novimhelp.
 set vimhelp
 
-" Do not run an executable file when return is pressed on its file name.
-set norunexec
+" Run an executable file when return is pressed on its file name.
+set runexec
 
 " Selected color scheme
 colorscheme Default
@@ -314,8 +314,8 @@ vnoremap w :view<CR>gv
 
 " Tab syncs panes
 nnoremap <Tab> :sync<CR>
-" Open file in nvim
-nnoremap o :!nvim-qt %f<CR>
+" Open file in vim
+nnoremap o :!nvim %f<CR>
 " Open file in the background using its default program
 nnoremap gb :file &<CR>l
 
@@ -335,6 +335,9 @@ nnoremap ,c :write | edit $MYVIFMRC | restart<CR>
 
 " Toggle wrap setting
 nnoremap ,w :set wrap!<CR>
+
+" Toggle showing hidden files and directories
+nnoremap ,d :set dotfiles!<CR>
 
 " ------------------------------------------------------------------------------
 

@@ -909,8 +909,6 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
  * in your threat model, and you want Real-Time Communication, this is the pref for you
  * [1] https://www.privacytools.io/#webrtc ***/
    // user_pref("media.peerconnection.enabled", false);
-user_pref("media.webrtc.hw.h264.enabled", true);
-user_pref("media.peerconnection.video.vp9_enabled", false);
 /* 2002: limit WebRTC IP leaks if using WebRTC
  * In FF70+ these settings match Mode 4 (Mode 3 in older versions) [3]
  * [TEST] https://browserleaks.com/webrtc
@@ -928,7 +926,7 @@ user_pref("media.peerconnection.video.vp9_enabled", false);
    // user_pref("webgl.disabled", true);
    // user_pref("webgl.enable-webgl2", false);
 /* 2012: limit WebGL ***/
-//user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
+user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
 /* 2022: disable screensharing ***/
    // user_pref("media.getusermedia.screensharing.enabled", false);
    // user_pref("media.getusermedia.browser.enabled", false);
@@ -1086,7 +1084,7 @@ user_pref("_user.js.parrot", "2500 syntax error: the parrot's shuffled off 'is m
  * [NOTE] media.peerconnection.enabled should also be set to false (see 2001)
  * [1] https://wiki.mozilla.org/Media/getUserMedia
  * [2] https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices ***/
-   // user_pref("media.navigator.enabled", false);
+user_pref("media.navigator.enabled", false);
 /* 2508: disable hardware acceleration to reduce graphics fingerprinting [SETUP-HARDEN]
  * [WARNING] Affects text rendering (fonts will look different), impacts video performance,
  * and parts of Quantum that utilize the GPU will also be affected as they are rolled out

@@ -31,12 +31,8 @@
     ignore = !git update-index --assume-unchanged
     unignore = !git update-index --no-assume-unchanged
     ignored = !git ls-files -v |grep ^[a-z]
-    brh = "!f() { git branch --force \"$1\" HEAD; }; f"
-    ds = diff --staged
-    ap = add --patch
 [commit]
     gpgsign = true
-    verbose = true
 [gpg]
     program = gpg
 [push]
@@ -57,5 +53,3 @@
     insteadOf = https://github.com/
 [url "git@salsa.debian.org:"]
     insteadOf = https://salsa.debian.org/
-[color]
-    ui = auto

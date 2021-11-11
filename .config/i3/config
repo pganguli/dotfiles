@@ -1,4 +1,3 @@
-# i3 config file (v4)
 ###
 ### Variables
 ###
@@ -10,9 +9,9 @@ set $down Down
 set $up Up
 set $right Right
 # Terminal emulator
-set $term urxvtc -e tmux
+set $term urxvt
 # File manager
-set $fm vifm
+set $fm urxvt -e vifm
 # Application launcher
 set $menu rofi -modi run -show run -location 1 -width 100 -lines 1 -columns 12 -separator-style none -theme android_notification
 # Screen locker
@@ -28,7 +27,7 @@ font pango:DejaVu Sans Mono 12
     # Start a terminal
     bindsym $mod+Return exec $term
     # Start a file manager
-    bindsym $mod+Shift+Return exec $term -c $fm
+    bindsym $mod+Shift+Return exec $fm
     # Kill focused window
     bindsym $mod+Shift+q kill
     # Start your launcher
@@ -108,8 +107,6 @@ font pango:DejaVu Sans Mono 12
     bindsym $mod+e layout toggle split
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen toggle
-    # Toggle orientation between portrait and back
-    bindsym $mod+Shift+p exec x-toggle-orient
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
     # Swap focus between the tiling area and the floating area
@@ -153,8 +150,8 @@ bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@
 bindsym XF86MonBrightnessDown exec xbacklight -2%
 bindsym XF86MonBrightnessUp exec xbacklight +2%
 # Print Screen
-bindsym Print exec maim -i "$(xdotool getactivewindow)" -u "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).png"
-bindsym Shift+Print exec maim -s -u "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Print exec maim -i "$(xdotool getactivewindow)" -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Shift+Print exec maim -s -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
 
 ###
 ### Status Bar
@@ -162,19 +159,12 @@ bindsym Shift+Print exec maim -s -u "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%
 bar {
     position top
     status_command i3status -c ~/.config/i3/status.conf
-    tray_output eDP1
 }
 
 ###
 ### Autostart
 ###
-# User autostart
-exec gammastep -m randr -O 3500
-exec lxpolkit
-exec dunst
-exec nm-applet --indicator
-exec "systemctl --user start urxvtd"
 # XDG autostart
 exec dex-autostart -a
-# Lock screen if idle for 15 minutes
-exec xautolock -detectsleep -time 15 -locker "$lock" &
+# Lock screen if idle for 11 minutes
+exec xautolock -detectsleep -time 11 -locker "$lock" &

@@ -1,0 +1,34 @@
+#!/bin/sh
+
+PREFIX=""
+FILE_LIST=""
+
+while getopts "p:l:h:" opt; do
+    case "$opt" in
+        h) echo "$0 [-p PREFIX] [-l FILE_LIST] DEST";;
+        p) PREFIX="$OPTARG";;
+        l) FILE_LIST="$OPTARG";;
+    esac
+done
+shift "$((OPTIND - 1))"
+
+if [ "x$1" != "x" ]; then
+    DEST="$(realpath $1)"
+    if [ "x$FILE_LIST" = "x" ]; then
+        if [ -e "$DEST/dotfiles.list" ]; then
+            FILE_LIST="$DEST/dotfiles.list"
+        else
+            echo "Error: dotfiles.list neither specified via -l ,"
+            echo "nor found in $DEST"
+            exit 1
+        fi
+    fi
+else
+    echo "Error: No destination directory specified."
+    exit 1
+fi
+
+cd "$PREFIX"
+for i in $(cat "$FILE_LIST"); do
+    cp --recursive --parents "$i" "$DEST"
+done

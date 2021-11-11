@@ -2,22 +2,20 @@ Xft.antialias: true
 Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintfull
+
 URxvt.font: xft:DejaVu Sans Mono-13:style=regular
 URxvt.letterSpace: -1
-
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
-URxvt.urgentOnBell: true
 URxvt.saveLine: 100000
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
-URxvt.perl-ext-common:
-URxvt.perl-ext:
+URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,vtwheel
 URxvt.url-launcher: /usr/bin/xdg-open
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+URxvt.matcher.button: 1
 
 !! Color Scheme
 

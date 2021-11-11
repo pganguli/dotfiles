@@ -16,7 +16,7 @@ if [ "x$4" = "x" ]; then
 else
     ANDRO_IP="$4"
 fi
-STUFF_PATH="stuff/${2%/}/"
+STUFF_PATH="stuff/$2/"
 
 case "$1" in
     pull) if [ "x$3" = "x" ]; then
@@ -29,6 +29,7 @@ case "$1" in
           else
               androsync --compare-dest="/sdcard/$STUFF_PATH" "/media/$STUFF_PATH" "$ANDRO_IP:/sdcard/$3"
           fi;;
-       *) echo -e "Usage: $0 push|pull RELATIVE_SRC_PATH [COMPARE_DEST_PATH] [ANDROID_IP]" \
-              "\n\nSync files with Android device using rsync.";;
+       *) echo -e "Usage: $0 push|pull RELATIVE_SRC_PATH [COMPARE_DEST_PATH]" \
+                "\nRELATIVE_SRC_PATH must not have a trailing slash." \
+              "\n\nSyncs files using rsync.";;
 esac

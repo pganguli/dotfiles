@@ -1,0 +1,53 @@
+$include /etc/inputrc
+
+set editing-mode vi
+$if mode=vi
+    set show-mode-in-prompt on
+
+    # Use block cursor for cmd-mode
+    # and line cursor for ins-mode
+    $if term=linux
+        set vi-ins-mode-string "\1\e[?0c\2"
+        set vi-cmd-mode-string "\1\e[?8c\2"
+    $else
+        set vi-ins-mode-string "\1\e[6 q\2"
+        set vi-cmd-mode-string "\1\e[2 q\2"
+    $endif
+
+    # Use Ctrl+{Left,Right} Arrow to
+    # navigate words
+    $if term=rxvt
+        "\eOd": backward-word
+        "\eOc": forward-word
+    $else
+        "\e[1;5D": backward-word
+        "\e[1;5C": forward-word
+    $endif
+
+    set keymap vi-command
+        j: history-search-forward
+        k: history-search-backward
+    set keymap vi-insert
+    # Paste as a single string instead of emulating keypresses
+    set enable-bracketed-paste on
+$endif
+
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Display common prefix before cycling through options
+set menu-complete-display-prefix on
+# Immediately display available completions
+set show-all-if-ambiguous on
+# Skip inserting already completed text
+set skip-completed-text on
+# Ignore case for Tab completion
+set completion-ignore-case on
+# Use colors for Tab completion suggestions
+set colored-completion-prefix on
+# Indicate file type using colors for Tab completion
+set colored-stats on
+# Blink matching bracket when inserting closing one
+set blink-matching-paren on

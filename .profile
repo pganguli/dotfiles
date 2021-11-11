@@ -28,12 +28,12 @@ fi
 
 # start WM if login is from tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
-    if [ -e /usr/bin/i3 ]; then
-        exec systemd-cat --identifier=i3 startx
-    elif [ -e /usr/bin/sway ]; then
+    if [ -e /usr/bin/sway ]; then
         for VAR in $(cat ~/.config/sway/env); do
             export "$VAR"
         done
         exec systemd-cat --identifier=sway sway
+    elif [ -e /usr/bin/i3 ]; then
+        exec systemd-cat --identifier=i3 startx
     fi
 fi
