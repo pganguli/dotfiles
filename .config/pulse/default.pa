@@ -1,5 +1,0 @@
-.include /etc/pulse/default.pa
-
-### Load acoustic echo cancellation module
-load-module module-echo-cancel source_name=noecho
-set-default-source noecho

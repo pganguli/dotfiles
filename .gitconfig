@@ -44,13 +44,13 @@
 [pull]
     ff = only
 [diff]
-    tool = neovimdiff
-[difftool "neovimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+    tool = vimdiff
+[difftool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-    tool = neovimdiff
-[mergetool "neovimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [mergetool]
     keepBackup = false
 [url "git@github.com:"]
@@ -59,3 +59,5 @@
     insteadOf = https://salsa.debian.org/
 [color]
     ui = auto
+[init]
+	defaultBranch = main

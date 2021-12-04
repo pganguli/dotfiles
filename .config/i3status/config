@@ -13,20 +13,35 @@ general {
 }
 
 order += "volume output"
+order += "disk /"
+order += "memory"
+#order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "battery all"
 order += "tztime local"
 
 volume output {
-     format = " )) %volume "
-     format_muted = " )) %volume "
+     format = " o) %volume "
+     format_muted = " o) %volume "
      device = "pulse"
      color_degraded = "#7f7f7f"
 }
 
+disk "/" {
+    format = " %avail left "
+}
+
+load {
+    format = " %1min wait "
+}
+
 cpu_usage {
      format = " [#] %usage "
+}
+
+memory {
+    format = " [=] %used "
 }
 
 cpu_temperature 0 {

@@ -1,9 +1,4 @@
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintfull
-URxvt.font: xft:DejaVu Sans Mono-13:style=regular
-URxvt.letterSpace: -1
+URxvt.font: xft:Roboto Mono-11:antialias=true
 
 URxvt.scrollBar: false
 URxvt.cursorBlink: true

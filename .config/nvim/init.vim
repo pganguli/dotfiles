@@ -6,10 +6,10 @@ filetype on " turn on filetype detection
 syntax on " turn on syntax highlighting
 filetype plugin on " load file-type specific plugin files
 filetype indent on " load file-type specific indent files
-" take cursor to first line, reformat till last line, return cursor
-nnoremap ,i gg=G<C-o>
+" take cursor to first line, reformat till last line
+nnoremap ,i gg=G
 
-set guifont=DejaVu\ Sans\ Mono\ 14 " font for gvim
+set guifont=Roboto\ Mono\ 11 " font for gvim
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
 set wildmode=longest:full,full " bash like tab-completion
@@ -25,7 +25,7 @@ set laststatus=2 " always show status line
 set autochdir " set current directory to directory of last opened file
 set hidden " allow hidden buffers (not displayed in any window)
 set mouse=nvi " pass mouse input to vim, but not in command mode
-set signcolumn=yes " always show sign column
+set signcolumn=no " never show sign column
 set cursorline " highlight current line
 " toggle cursor line
 nnoremap ,c :set cursorline!<CR>
@@ -89,7 +89,6 @@ set list " show listchars
 " toggle displaying of listchars
 nnoremap ,l :set list!<CR>
 set number " line numbering
-set relativenumber " relative line numbering
 " toggle relative numbering
 nnoremap ,n :set relativenumber!<CR>
 
@@ -238,7 +237,7 @@ command -nargs=0 Q :qall
 " handle wq -> Wq typo
 command -nargs=0 Wq :wq
 
-" write de-duplicated file preserving order of lines
+" write de-duplicated file, preserving order of lines
 command -nargs=0 Rdupe :%!awk '\!visited[$0]++'
 
 " write file with DOS line endings

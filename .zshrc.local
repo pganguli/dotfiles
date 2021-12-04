@@ -1,17 +1,19 @@
 #!/usr/bin/env zsh
 
-# source ~/.profile
-[ -e "$HOME/.profile" ] && source "$HOME/.profile"
-
-# source common shell aliases
-[ -e "$HOME/.shell_aliases" ] && source "$HOME/.shell_aliases"
-
-# use vi keybindings
+# use Vi keybindings
 bindkey -v
 
 # ring bell before prompt
 ring_bell() { printf '\a' }
 precmd_functions=(ring_bell $precmd_functions)
+
+# tell gpg-agent to use pinentry on current tty
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # syntax highlight shell programming
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -37,5 +39,64 @@ if [ -e "/usr/share/fzf" ]; then
     source "/usr/share/fzf/shell/key-bindings.zsh"
 fi
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+alias xc="xclip -selection clipboard"
+
+cz() {
+    cd "$(fzf)"
+}
+
+vz() {
+    vi "$(fzf)"
+}
+
+wlrec() {
+    wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
+                -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+}
+
+x11rec() {
+    ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
+           -f pulse -ac 2 -i 0 \
+           -codec:a libopus -application voip \
+           -codec:v libx264rgb -crf 27 -preset ultrafast \
+           "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+}
+
+pulserec() {
+    ffmpeg -f pulse -ac 2 -i 0 \
+           -codec:a libopus -application voip \
+           "$(date +%Y-%m-%d_%H.%M.%S).opus"
+}
+
+ffmpeg-concat() {
+    echo > ffmpeg-concat.tmp
+    for i in "$@"; do
+        echo "file '$i'" >> ffmpeg-concat.tmp
+    done
+
+    ffmpeg -f concat -safe 0 -i ffmpeg-concat.tmp -c copy "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+    rm ffmpeg-concat.tmp
+}
+
+gpg-enc() {
+    gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
+}
+
+gpg-dec() {
+    gpg --output "${1%.gpg}" --decrypt "$1"
+}
+
+gpg-export-keys() {
+    cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
+    gpg --armor --output keys.asc --symmetric --cipher-algo AES256
+}
+
+dirminus() {
+    jdupes -ZrdNO $1 $2
+}
+
+ncmuck() {
+    trap "rm ncmuck_stdin 2> /dev/null" INT
+    mkfifo ncmuck_stdin 2> /dev/null
+    tail -f ncmuck_stdin | nc --ssl "$1" "$2" -o "/tmp/ncmuck-$(date +%Y-%m-%d_%H.%M.%S).tmp"
+}

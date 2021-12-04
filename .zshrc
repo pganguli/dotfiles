@@ -172,6 +172,11 @@ EOF
 
 # check for version/system
 # check for versions (compatibility reasons)
+function is51 () {
+    [[ $ZSH_VERSION == 5.<1->* ]] && return 0
+    return 1
+}
+
 function is4 () {
     [[ $ZSH_VERSION == <4->* ]] && return 0
     return 1
@@ -426,10 +431,6 @@ is4 && setopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
-
-# If a new command line being added to the history list duplicates an older
-# one, the older command is removed from the list
-is4 && setopt histignorealldups
 
 # remove command lines from the history list when the first character on the
 # line is a space
@@ -900,14 +901,7 @@ function grmlcomp () {
     fi
 
     local localname
-    if check_com hostname ; then
-      localname=$(hostname)
-    elif check_com hostnamectl ; then
-      localname=$(hostnamectl --static)
-    else
-      localname="$(uname -n)"
-    fi
-
+    localname="$(uname -n)"
     hosts=(
         "${localname}"
         "$_ssh_config_hosts[@]"
@@ -1195,10 +1189,15 @@ zle -N grml-zsh-fg
 # run command line as user root via sudo:
 function sudo-command-line () {
     [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER != sudo\ * ]]; then
-        BUFFER="sudo $BUFFER"
-        CURSOR=$(( CURSOR+5 ))
+    local cmd="sudo "
+    if [[ ${BUFFER} == ${cmd}* ]]; then
+        CURSOR=$(( CURSOR-${#cmd} ))
+        BUFFER="${BUFFER#$cmd}"
+    else
+        BUFFER="${cmd}${BUFFER}"
+        CURSOR=$(( CURSOR+${#cmd} ))
     fi
+    zle reset-prompt
 }
 zle -N sudo-command-line
 
@@ -1645,7 +1644,13 @@ zrcautoload zed
 # else
 #    print 'Notice: no url-quote-magic available :('
 # fi
-alias url-quote='autoload -U url-quote-magic ; zle -N self-insert url-quote-magic'
+if is51 ; then
+  # url-quote doesn't work without bracketed-paste-magic since Zsh 5.1
+  alias url-quote='autoload -U bracketed-paste-magic url-quote-magic;
+                   zle -N bracketed-paste bracketed-paste-magic; zle -N self-insert url-quote-magic'
+else
+  alias url-quote='autoload -U url-quote-magic ; zle -N self-insert url-quote-magic'
+fi
 
 #m# k ESC-h Call \kbd{run-help} for the 1st word on the command line
 alias run-help >&/dev/null && unalias run-help
@@ -2567,7 +2572,7 @@ function grml_reset_screen_title () {
     # see http://www.faqs.org/docs/Linux-mini/Xterm-Title.html
     [[ ${NOTITLE:-} -gt 0 ]] && return 0
     case $TERM in
-        (xterm*|rxvt*|alacritty)
+        (xterm*|rxvt*|alacritty|foot)
             set_title ${(%):-"%n@%m: %~"}
             ;;
     esac
@@ -2604,7 +2609,7 @@ function grml_cmd_to_screen_title () {
 
 function grml_control_xterm_title () {
     case $TERM in
-        (xterm*|rxvt*|alacritty)
+        (xterm*|rxvt*|alacritty|foot)
             set_title "${(%):-"%n@%m:"}" "$2"
             ;;
     esac
@@ -2669,6 +2674,11 @@ else
     alias ll='command ls -l'
     alias lh='command ls -hAl'
     alias l='command ls -l'
+fi
+
+# use ip from iproute2 with color support
+if ip --color=auto addr >/dev/null 2>&1; then
+    alias ip='command ip --color=auto'
 fi
 
 if [[ -r /proc/mdstat ]]; then
@@ -3569,6 +3579,11 @@ function simple-extract () {
                 USES_STDIN=true
                 USES_STDOUT=false
                 ;;
+            *tar.lrz)
+                DECOMP_CMD="lrzuntar"
+                USES_STDIN=false
+                USES_STDOUT=false
+                ;;
             *tar)
                 DECOMP_CMD="tar -xvf -"
                 USES_STDIN=true
@@ -3616,6 +3631,11 @@ function simple-extract () {
                 ;;
             *zst)
                 DECOMP_CMD="zstd -d -c -"
+                USES_STDIN=true
+                USES_STDOUT=true
+                ;;
+            *lrz)
+                DECOMP_CMD="lrunzip -"
                 USES_STDIN=true
                 USES_STDOUT=true
                 ;;
