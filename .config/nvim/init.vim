@@ -9,7 +9,6 @@ filetype indent on " load file-type specific indent files
 " take cursor to first line, reformat till last line
 nnoremap ,i gg=G
 
-set guifont=Roboto\ Mono\ 11 " font for gvim
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
 set wildmode=longest:full,full " bash like tab-completion
