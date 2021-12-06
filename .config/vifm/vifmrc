@@ -150,6 +150,16 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
 
+" vifm-diff
+command! cmpinternal vifm-diff %a %S
+   command! cmp : if expand('%%c') == expand('%%f')
+              \ |     echo expand('Comparing %%"c and %%"C:t ...')
+              \ |     cmpinternal %c %C
+              \ | else
+              \ |     echo expand('Comparing files: %%"f ...')
+              \ |     cmpinternal %f
+              \ | endif
+
 " ------------------------------------------------------------------------------
 
 " The file type is for the default programs to be used with
