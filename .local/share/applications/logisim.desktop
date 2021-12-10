@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Logisim v2.7.1
+Comment=A graphical tool for designing and simulating circuits.
+Exec=java -jar /opt/logisim-generic-2.7.1.jar
+Terminal=false
+Categories=Education;Java;
