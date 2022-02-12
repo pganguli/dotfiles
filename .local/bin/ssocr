@@ -8,5 +8,5 @@ maim -s -u "${SS_IMG}.png"
 mogrify -resize 400% "${SS_IMG}.png"
 tesseract "${SS_IMG}.png" "${1%.txt}" &> /dev/null
 
-cat "${1}"
+cat "${1}" | xclip -selection clipboard
 exit
