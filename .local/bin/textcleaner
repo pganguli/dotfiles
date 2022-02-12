@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# Developed by Fred Weinhaus 6/9/2009 .......... revised 11/5/2020
+# Developed by Fred Weinhaus 6/9/2009 .......... revised 11/15/2021
 # 
 # ------------------------------------------------------------------------------
 # 
@@ -27,14 +27,14 @@
 ####
 # 
 # USAGE: textcleaner [-r rotate] [-l layout] [-c cropoff] [-g] [-e enhance ] 
-# [-f filtersize] [-o offset] [-u]  [-t threshold] [-s sharpamt] [-s saturation] 
-# [-a adaptblur] [-T] [-p padamt] [-b bgcolor] [-F fuzzval] [-i invert] 
-# [-C compression] infile outfile
+# [-f filtersize] [-o offset] [-u] [-P] [-t threshold] [-s sharpamt] 
+# [-s saturation] [-a adaptblur] [-T] [-p padamt] [-b bgcolor] [-F fuzzval] 
+# [-i invert] [-C compression] infile outfile
 # USAGE: textcleaner [-help]
 # 
 # OPTIONS:
 # 
-# -r	  rotate			rotate image 90 degrees in direction specified if 
+# -r	  rotate			(pre-)rotate image 90 degrees in direction specified if 
 #                           aspect ratio does not match layout; options are cw 
 #                           (or clockwise), ccw (or counterclockwise) and n 
 #                           (or none); default=none or no rotation
@@ -55,6 +55,7 @@
 #                           integer>=0; default=5
 # -u                        unrotate image; cannot unrotate more than 
 #                           about 5 degrees
+# -P                        preserve input size after unrotate
 # -t      threshold			text smoothing threshold; 0<=threshold<=100; 
 #                           nominal value is about 50; default is no smoothing
 # -s      sharpamt          sharpening amount in pixels; float>=0; 
@@ -101,6 +102,7 @@
 # -r rotate ... ROTATE image either clockwise or counterclockwise by 90 degrees,
 # if image aspect ratio does not match the layout mode. Choices are: cc (or 
 # clockwise), ccw (or counterclockwise) and n (or none). The default is no rotation.
+# Note: this is a pre-rotation
 # 
 # -l layout ... LAYOUT for determining if rotation is to be applied. The choices 
 # are p (or portrait) or l (or landscape). The image will be rotated if rotate is 
@@ -128,6 +130,8 @@
 # text leaving gaps. The default is 5. 
 # 
 # -u ... UNROTATE the image. This is limited to about 5 degrees or less.
+# 
+# -P ... PRESERVE input size after unrotate
 # 
 # -t threshold ... THRESHOLD is the text smoothing threshold. Values are integers 
 # between 0 and 100. Smaller values smooth/thicken the text more. Larger values 
@@ -187,6 +191,7 @@ sharpamt=0			# sharpen sigma
 saturation=200		# color saturation percent; 100 is no change
 adaptblur=0			# adaptive blur
 unrotate="no"		# unrotate flag
+preserve="no"       # preserve input size after unrotate flag
 trim="no"			# trim flag
 padamt=0			# pad amount
 bgcolor="white"		# color for output whiteboard background
@@ -205,13 +210,13 @@ usage1()
 	{
 	echo >&2 ""
 	echo >&2 "$PROGNAME:" "$@"
-	sed >&2 -e '1,/^####/d;  /^###/g;  /^#/!q;  s/^#//;  s/^ //;  4,$p' "$PROGDIR/$PROGNAME"
+	sed >&2 -e '1,/^####/d;  /^###/g;  /^#/!q;  s/^#//;  s/^ //;' "$PROGDIR/$PROGNAME"
 	}
 usage2()
 	{
 	echo >&2 ""
 	echo >&2 "$PROGNAME:" "$@"
-	sed >&2 -e '1,/^####/d;  /^######/g;  /^#/!q;  s/^#*//;  s/^ //;  4,$p' "$PROGDIR/$PROGNAME"
+	sed >&2 -e '1,/^####/d;  /^######/g;  /^#/!q;  s/^#*//;  s/^ //;' "$PROGDIR/$PROGNAME"
 	}
 
 
@@ -240,7 +245,7 @@ if [ $# -eq 0 ]
    echo ""
    usage2
    exit 0
-elif [ $# -gt 31 ]
+elif [ $# -gt 32 ]
 	then
 	errMsg "--- TOO MANY ARGUMENTS WERE PROVIDED ---"
 else
@@ -366,6 +371,9 @@ else
 			   	-u)    # set unrotate
 					   unrotate="yes"
 					   ;;
+			   	-P)    # set preserve unrotate
+					   preserve="yes"
+					   ;;
 			   	-T)    # set trim
 					   trim="yes"
 					   ;;
@@ -486,8 +494,9 @@ else
 	inversion1=""
 fi	
 
+
 # read the input image into the TMP cached image.
-convert -quiet "$infile" +repage $inversion1 "$tmpA1" ||
+convert -quiet "$infile" +repage $rotation $inversion1 "$tmpA1" ||
 	errMsg "--- FILE $infile NOT READABLE OR HAS ZERO SIZE ---"
 
 # get image size
@@ -496,7 +505,6 @@ hh=`convert $tmpA1 -ping -format "%h" info:`
 
 # get image h/w aspect ratio and determine if portrait=1 (h/w>1) or landscape=0 (h/w<1)
 aspect=`convert xc: -format "%[fx:($hh/$ww)>=1?1:0]" info:`
- 
 #echo "ww=$ww; hh=$hh; aspect=$aspect"
 
 # set up rotation
@@ -571,7 +579,9 @@ fi
 #echo "$bgcolor"
 
 # set up unrotate
-if [ "$unrotate" = "yes" ]; then
+if [ "$unrotate" = "yes" -a "$preserve" = "yes" ]; then
+	unrotating="-background $bgcolor -deskew 40% -gravity center -background $bgcolor -compose over -extent ${ww}x${hh}+0+0 +repage"
+elif [ "$unrotate" = "yes" -a "$preserve" = "no" ]; then
 	unrotating="-background $bgcolor -deskew 40%"
 else
 	unrotating=""
@@ -641,7 +651,7 @@ else
 fi
 
 # process image
-convert -respect-parenthesis \( $tmpA1 $rotation $cropping $makegray $enhancing \) \
+convert -respect-parenthesis \( $tmpA1 $cropping $makegray $enhancing \) \
 	\( -clone 0  $setcspace -colorspace gray -negate -lat ${filtersize}x${filtersize}+${offset}% -contrast-stretch 0 $blurring \) \
 	-alpha off -compose copy_opacity -composite -fill "$bgcolor" -opaque none -alpha off \
 	$unrotating $sharpening $modulation $adaptiveblurring $trimming $padding $inversion2 $compressing \
