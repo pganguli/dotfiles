@@ -40,6 +40,7 @@ if [ -e "/usr/share/fzf" ]; then
 fi
 
 alias xc="xclip -selection clipboard"
+alias tt++="tt++ -G -r ~/.tintin/config"
 
 cz() {
     cd "$(fzf)"
