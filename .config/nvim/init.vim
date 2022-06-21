@@ -61,7 +61,7 @@ colorscheme slate " set color palette
 highlight! link Pmenu Folded
 highlight! link PreProc Include
 " tweak some other groups
-highlight CursorLine guibg=black
+highlight! CursorLine guibg=black
 " ------------------------------------------------------------------
 
 set autoindent " copy indent from current line to new line
@@ -77,7 +77,7 @@ vnoremap <S-Tab> <
 " always yank to system clipboard
 set clipboard=unnamedplus
 
-set scrolloff=20 " show 20 lines above and below cursor (when possible)
+set scrolloff=5 " show 5 lines above and below cursor (when possible)
 set nowrap " do not wrap long lines
 " toggle wrapping of long lines
 nnoremap ,w :set wrap!<CR>
@@ -256,6 +256,30 @@ command -nargs=0 Ster :split|:terminal
 
 " open terminal in vertical split
 command -nargs=0 Vter :vsplit|:terminal
+
+" highlight repeated lines
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText != ""
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+
+command! -range=% Dupes <line1>,<line2>call HighlightRepeats()
+
+" subtract a file from current buffer
+command -nargs=1 -complete=file Subtract :%!grep -vxFf <args>
 
 " Set up persistent undo across all files
 set undofile

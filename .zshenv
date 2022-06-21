@@ -77,11 +77,16 @@ case $(uname 2>/dev/null) in
     )
 esac
 
+# Other PATH variables
+export GOPATH="$HOME/go"
+export ANDROID_HOME="$HOME/android-sdk"
+
 # generic $PATH handling
 if (( EUID != 0 )); then
   path=(
     $HOME/bin
     $HOME/.local/bin
+    $GOPATH/bin
     /usr/local/bin
     /usr/bin
     /bin
@@ -97,6 +102,7 @@ else
   path=(
     $HOME/bin
     $HOME/.local/bin
+    $GOPATH/bin
     /usr/local/sbin
     /usr/local/bin
     /sbin

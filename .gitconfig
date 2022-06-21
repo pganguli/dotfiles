@@ -3,7 +3,7 @@
     email = prateek.ganguli@gmail.com
     signingkey = prateek.ganguli@gmail.com
 [core]
-    editor = nvim
+    editor = vi
 [alias]
     co = checkout
     ci = commit
