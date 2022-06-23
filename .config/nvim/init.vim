@@ -61,7 +61,11 @@ colorscheme slate " set color palette
 highlight! link Pmenu Folded
 highlight! link PreProc Include
 " tweak some other groups
-highlight! CursorLine guibg=black
+highlight! CursorLine guibg=grey15
+highlight! Normal guibg=black
+highlight! NonText guibg=black
+highlight! Comment guifg=grey60
+highlight! LineNr guifg=grey60
 " ------------------------------------------------------------------
 
 set autoindent " copy indent from current line to new line
