@@ -92,8 +92,18 @@ gpg-export-keys() {
     gpg --armor --output keys.asc --symmetric --cipher-algo AES256
 }
 
-dirminus() {
-    jdupes -ZrdNO $1 $2
+rmdempty() {
+    find "$1" -empty -type d -delete
+}
+
+dirmerge() {
+    jdupes --soft-abort --recurse --delete --no-prompt --param-order --isolate "$1" "$2"
+    echo "Removing empty directories..."
+    rmdempty "$2"
+    echo "Copy merging..."
+    rsync -a "$2"/ "$1"/
+    echo "Listing by extension..."
+    ls -lX "$1"/**/**
 }
 
 ncmuck() {
