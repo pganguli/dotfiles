@@ -192,15 +192,21 @@ nmap gy <Plug>(coc-type-definition)
 nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap gk :call CocActionAsync('doHover')<CR>
+
 " highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
+
 " formatting selected code
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 " add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
+" apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 " ------------------------------------------------------------------
 
 " ------------------------------------------------------------------
