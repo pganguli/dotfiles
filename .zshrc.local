@@ -111,3 +111,9 @@ ncmuck() {
     mkfifo ncmuck_stdin 2> /dev/null
     tail -f ncmuck_stdin | nc --ssl "$1" "$2" -o "/tmp/ncmuck-$(date +%Y-%m-%d_%H.%M.%S).tmp"
 }
+
+qvi() (
+    trap 'rm /tmp/vim$$' EXIT;
+    vim /tmp/vim$$ >/dev/tty;
+    cat /tmp/vim$$
+)

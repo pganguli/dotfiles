@@ -185,7 +185,7 @@ command! cmpinternal vifm-diff %a %S
 " program.
 
 " Text
-filextype <text/plain> gvim %f
+filextype {*.txt},<text/plain> gvim %f
 
 " Epub
 filextype {*.epub},<application/epub+zip> zathura %c
@@ -306,8 +306,7 @@ filetype {*.asc},<application/pgp-signature>
        \ !!gpg --verify %c,
 
 " Torrent
-filetype {*.torrent},<application/x-bittorrent> ktorrent %f &
-fileviewer {*.torrent},<application/x-bittorrent> dumptorrent -v %c
+filetype {*.torrent},<application/x-bittorrent> qbittorrent %f
 
 " FuseZipMount
 filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
@@ -359,7 +358,7 @@ filetype {*.7z},<application/x-7z-compressed>
 fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
 
 " Office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
+filextype {*.odt,*.doc,*.docx,*.csv,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
          \<application/vnd.openxmlformats-officedocument.*,
           \application/msword,
           \application/vnd.ms-excel>
