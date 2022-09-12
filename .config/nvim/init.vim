@@ -161,34 +161,29 @@ let g:netrw_keepdir=0 " sync netrw $PWD with vim
 " ------------------------------------------------------------------
 " coc.nvim config
 " ------------------------------------------------------------------
+" Use <C-y> to accept suggestion and <C-e> to discard suggestion.
+
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file.
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) :
                                                 \ CheckBackspace() ? "\<Tab>" :
                                                                 \ coc#refresh()
 inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-v>\<Tab>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
+" Make <CR> to notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Let <Up> and <Down> naviagate same as without completion menu
-inoremap <silent><expr> <Up> coc#pum#visible() ? "\<C-e>\<Up>" : "\<Up>"
-inoremap <silent><expr> <Down> coc#pum#visible() ? "\<C-e>\<Down>" : "\<Down>"
+" Let <Up> and <Down> naviagate same as without completion menu.
+inoremap <silent><expr> <Up> "\<Up>"
+inoremap <silent><expr> <Down> "\<Down>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" Use <c-space> to accept suggestion or trigger completion.
+inoremap <silent><expr> <C-space> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap ,g :CocDiagnostics<CR>
