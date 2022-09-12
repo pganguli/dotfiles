@@ -9,14 +9,18 @@ filetype indent on " load file-type specific indent files
 " take cursor to first line, reformat till last line
 nnoremap ,i gg=G
 
+" Some LSP servers have issues with backup files
+set nobackup
+set nowritebackup
+
 set ruler " show position in status bar
 set matchpairs+=<:> " match <:> too
 set wildmode=longest:full,full " bash like tab-completion
-set completeopt=longest,menu,preview " bash like ctrl-[np] completion
+set completeopt=menuone,noinsert,noselect,preview " IDE-like completion menu
 set title " show filename
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
-set updatetime=1000 " write to swap file if idle for 1s
+set updatetime=300 " write to swap file if idle for this much time
 set shortmess+=I " disable startup message
 set confirm " get dialog when buffer save fails
 set lazyredraw " do not redraw without interaction
@@ -55,17 +59,10 @@ if (has("termguicolors")) " if available:
     set termguicolors " use Truecolor
 endif
 
-colorscheme slate " set color palette
+colorscheme moonfly " set color palette
 
-" link ugly color groups to saner ones
-highlight! link Pmenu Folded
-highlight! link PreProc Include
-" tweak some other groups
-highlight! CursorLine guibg=grey15
-highlight! Normal guibg=black
-highlight! NonText guibg=black
-highlight! Comment guifg=grey60
-highlight! LineNr guifg=grey60
+" link color groups to be more distinguish-able
+highlight! link Whitespace NonText
 " ------------------------------------------------------------------
 
 set autoindent " copy indent from current line to new line
@@ -157,56 +154,89 @@ set rtp+=/usr/share/doc/fzf/examples/
 " netrw config
 let g:netrw_liststyle=3 " tree style listing
 let g:netrw_banner=0 " suppress top banner
-let g:netrw_browse_split=3 " open file in new tab
 let g:netrw_browse_split=4 " open file in previous window
 let g:netrw_winsize=20 " set netrw window size
 let g:netrw_keepdir=0 " sync netrw $PWD with vim
 
 " ------------------------------------------------------------------
-" coc config
+" coc.nvim config
 " ------------------------------------------------------------------
-" Notify coc.nvim to format on <CR>
-inoremap <silent> <expr> <CR> pumvisible() ? "\<CR>" :
-                            \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" use <Tab> for trigger completion with characters ahead and navigate
-inoremap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" :
-                  \ <SID>check_back_space() ? "\<Tab>" : coc#refresh()
-" use <S-Tab> to navigate backwards if completion menu is visible,
-" else insert literal <Tab>
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-v>\<Tab>"
-" let <Up> and <Down> naviagate same as without completion menu
-inoremap <expr> <Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
-inoremap <expr> <Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) :
+                                                \ CheckBackspace() ? "\<Tab>" :
+                                                                \ coc#refresh()
+inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-v>\<Tab>"
 
-" check if previous character is whitespace
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Let <Up> and <Down> naviagate same as without completion menu
+inoremap <silent><expr> <Up> coc#pum#visible() ? "\<C-e>\<Up>" : "\<Up>"
+inoremap <silent><expr> <Down> coc#pum#visible() ? "\<C-e>\<Down>" : "\<Down>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" GoTo code navigation
-nmap [g <Plug>(coc-diagnostic-prev)
-nmap ]g <Plug>(coc-diagnostic-next)
-nmap gd <Plug>(coc-definition)
-nmap gy <Plug>(coc-type-definition)
-nmap gi <Plug>(coc-implementation)
-nmap gr <Plug>(coc-references)
-nmap gk :call CocActionAsync('doHover')<CR>
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-" highlight the symbol and its references when holding the cursor
+" Use `[g` and `]g` to navigate diagnostics
+nmap ,g :CocDiagnostics<CR>
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" symbol renaming
+" Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
-" formatting selected code
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
-" add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" apply AutoFix to problem on the current line.
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+" Use CTRL-S for selections ranges.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+nmap ,o :CocOutline<CR>
+nmap ,/ :CocSearch 
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+set statusline^=[%{coc#status()}]\ 
 " ------------------------------------------------------------------
 
 " ------------------------------------------------------------------

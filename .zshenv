@@ -86,6 +86,7 @@ if (( EUID != 0 )); then
   path=(
     $HOME/bin
     $HOME/.local/bin
+    $HOME/.cargo/bin
     $GOPATH/bin
     /usr/local/bin
     /usr/bin
@@ -102,6 +103,7 @@ else
   path=(
     $HOME/bin
     $HOME/.local/bin
+    $HOME/.cargo/bin
     $GOPATH/bin
     /usr/local/sbin
     /usr/local/bin
