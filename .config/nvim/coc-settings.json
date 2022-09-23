@@ -1,3 +1,4 @@
 {
-  "java.format.settings.url": "/home/pgan/.config/coc/extensions/node_modules/coc-java/eclipse-formatter.xml"
+  "java.format.settings.url": "/home/pgan/.config/coc/extensions/node_modules/coc-java/eclipse-formatter.xml",
+  "suggest.noselect": true
 }

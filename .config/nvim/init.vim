@@ -59,7 +59,7 @@ if (has("termguicolors")) " if available:
     set termguicolors " use Truecolor
 endif
 
-colorscheme moonfly " set color palette
+colorscheme moonfly " https://github.com/bluz71/vim-moonfly-colors
 
 " link color groups to be more distinguish-able
 highlight! link Whitespace NonText
