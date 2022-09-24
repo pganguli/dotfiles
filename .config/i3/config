@@ -22,7 +22,7 @@ hide_edge_borders smart
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 11
-font pango:Hack 11
+font pango:Roboto Mono 11
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -55,7 +55,7 @@ bindsym $mod+Print exec --no-startup-id ssocr "$HOME/Downloads/ss-$(date +%Y-%m-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc -e tmux new-session
+bindsym $mod+Return exec urxvtq -e tmux new-session
 
 # dunst keybindings
 bindsym $mod+q exec --no-startup-id dunstctl close
@@ -222,6 +222,5 @@ bar {
 # Autostart
 exec --no-startup-id xset -b
 exec --no-startup-id xset r rate 250 50
-exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id dex-autostart /etc/xdg/autostart/lxpolkit.desktop
 exec --no-startup-id gammastep -m randr -O 3500

@@ -2,10 +2,10 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
-URxvt.font:           xft:Hack:size=11:Regular
-URxvt.boldFont:       xft:Hack:size=11:Bold
-URxvt.italicFont:     xft:Hack:size=11:Italic
-URxvt.boldItalicFont: xft:Hack:size=11:Bold:Italic
+URxvt.font:           xft:Roboto Mono:size=11:Regular
+URxvt.boldFont:       xft:Roboto Mono:size=11:Bold
+URxvt.italicFont:     xft:Roboto Mono:size=11:Italic
+URxvt.boldItalicFont: xft:Roboto Mono:size=11:Bold:Italic
 
 URxvt.scrollBar: false
 URxvt.cursorBlink: true

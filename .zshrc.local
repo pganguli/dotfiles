@@ -2,6 +2,8 @@
 
 # use Vi keybindings
 bindkey -v
+# fix for backspace in Vi Insert-Mode
+bindkey "^?" backward-delete-char
 
 # ring bell before prompt
 ring_bell() { printf '\a' }
@@ -23,10 +25,8 @@ fi
 # use pure prompt: https://github.com/sindresorhus/pure
 if [ -e "$HOME/.zsh/pure" ]; then
     fpath+="$HOME/.zsh/pure"
-    if [ "$TERM" = "linux" ]; then
-        PURE_PROMPT_SYMBOL='>'
-        PURE_PROMPT_VICMD_SYMBOL='<'
-    fi
+    PURE_PROMPT_SYMBOL='$'
+    PURE_PROMPT_VICMD_SYMBOL=':'
     PURE_CMD_MAX_EXEC_TIME=1
     zstyle :prompt:pure:prompt:success color green
     autoload -U promptinit; promptinit
