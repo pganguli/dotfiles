@@ -1,9 +1,97 @@
-#!/usr/bin/env zsh
+# Filename:      /etc/skel/.zshrc
+# Purpose:       config file for zsh (z shell)
+# Authors:       (c) grml-team (grml.org)
+# Bug-Reports:   see http://grml.org/bugs/
+# License:       This file is licensed under the GPL v2 or any later version.
+################################################################################
+# Nowadays, grml's zsh setup lives in only *one* zshrc file.
+# That is the global one: /etc/zsh/zshrc (from grml-etc-core).
+# It is best to leave *this* file untouched and do personal changes to
+# your zsh setup via ${HOME}/.zshrc.local which is loaded at the end of
+# the global zshrc.
+#
+# That way, we enable people on other operating systems to use our
+# setup, too, just by copying our global zshrc to their ${HOME}/.zshrc.
+# Adjustments would still go to the .zshrc.local file.
+################################################################################
+
+## Inform users about upgrade path for grml's old zshrc layout, assuming that:
+## /etc/skel/.zshrc was installed as ~/.zshrc,
+## /etc/zsh/zshrc was installed as ~/.zshrc.global and
+## ~/.zshrc.local does not exist yet.
+if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
+    printf '-!-\n'
+    printf '-!- Looks like you are using the old zshrc layout of grml.\n'
+    printf '-!- Please read the notes in the grml-zsh-refcard, being'
+    printf '-!- available at: http://grml.org/zsh/\n'
+    printf '-!-\n'
+    printf '-!- If you just want to get rid of this warning message execute:\n'
+    printf '-!-        touch ~/.zshrc.local\n'
+    printf '-!-\n'
+fi
+
+# Settings for umask
+if (( EUID == 0 )); then
+    umask 002
+else
+    umask 022
+fi
+
+## Prompt theme extension ##
+
+# Syntax Highlighting
+if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# Pure Prompt: https://github.com/sindresorhus/pure
+if [ -e "$HOME/.zsh/pure" ]; then
+    fpath+="$HOME/.zsh/pure"
+    PURE_PROMPT_SYMBOL='$'
+    PURE_PROMPT_VICMD_SYMBOL=':'
+    PURE_CMD_MAX_EXEC_TIME=1
+    zstyle :prompt:pure:prompt:success color green
+    autoload -U promptinit; promptinit
+    prompt pure
+fi
+
+# FZF completions and keybindings: https://github.com/junegunn/fzf
+# ^R = history, ^T = file, M-C = cd
+if [ -e "/usr/share/fzf" ]; then
+    source "/usr/share/zsh/site-functions/fzf"
+    source "/usr/share/fzf/shell/key-bindings.zsh"
+fi
+
+## ZLE tweaks ##
+
+# ctrl-s will no longer freeze the terminal.
+[[ -t 0 && $- = *i* ]] && stty -ixon
 
 # use Vi keybindings
 bindkey -v
 # fix for backspace in Vi Insert-Mode
 bindkey "^?" backward-delete-char
+
+# define word separators (for stuff like backward-word, forward-word, backward-kill-word,..)
+#WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # the default
+WORDCHARS='*?_-.[]~=/&;:!#$%^(){}<>'
+
+# press ctrl-q to quote line:
+mquote () {
+      zle backward-word
+      # RBUFFER="'$RBUFFER'"
+      RBUFFER=${(qq)RBUFFER}
+      zle end-of-line
+}
+zle     -N            mquote
+bindkey -M emacs '^Q' mquote
+bindkey -M vicmd '^Q' mquote
+bindkey -M viins '^Q' mquote
+
+# save half-typed commands
+bindkey -M emacs '\eq' push-line-or-edit
+bindkey -M vicmd '\eq' push-line-or-edit
+bindkey -M viins '\eq' push-line-or-edit
 
 # ring bell before prompt
 ring_bell() { printf '\a' }
@@ -17,44 +105,23 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-# syntax highlight shell programming
-if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+# alert me if something failed
+setopt printexitvalue
 
-# use pure prompt: https://github.com/sindresorhus/pure
-if [ -e "$HOME/.zsh/pure" ]; then
-    fpath+="$HOME/.zsh/pure"
-    PURE_PROMPT_SYMBOL='$'
-    PURE_PROMPT_VICMD_SYMBOL=':'
-    PURE_CMD_MAX_EXEC_TIME=1
-    zstyle :prompt:pure:prompt:success color green
-    autoload -U promptinit; promptinit
-    prompt pure
-fi
-
-# use fzf completions and keybindings: https://github.com/junegunn/fzf
-if [ -e "/usr/share/fzf" ]; then
-    source "/usr/share/zsh/site-functions/fzf"
-    source "/usr/share/fzf/shell/key-bindings.zsh"
-fi
+## aliases ##
 
 alias xc="xclip -selection clipboard"
 alias tt++="tt++ -G -r ~/.tintin/config"
 
-cz() {
-    cd "$(fzf)"
-}
+## miscellaneous code ##
 
-vz() {
-    vi "$(fzf)"
-}
-
+# Record screen in Wayland
 wlrec() {
     wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
                 -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
+# Record screen in X11
 x11rec() {
     ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
            -f pulse -ac 2 -i 0 \
@@ -63,39 +130,60 @@ x11rec() {
            "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
+# Record audio in pulseaudio
 pulserec() {
     ffmpeg -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
            "$(date +%Y-%m-%d_%H.%M.%S).opus"
 }
 
+# Concatenate two media files
 ffmpeg-concat() {
-    echo > ffmpeg-concat.tmp
+    trap "rm ffmpeg-concat.tmp 2> /dev/null" INT
     for i in "$@"; do
         echo "file '$i'" >> ffmpeg-concat.tmp
     done
-
     ffmpeg -f concat -safe 0 -i ffmpeg-concat.tmp -c copy "$(date +%Y-%m-%d_%H.%M.%S).mkv"
-    rm ffmpeg-concat.tmp
 }
 
+# Encrypt a file using GPG
 gpg-enc() {
-    gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
+    if [[ -n "$1" ]] ; then
+        gpg --symmetric --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65536 "$1"
+    else
+        echo "Usage: $0 <file>" >&2
+    fi
 }
 
+# Decrypt a file using GPG
 gpg-dec() {
-    gpg --output "${1%.gpg}" --decrypt "$1"
+    if [[ -n "$1" ]] ; then
+        gpg --output "${1%.gpg}" --decrypt "$1"
+    else
+        echo "Usage: $0 <file>" >&2
+    fi
 }
 
+# Export GPG keys
 gpg-export-keys() {
-    cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
-    gpg --armor --output keys.asc --symmetric --cipher-algo AES256
+    if [[ -n "$1" ]] ; then
+        cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
+        gpg --armor --output keys.asc --symmetric --cipher-algo AES256
+    else
+        echo "Usage: $0 <key>" >&2
+    fi
 }
 
+# Delete all empty directories
 rmdempty() {
-    find "$1" -empty -type d -delete
+    if [[ -n "$1" ]] ; then
+        find "$1" -empty -type d -delete
+    else
+        echo "Usage: $0 <path>" >&2
+    fi
 }
 
+# Merge $2 into $1
 dirmerge() {
     jdupes --soft-abort --recurse --delete --no-prompt --param-order --isolate "$1" "$2"
     echo "Removing empty directories..."
@@ -106,14 +194,27 @@ dirmerge() {
     ls -lX "$1"/**/**
 }
 
-ncmuck() {
-    trap "rm ncmuck_stdin 2> /dev/null" INT
-    mkfifo ncmuck_stdin 2> /dev/null
-    tail -f ncmuck_stdin | nc --ssl "$1" "$2" -o "/tmp/ncmuck-$(date +%Y-%m-%d_%H.%M.%S).tmp"
+# Find out which libs define a symbol
+lcheck() {
+    if [[ -n "$1" ]] ; then
+        nm -go /usr/lib/lib*.a 2>/dev/null | grep ":[[:xdigit:]]\{8\} . .*$1"
+    else
+        echo "Usage: $0 <function>" >&2
+    fi
 }
 
-qvi() (
-    trap 'rm /tmp/vim$$' EXIT;
-    vim /tmp/vim$$ >/dev/tty;
-    cat /tmp/vim$$
-)
+# Memory overview
+memusage() {
+    ps aux | awk '{if (NR > 1) print $5;
+                   if (NR > 2) print "+"}
+                   END { print "p" }' | dc
+}
+
+# Some quick Perl-hacks aka /useful/ oneliner
+getlinks ()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
+gethrefs ()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
+getanames ()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
+getforms ()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
+getstrings () { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $*}
+
+## END OF FILE #################################################################

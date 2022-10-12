@@ -131,6 +131,10 @@ elif [[ -x /usr/bin/lesspipe.sh ]] ; then
 fi
 unset lp
 
+# use Vim as a pager; strip ANSI escape codes and pipe to Vim's less macro
+export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | vim -c 'set nolist nomodified' -\""
+export MANPAGER="vim -c Man!"
+
 export READNULLCMD=${PAGER:-/usr/bin/pager}
 
 # allow zeroconf for distcc
@@ -142,10 +146,6 @@ export WRITE_ON_UDEV=yes
 # use Vim as default editor
 export EDITOR=vim
 export VISUAL=gvim
-
-# use Vim as a pager; strip ANSI escape codes and pipe to Vim's less macro
-export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | vim -c 'set nolist nomodified' -\""
-export MANPAGER="vim -c Man!"
 
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
