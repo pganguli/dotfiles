@@ -1,0 +1,238 @@
+# Read `man 5 sway` for a complete reference.
+
+# Use the logo key as the modifier key.
+set $mod Mod4
+
+# Hide container borders adjacent to screen edges when only one window is visible.
+hide_edge_borders smart
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+#font pango:monospace 8
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 11
+font pango:Roboto Mono 11
+
+# Display configuration
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 {
+    background /usr/share/backgrounds/default.png fill
+    resolution 1920x1080 position 1920,0
+}
+
+# Autolock configuration
+# This will turn off your displays after 600 seconds of inactivity, then lock
+# your screen after another 60 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+set $lock 'swaylock -f -c 323232'
+exec swayidle -w \
+         timeout 600  'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+         timeout 660  $lock \
+         before-sleep $lock \
+         lock $lock
+
+# Keyboard configuration
+input type:keyboard {
+    repeat_rate 50
+    repeat_delay 250
+    xkb_layout "us"
+    xkb_options "caps:escape,shift:both_capslock_cancel"
+}
+
+# Touchpad configuration
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+# Audio
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym Shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -2%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +2%
+# Brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 2%+
+# Print Screen
+bindsym Print exec grimshot save active "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym shift+Print exec grimshot save area "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym $mod+Print exec ssocr "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).txt"
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod normal
+
+# start a terminal
+bindsym $mod+Return exec urxvtq -e tmux new-session
+
+# dunst keybindings
+bindsym $mod+q exec dunstctl close
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+bindsym $mod+d exec "wofi --show run,drun --hide-scroll --gtk-dark"
+bindsym $mod+c exec networkmanager_dmenu
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# default workspace layout
+workspace_layout tabbed
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# show the next scratchpad window or hide the focused scratchpad window.
+# if there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# focus the child container
+bindsym $mod+z focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+# exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaymsg exit
+# lock screen
+bindsym $mod+Shift+x exec loginctl lock-session
+# [S]uspend the system
+bindsym $mod+Shift+s exec loginctl lock-session && sleep 0.5 && systemctl suspend
+# Hibernate the system
+bindsym $mod+Shift+g exec loginctl lock-session && sleep 0.5 && systemctl hibernate
+# re[B]oot the system
+bindsym $mod+Shift+b exec systemctl reboot
+# power[O]ff the system
+bindsym $mod+Shift+o exec systemctl poweroff
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top
+    status_command i3status
+}
+
+# Autostart
+exec nm-applet --indicator
+exec dex-autostart /etc/xdg/autostart/lxpolkit.desktop
+exec gammastep -O 3500
+
+include /etc/sway/config.d/*

@@ -1,6 +1,10 @@
-Xft.antialias: true
+! hintstyle: medium means that (for Postscript fonts) we
+! position the stems for maximum constrast and consistency
+! but do not force the stems to integral widths. hintnone,
+! hintslight, and hintfull are the other possibilities.
+Xft.hintstyle: hintmedium
 Xft.hinting: true
-Xft.hintstyle: hintslight
+Xft.antialias: true
 
 URxvt.font:           xft:Roboto Mono:size=11:Regular
 URxvt.boldFont:       xft:Roboto Mono:size=11:Bold
