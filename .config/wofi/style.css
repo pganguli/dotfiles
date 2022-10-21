@@ -1,0 +1,12 @@
+*{
+    font-family: monospace;
+}
+
+#inner-box {
+    background-color: #000000;
+}
+
+#text {
+    padding: 5px;
+    color: white;
+}
