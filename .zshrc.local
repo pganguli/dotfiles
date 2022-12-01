@@ -199,6 +199,15 @@ dirmerge() {
     ls -lX "$1"/**/**
 }
 
+# Open a ssh tunnel to a remote host
+ssh-tunnel() {
+    if [[ -n "$1" ]] ; then
+        ssh -D "$2" -q -C -N "$1"
+    else
+        echo "Usage: $0 <remote host> <port>" >&2
+    fi
+}
+
 # Find out which libs define a symbol
 lcheck() {
     if [[ -n "$1" ]] ; then
@@ -216,10 +225,14 @@ memusage() {
 }
 
 # Some quick Perl-hacks aka /useful/ oneliner
-getlinks ()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
-gethrefs ()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-getanames ()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-getforms ()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
-getstrings () { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $*}
+getlinks()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
+gethrefs()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
+getanames()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
+getforms()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
+getstrings() { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $*}
+
+# Some quick Python-hacks aka /useful/ oneliner
+urlencode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))' $* }
+urldecode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))' $* }
 
 ## END OF FILE #################################################################

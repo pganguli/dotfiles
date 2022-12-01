@@ -38,17 +38,6 @@ if [[ -x /usr/bin/id ]] ; then
     [[ $LOGNAME == LOGIN ]] && LOGNAME=$(/usr/bin/id -un)
 fi
 
-# wayland specific env vars
-if [[ $XDG_SESSION_TYPE == "wayland" ]] ; then
-    export XDG_CURRENT_DESKTOP=sway
-    export MOZ_ENABLE_WAYLAND=1
-    export QT_QPA_PLATFORM=xcb
-    export CLUTTER_BACKEND=wayland
-    export SDL_VIDEODRIVER=wayland
-    export _JAVA_AWT_WM_NONREPARENTING=1
-    export AWT_TOOLKIT=MToolkit
-fi
-
 # workaround for live-cd mode as $HOME is not set via rungetty
 if [[ -f /etc/grml_cd ]] ; then
     if (( EUID == 0 )); then
@@ -89,6 +78,7 @@ case $(uname 2>/dev/null) in
 esac
 
 # Other PATH variables
+export PYTHONPATH="$HOME/.local/lib/python"
 export GOPATH="$HOME/go"
 export ANDROID_HOME="$HOME/android-sdk"
 
@@ -143,8 +133,8 @@ fi
 unset lp
 
 # use Vim as a pager; strip ANSI escape codes and pipe to Vim's less macro
-export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | vim -c 'set nolist nomodified' -\""
-export MANPAGER="vim -c Man!"
+export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | nvim -c 'set nolist nomodified' -\""
+export MANPAGER="nvim -c Man!"
 
 export READNULLCMD=${PAGER:-/usr/bin/pager}
 
