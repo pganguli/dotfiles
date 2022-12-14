@@ -82,7 +82,7 @@ bindsym $mod+Shift+q kill
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-bindsym $mod+d exec "wofi --show run,drun --hide-scroll --gtk-dark"
+bindsym $mod+d exec "wofi --show=drun,run --hide-scroll --insensitive -I --gtk-dark"
 bindsym $mod+c exec networkmanager_dmenu
 
 # change focus
