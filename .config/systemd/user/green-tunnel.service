@@ -1,0 +1,12 @@
+[Unit]
+Description=GreenTunnel
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+ExecStart=/usr/local/bin/green-tunnel --port 8085
+
+[Install]
+WantedBy=default.target

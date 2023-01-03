@@ -108,6 +108,9 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # alert me if something failed
 setopt printexitvalue
 
+# direnv hook
+eval "$(direnv hook zsh)"
+
 ## aliases ##
 
 alias xc="xclip -selection clipboard"
