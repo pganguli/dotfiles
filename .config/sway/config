@@ -39,6 +39,7 @@ input type:keyboard {
     repeat_delay 250
     xkb_layout "us"
     xkb_options "caps:escape,shift:both_capslock_cancel"
+    xkb_numlock enabled
 }
 
 # Touchpad configuration
