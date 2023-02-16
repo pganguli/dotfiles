@@ -172,11 +172,20 @@ gpg-dec() {
     fi
 }
 
-# Export GPG keys
-gpg-export-keys() {
+# Export GPG key
+gpg-export-key() {
     if [[ -n "$1" ]] ; then
         cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
         gpg --armor --output keys.asc --symmetric --cipher-algo AES256
+    else
+        echo "Usage: $0 <key>" >&2
+    fi
+}
+
+# Backup GPG key
+gpg-backup-key() {
+    if [[ -n "$1" ]] ; then
+        gpg --armor --output key.pgp --export-secret-keys --export-options export-backup "$1"
     else
         echo "Usage: $0 <key>" >&2
     fi

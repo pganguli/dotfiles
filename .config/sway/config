@@ -71,7 +71,7 @@ bindsym $mod+Print exec ssocr "$HOME/Downloads/ss-$(date +%Y-%m-%d_%H.%M.%S).txt
 floating_modifier $mod normal
 
 # start a terminal
-bindsym $mod+Return exec urxvtq -e tmux new-session
+bindsym $mod+Return exec st -f "Roboto Mono:size=11:antialias=true:autohint=true" -e tmux new-session
 
 # dunst keybindings
 bindsym $mod+q exec dunstctl close

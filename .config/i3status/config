@@ -17,7 +17,7 @@ order += "disk /"
 order += "memory"
 #order += "load"
 order += "cpu_usage"
-order += "cpu_temperature 0"
+order += "cpu_temperature 7"
 order += "battery all"
 order += "tztime local"
 
@@ -44,7 +44,7 @@ memory {
     format = " [=] %used "
 }
 
-cpu_temperature 0 {
+cpu_temperature 7 {
      format = " ! %degrees°C "
 }
 
