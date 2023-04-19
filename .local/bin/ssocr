@@ -2,12 +2,11 @@
 
 SS_IMG="$(mktemp)"
 mv "${SS_IMG}" "${SS_IMG}.png"
-trap "rm ${SS_IMG}.png" EXIT
-
+trap 'rm ${SS_IMG}.png' EXIT
 
 grimshot save area "${SS_IMG}.png"
 mogrify -resize 400% "${SS_IMG}.png"
 tesseract "${SS_IMG}.png" "${1%.txt}" &> /dev/null
 
-cat "${1}" | wl-copy
+wl-copy < "${1}"
 exit
