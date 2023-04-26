@@ -71,9 +71,6 @@ set shiftwidth=4 " 4 spaces for each indent
 set softtabstop=4 " tabs are displayed as 4 spaces on screen
 set tabstop=4 " tabs are expanded to 4 spaces in the file
 set expandtab " expand tabs to spaces
-" indent visual selection with tab
-vnoremap <Tab> >
-vnoremap <S-Tab> <
 
 " always yank to system clipboard
 set clipboard=unnamedplus
@@ -95,9 +92,12 @@ nnoremap ,n :set relativenumber!<CR>
 set incsearch " search as you type
 set ignorecase " ignore case for searching
 set smartcase " override ignore case when upper case letters are present
-set hlsearch " highlight search
-" toggle search highlighting
-nnoremap ,h :set hlsearch!<CR>
+" Highlight only as long as in search mode
+augroup vimrc-incsearch-highlight
+    autocmd!
+    autocmd CmdlineEnter /,\? :set hlsearch
+    autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
 
 " toggle spellchecking
 nnoremap ,s :set spell!<CR>
@@ -106,44 +106,17 @@ set dictionary+=spell
 " use the dictionary for autocomplete
 set complete+=k
 
-" list buffers and offer to change
-nnoremap ,b :buffers<CR>:buffer<Space>
 set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
-" move cursor to previous window
-nnoremap <Space> <C-w>p
+" CTRL-W_n opens new vertical window
+nnoremap <C-w>n     :vnew<CR>
+nnoremap <C-w><C-n> :vnew<CR>
 " move between buffers with Alt+Arrow
-nnoremap <M-Left> :bprevious<CR>
+nnoremap <M-Left>  :bprevious<CR>
 nnoremap <M-Right> :bnext<CR>
-nnoremap <M-Up> :bfirst<CR>
-nnoremap <M-Down> :blast<CR>
-" Page-Up and Page-Down
-nnoremap <C-k> <C-b>
-nnoremap <C-j> <C-f>
 
 " autowrite files before commands like `make`
 set autowrite
-" make command to execute if `Makefile` is absent
-set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ make\ $*\ '%<';fi
-nnoremap ,m :make<CR>
-" open terminal in vertical split
-nnoremap ,t :vsplit <Bar> terminal<CR>
-" run executable with same name as source file
-nnoremap ,r :terminal ./'%<'<CR>
-" do not print page numbers
-set printheader=%<%f%h%m%=
-" font size for printing
-set printfont=courier:h14
-" print to PS
-nnoremap ,p :hardcopy > %.ps<CR>
-
-" load GDB plugin and start it, putting source window on right
-nnoremap ,d :packadd termdebug<CR>:Termdebug %<<CR><C-w>k<C-w>k<C-w>L
-nmap <leader>b :Break<CR>
-nmap <leader>r :Run<CR>
-
-" behave like `[t]ail -[f]`
-nnoremap <leader>tf :set autoread <Bar> au CursorHold * checktime <Bar> call feedkeys("lh")<CR>
 
 " load man plugin
 runtime! ftplugin/man.vim
@@ -262,15 +235,6 @@ endfunction
 command -range -nargs=1 S call s:Substitute(<line1>, <line2>, <q-args>)
 " ------------------------------------------------------------------
 
-" handle w -> W typo
-command -nargs=0 W :wall
-
-" handle q -> Q typo
-command -nargs=0 Q :qall
-
-" handle wq -> Wq typo
-command -nargs=0 Wq :wq
-
 " write de-duplicated file, preserving order of lines
 command -nargs=0 Rdupe :%!awk '\!visited[$0]++'
 
@@ -285,12 +249,6 @@ command -nargs=0 Sudow :write !SUDO_ASKPASS='/usr/libexec/openssh/x11-ssh-askpas
 
 " remove trailing spaces and tabs
 command -nargs=0 Rtrail :%s/\s\+$//g
-
-" open terminal in horizontal split
-command -nargs=0 Ster :split|:terminal
-
-" open terminal in vertical split
-command -nargs=0 Vter :vsplit|:terminal
 
 " highlight repeated lines
 function! HighlightRepeats() range
