@@ -1,0 +1,66 @@
+[user]
+	name = Prateek Ganguli
+	email = prateek.ganguli@gmail.com
+	signingkey = prateek.ganguli@gmail.com
+[core]
+	editor = vi
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	bm = branch -M
+	cb = checkout -b
+	st = status
+	unstage = reset HEAD --
+	re = checkout --
+	ll = log -1 HEAD
+	lo = log --oneline
+	di = diff
+	dl = diff HEAD~1
+	rao = remote add origin
+	lg = log --graph
+	rsuo = remote set-url origin
+	sc = switch -c
+	sw = switch
+	discard = !git checkout -f && git clean -fd
+	lp = log -p
+	ri = rebase -i
+	cia = commit --amend
+	puo = push --set-upstream origin
+	rau = remote add upstream
+	ignore = !git update-index --assume-unchanged
+	unignore = !git update-index --no-assume-unchanged
+	ignored = !git ls-files -v |grep ^[a-z]
+	brh = "!f() { git branch --force \"$1\" HEAD; }; f"
+	ds = diff --staged
+	ap = add --patch
+[commit]
+	gpgsign = true
+	verbose = true
+[gpg]
+	program = gpg
+[push]
+	default = simple
+	autoSetupRemote = true
+[pull]
+	ff = only
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = "vim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool]
+	keepBackup = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@salsa.debian.org:"]
+	insteadOf = https://salsa.debian.org/
+[color]
+	ui = auto
+[init]
+	defaultBranch = master
+
+# vim:noet

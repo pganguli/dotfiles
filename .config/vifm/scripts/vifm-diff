@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# != 2 ] ; then
+    echo "Expected 2 arguments, received $#"
+    exit 1
+fi
+
+if [ -f "$1" -a -f "$2" ]; then
+    args='-q'
+elif [ -d "$1" -a -d "$2" ]; then
+    args="-qr"
+else
+    if [ -f "$1" ]; then
+        type_of_1='file'
+    else
+        type_of_1='directory'
+    fi
+    if [ -f "$2" ]; then
+        type_of_2='file'
+    else
+        type_of_2='directory'
+    fi
+    echo "Arguments are of different type ($type_of_1/$type_of_2)"
+    exit 1
+fi
+
+diff $args "$1" "$2" 2>&1
