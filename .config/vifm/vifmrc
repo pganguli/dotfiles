@@ -209,7 +209,7 @@ filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
         \ gv %c %i,
 
 " Epub
-filetype {*.wav},<application/epub+zip>
+filetype {*.epub},<application/epub+zip>
        \ {View using zathura}
        \ zathura %c &,
        \ {View using mupdf}
