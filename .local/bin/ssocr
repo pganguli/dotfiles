@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
-SS_IMG="$(mktemp)"
-mv "${SS_IMG}" "${SS_IMG}.png"
-trap 'rm ${SS_IMG}.png' EXIT
+getTargetDirectory() {
+  test -f "${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs.dirs" && \
+    . "${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs.dirs"
 
-grimshot save area "${SS_IMG}.png"
-mogrify -resize 400% "${SS_IMG}.png"
-tesseract "${SS_IMG}.png" "${1}" &> /dev/null
+  echo "${XDG_SCREENSHOTS_DIR:-${XDG_PICTURES_DIR:-$HOME}}"
+}
 
-wl-copy < "${1}.txt"
-exit
+OUTPUTBASE="$(getTargetDirectory)/$(date --iso-8601=ns)"
+grimshot save area '-' | mogrify -resize 400% 'PNG:-' | tesseract '-' "$OUTPUTBASE" txt quiet
+wl-copy < "${OUTPUTBASE}.txt"
