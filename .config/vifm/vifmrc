@@ -87,8 +87,8 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set ignorecase
 set smartcase
 
-" Don't highlight search results automatically
-set nohlsearch
+" Highlight search results automatically
+set hlsearch
 
 " Use increment searching (search while typing)
 set incsearch
