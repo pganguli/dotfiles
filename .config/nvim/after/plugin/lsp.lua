@@ -21,6 +21,7 @@ if lsp_ok then
         vim.keymap.set('n',          '[g', function() vim.diagnostic.goto_prev()            end, opts)
         vim.keymap.set('n',          ']g', function() vim.diagnostic.goto_next()            end, opts)
 
+        vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ async = true }) end, {})
 
         if client.supports_method('textDocument/documentHighlight') then
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
