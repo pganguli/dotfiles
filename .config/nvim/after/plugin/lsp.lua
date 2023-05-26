@@ -3,31 +3,31 @@ if lsp_ok then
     lsp.preset('recommended')
 
     lsp.on_attach(function(client, bufnr)
-        local opts = {buffer = bufnr, remap = false}
+        local opts = { buffer = bufnr, remap = false }
 
-        vim.keymap.set('n',        'K',  function() vim.lsp.buf.hover()                 end, opts)
-        vim.keymap.set('n',        'gd', function() vim.lsp.buf.definition()            end, opts)
-        vim.keymap.set('n',        'gD', function() vim.lsp.buf.declaration()           end, opts)
-        vim.keymap.set('n',        'gi', function() vim.lsp.buf.implementation()        end, opts)
-        vim.keymap.set('n',        'gy', function() vim.lsp.buf.type_definition()       end, opts)
-     -- vim.keymap.set('n',        'gr', function() vim.lsp.buf.references()            end, opts)
-        vim.keymap.set('n',        'gr', function() vim.cmd('Telescope lsp_references') end, opts)
-        vim.keymap.set('n',        'gs', function() vim.lsp.buf.signature_help()        end, opts)
-        vim.keymap.set('n',        'gn', function() vim.lsp.buf.rename()                end, opts)
-        vim.keymap.set({'n', 'x'}, 'gq', function() vim.lsp.buf.format({async = true})  end, opts)
-        vim.keymap.set('n',        'gw', function() vim.lsp.buf.document_symbol()       end, opts)
-        vim.keymap.set('n',        'ga', function() vim.lsp.buf.code_action()           end, opts)
-        vim.keymap.set('n',        'gl', function() vim.diagnostic.setloclist()         end, opts)
-        vim.keymap.set('n',        '[g', function() vim.diagnostic.goto_prev()          end, opts)
-        vim.keymap.set('n',        ']g', function() vim.diagnostic.goto_next()          end, opts)
+        vim.keymap.set('n',          'K',  function() vim.lsp.buf.hover()                   end, opts)
+        vim.keymap.set('n',          'gd', function() vim.lsp.buf.definition()              end, opts)
+        vim.keymap.set('n',          'gD', function() vim.lsp.buf.declaration()             end, opts)
+        vim.keymap.set('n',          'gi', function() vim.lsp.buf.implementation()          end, opts)
+        vim.keymap.set('n',          'gy', function() vim.lsp.buf.type_definition()         end, opts)
+     -- vim.keymap.set('n',          'gr', function() vim.lsp.buf.references()              end, opts)
+        vim.keymap.set('n',          'gr', function() vim.cmd('Telescope lsp_references')   end, opts)
+        vim.keymap.set('n',          'gs', function() vim.lsp.buf.signature_help()          end, opts)
+        vim.keymap.set('n',          'gn', function() vim.lsp.buf.rename()                  end, opts)
+        vim.keymap.set({ 'n', 'x' }, 'gq', function() vim.lsp.buf.format({ async = true })  end, opts)
+        vim.keymap.set('n',          'gw', function() vim.lsp.buf.document_symbol()         end, opts)
+        vim.keymap.set('n',          'ga', function() vim.lsp.buf.code_action()             end, opts)
+        vim.keymap.set('n',          'gl', function() vim.diagnostic.setloclist()           end, opts)
+        vim.keymap.set('n',          '[g', function() vim.diagnostic.goto_prev()            end, opts)
+        vim.keymap.set('n',          ']g', function() vim.diagnostic.goto_next()            end, opts)
 
 
         if client.supports_method('textDocument/documentHighlight') then
-            vim.api.nvim_create_autocmd({'CursorHold', 'CursorHoldI'}, {
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 callback = function(args) vim.lsp.buf.document_highlight({ buffer = args.buf }) end
             })
             vim.api.nvim_create_autocmd('CursorMoved', {
-                callback = function(args) vim.lsp.buf.clear_references({ buffer = args.buf })   end
+                callback = function(args) vim.lsp.buf.clear_references({ buffer = args.buf }) end
             })
         end
     end)
