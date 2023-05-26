@@ -47,6 +47,7 @@
     set $brightness_step 2
 
 ### Volume configuration
+    set $volume_limit 200
     set $volume_step 2
 
 ### Input configuration
