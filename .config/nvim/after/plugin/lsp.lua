@@ -49,7 +49,7 @@ if lsp_ok then
 
             mapping = {
                 -- `Enter` key to select and confirm completion
-                ['<CR>'] = cmp.mapping.confirm({select = false}),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
                 -- Ctrl+Space to trigger completion menu
                 ['<C-Space>'] = cmp.mapping.complete(),
