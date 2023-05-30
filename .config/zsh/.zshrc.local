@@ -37,8 +37,6 @@ else
     umask 022
 fi
 
-## Prompt theme extension ##
-
 # Syntax Highlighting
 if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -61,6 +59,11 @@ if [ -e "/usr/share/fzf" ]; then
     source "/usr/share/zsh/site-functions/fzf"
     source "/usr/share/fzf/shell/key-bindings.zsh"
 fi
+
+# Command Not Found handler
+# Fedora: https://fedoraproject.org/wiki/Features/PackageKitCommandNotFound
+COMMAND_NOT_FOUND=1
+GRML_ZSH_CNF_HANDLER=/usr/libexec/pk-command-not-found
 
 ## ZLE tweaks ##
 
