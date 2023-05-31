@@ -79,7 +79,7 @@ esac
 
 # Other PATH variables
 export PYTHONPATH="$HOME/.local/lib/python"
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/.go"
 
 # generic $PATH handling
 if (( EUID != 0 )); then
