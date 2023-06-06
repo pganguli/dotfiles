@@ -50,6 +50,9 @@ return require('packer').startup(function(use)
     -- vim-commentary - Comment / Uncomment code blocks
     use('tpope/vim-commentary')
 
+    -- nvim-tree - File Explorer
+    use('nvim-tree/nvim-tree.lua')
+
     -- nvim-autopairs - Autopair brackets and quotes
     use({ 'windwp/nvim-autopairs',
         config = function() require('nvim-autopairs').setup({
