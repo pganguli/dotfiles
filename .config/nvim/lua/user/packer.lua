@@ -19,8 +19,7 @@ return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
 
     -- moonfly - Dark theme
-    use({
-        'bluz71/vim-moonfly-colors', as = 'moonfly',
+    use({ 'bluz71/vim-moonfly-colors', as = 'moonfly',
         config = function ()
             vim.cmd.colorscheme('moonfly')                -- Set colorscheme to moonfly
             vim.cmd('highlight! link Whitespace NonText') -- Force colors of NonText for Whitespace as well
@@ -28,16 +27,14 @@ return require('packer').startup(function(use)
     })
 
     -- telescope - Fuzzy finder
-    use({
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} }
+    use({ 'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { 'nvim-lua/plenary.nvim' }
     })
 
     -- nvim-treesitter - Treesitter-based highlighting
-    use({
-        'nvim-treesitter/nvim-treesitter',
+    use({ 'nvim-treesitter/nvim-treesitter',
         run = function ()
-            require("nvim-treesitter.install").update { with_sync = false }
+            require("nvim-treesitter.install").update({ with_sync = false })
         end
     })
 
@@ -54,17 +51,15 @@ return require('packer').startup(function(use)
     use('tpope/vim-commentary')
 
     -- nvim-autopairs - Autopair brackets and quotes
-    use {
-        'windwp/nvim-autopairs',
-        config = function() require('nvim-autopairs').setup {
+    use({ 'windwp/nvim-autopairs',
+        config = function() require('nvim-autopairs').setup({
             disable_in_macro = true,                  -- disable when recording or executing a macro
             break_undo = false,                       -- switch for basic rule break undo sequence
-        } end
-    }
+        }) end
+    })
 
     -- LSP
-    use {
-        'VonHeikemen/lsp-zero.nvim', branch = 'v2.x',
+    use({ 'VonHeikemen/lsp-zero.nvim', branch = 'v2.x',
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },           -- Required
@@ -80,7 +75,7 @@ return require('packer').startup(function(use)
             {'hrsh7th/cmp-path'},                  -- Optional
             {'hrsh7th/cmp-buffer'},                -- Optional
         }
-    }
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
