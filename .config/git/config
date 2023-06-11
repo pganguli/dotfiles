@@ -8,7 +8,7 @@
 	co = checkout
 	ci = commit
 	br = branch
-	bm = branch -M
+	bm = branch --move --force
 	cb = checkout -b
 	st = status
 	unstage = reset HEAD --
@@ -20,11 +20,11 @@
 	rao = remote add origin
 	lg = log --graph
 	rsuo = remote set-url origin
-	sc = switch -c
+	sc = switch --create
 	sw = switch
-	discard = !git checkout -f && git clean -fd
-	lp = log -p
-	ri = rebase -i
+	discard = !echo -n 'Remove all untracked files? [y/N]: ' && read 'x' && [ $x = 'y' ] && git checkout --force && git clean -d --interactive
+	lp = log --patch
+	ri = rebase --interactive
 	cia = commit --amend
 	puo = push --set-upstream origin
 	rau = remote add upstream
