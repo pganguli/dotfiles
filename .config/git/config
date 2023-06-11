@@ -2,8 +2,6 @@
 	name = Prateek Ganguli
 	email = prateek.ganguli@gmail.com
 	signingkey = prateek.ganguli@gmail.com
-[includeIf "gitdir:~/21f1004044/"]
-	path = ~/.config/git/21f1004044/config
 [core]
 	editor = vi
 [alias]
