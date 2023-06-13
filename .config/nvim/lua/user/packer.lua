@@ -77,6 +77,10 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},                  -- Required
             {'hrsh7th/cmp-path'},                  -- Optional
             {'hrsh7th/cmp-buffer'},                -- Optional
+
+            -- Non-LSP
+            {'jose-elias-alvarez/null-ls.nvim'},   -- Optional
+            {'jay-babu/mason-null-ls.nvim'},       -- Optional
         }
     })
 

@@ -68,4 +68,26 @@ if lsp_ok then
             }
         })
     end
+
+    -- You need to setup `null_ls` after lsp-zero
+
+    -- Make null-ls aware of the tools you installed using mason.nvimand
+    -- and configure them automatically.
+
+    local mason_null_ok, mason_null = pcall(require, 'mason-null-ls')
+    local null_ok, null_ls = pcall(require, 'null-ls')
+    if null_ok and mason_null_ok then
+        mason_null.setup({
+            ensure_installed = {
+                -- Opt to list sources here, when available in mason.
+            },
+            automatic_installation = false,
+            handlers = {},
+        })
+        null_ls.setup({
+            sources = {
+                -- Anything not supported by mason.
+            }
+        })
+    end
 end
