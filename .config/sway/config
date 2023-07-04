@@ -168,8 +168,14 @@
 #
 # Layout stuff:
 #
-    # Hide container borders adjacent to screen edges when only one window is visible.
-    hide_edge_borders smart
+    # Set title bar border to 1px thick
+    titlebar_border_thickness 1
+    # Set title bar padding (both horizontal and vertical) to 1px
+    titlebar_padding 1
+
+    # Window borders adjacent to screen edges will only be enabled if the
+    # workspace has more than one visible child and gaps equal to zero
+    hide_edge_borders smart_no_gaps
     # Default workspace layout
     workspace_layout tabbed
 

@@ -4,7 +4,7 @@
     "spacing": 0, // Gaps between modules (4px)
 
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/scratchpad"],
+    "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "clock", "tray"],
 
     // Modules configuration
@@ -20,6 +20,10 @@
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/window": {
+        "tooltip": false
     },
 
     "idle_inhibitor": {
