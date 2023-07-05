@@ -5,6 +5,7 @@
 
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/window"],
+    "modules-center": ["wlr/taskbar"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "clock", "tray"],
 
     // Modules configuration
@@ -24,6 +25,13 @@
 
     "sway/window": {
         "tooltip": false
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
     },
 
     "idle_inhibitor": {

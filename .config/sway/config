@@ -32,7 +32,11 @@
 #    font pango:monospace 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-    font pango:Noto Sans Mono 11
+    font pango:Noto Sans Mono 8
+
+    # Ugly hack to get rid of title bars
+    #font pango:Noto Sans Mono 0
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
     output * bg /usr/share/backgrounds/default.png fill
@@ -86,6 +90,9 @@
 
     # Close current notification
     bindsym $mod+Shift+p exec $powermenu
+
+    # Display a notification for apps that set urgent on themselves
+    for_window [urgent=latest] exec notify-send --app-name=$(swaymsg -t get_tree | jq --raw-output '.. | select(.app_id?) | select(.urgent?) | .app_id, .name')
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

@@ -27,7 +27,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 0;
     background-color: transparent;
     color: #ffffff; /* white */
 }
@@ -43,6 +43,19 @@ button:hover {
 
 #workspaces button.urgent {
     background-color: #eb4d4b; /* red */
+}
+
+#taskbar button {
+    padding: 0 4px;
+}
+
+#taskbar button.active {
+    background-color: #64727D; /* bluish-gray */
+}
+
+#window {
+    padding: 0 4px;
+    border-left: 1px double #ffffff; /* white */
 }
 
 #clock,
@@ -61,13 +74,14 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 10px;
+    padding: 0 4px;
+    border-left: 1px double #ffffff; /* white */
     color: #ffffff; /* white */
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
