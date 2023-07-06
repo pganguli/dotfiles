@@ -52,17 +52,17 @@
 
     "network": {
         "interval": 30,
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "! {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{essid}: {ipaddr}/{cidr}"
     },
 
     "disk": {
         "interval": 30,
-        "format": "{free} free",
+        "format": " {free}",
         "path": "/"
     },
 
