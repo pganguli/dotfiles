@@ -43,10 +43,10 @@
     },
 
     "pulseaudio": {
-        "format": " {volume:2d}% | {format_source}",
-        "format-muted": " {volume:2d}% | {format_source}",
-        "format-source": " {volume:2d}%",
-        "format-source-muted": " {volume:2d}%",
+        "format": " {volume}% | {format_source}",
+        "format-muted": " {volume}% | {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " {volume}%",
         "on-click": "pavucontrol"
     },
 
@@ -71,14 +71,14 @@
     },
 
     "cpu": {
-        "format": " {usage:2d}%",
+        "format": " {usage}%",
     },
 
     "temperature": {
         "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        "format": "{icon} {temperatureC:2d}°C",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
 
@@ -89,8 +89,8 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity:2d}%",
-        "format-charging": " {capacity:2d}%",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },

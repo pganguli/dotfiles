@@ -73,7 +73,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 4px;
+    padding: 0 8px;
     color: white;
 }
 
