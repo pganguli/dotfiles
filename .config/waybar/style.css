@@ -54,7 +54,7 @@ button:hover {
 
 #window {
     padding: 0 4px;
-    border-left: 1px double white;
+    border-left: 1px dashed gray;
 }
 
 #clock,
@@ -89,7 +89,7 @@ button:hover {
 #custom-media,
 #tray,
 #mpd {
-    border-left: 1px double;
+    border-left: 1px dashed gray;
 }
 
 #window,
