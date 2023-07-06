@@ -1,12 +1,12 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (0px)
 
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/window"],
-    "modules-center": ["wlr/taskbar"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "tray"],
 
     // Modules configuration
 
@@ -96,9 +96,19 @@
     },
 
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %d %b W%V %H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%a %d %b %Y | %R}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode"          : "month",
+            "weeks-pos"     : "left",
+            "format": {
+                "months":     "<big>{}</big>",
+                "weekdays":   "{}",
+                "weeks":      "W{}",
+                "days":       "{}",
+                "today":      "<span color='crimson'>{}</span>"
+            }
+        },
     },
 
     "tray": {
