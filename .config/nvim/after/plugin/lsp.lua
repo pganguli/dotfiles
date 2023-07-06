@@ -85,9 +85,6 @@ if lsp_ok then
             handlers = {},
         })
         null_ls.setup({
-            on_init = function(new_client, _)
-                new_client.offset_encoding = 'utf-8'
-            end,
             sources = {
                 -- Anything not supported by mason.
             }

@@ -24,6 +24,10 @@
     set $powermenu $rofi_cmd -show p -modi p:"$HOME/.config/rofi/rofi-power-menu --confirm '' --choices poweroff/reboot/suspend/hibernate"
 # Command to close current notification
     set $notif_close_cmd dunstctl close
+# Command to view past notification
+    set $notif_history_cmd dunstctl history-pop
+# Command to notify app name and title for urgent windows
+    set $notif_urgent_cmd dunstify --appname=$(swaymsg -t get_tree | jq --raw-output '.. | select(.app_id?) | select(.urgent?) | .app_id, .name')
 
 ### Output configuration
 #
@@ -87,12 +91,14 @@
 
     # Close current notification
     bindsym $mod+BackSpace exec $notif_close_cmd
+    # View past notification
+    bindsym $mod+Shift+BackSpace exec $notif_history_cmd
 
     # Close current notification
     bindsym $mod+Shift+p exec $powermenu
 
     # Display a notification for apps that set urgent on themselves
-    for_window [urgent=latest] exec notify-send --app-name=$(swaymsg -t get_tree | jq --raw-output '.. | select(.app_id?) | select(.urgent?) | .app_id, .name')
+    for_window [urgent=latest] exec $notif_urgent_cmd
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
