@@ -38,52 +38,19 @@ if [[ -x /usr/bin/id ]] ; then
     [[ $LOGNAME == LOGIN ]] && LOGNAME=$(/usr/bin/id -un)
 fi
 
-# workaround for live-cd mode as $HOME is not set via rungetty
-if [[ -f /etc/grml_cd ]] ; then
-    if (( EUID == 0 )); then
-        export HOME=/root
-    else
-        export HOME=/home/$USER
-    fi
-fi
-
 ## set $PATH
 # gentoo users have to source /etc/profile.env
 if [[ -r /etc/gentoo-release ]] ; then
     [[ -r /etc/profile.env ]] && source /etc/profile.env
 fi
 
-# support extra scripts/software in special directory outside of squashfs environment in live mode
-if [[ -f /etc/grml_cd ]] ; then
-  [[ -r /run/live/medium/scripts ]] && ADDONS='/run/live/medium/scripts'
-  [[ -r /etc/grml/my_path ]] && ADDONS="$(cat /etc/grml/my_path)"
-fi
-
-# Solaris
-case $(uname 2>/dev/null) in
-  SunOS)
-    path=(
-      /usr/bin
-      /usr/sbin
-      /usr/ccs/bin
-      /opt/SUNWspro/bin
-      /usr/ucb
-      /usr/sfw/bin
-      /usr/gnu/bin
-      /usr/openwin/bin
-      /opt/csw/bin
-      /sbin
-      ~/bin
-    )
-esac
-
 # Other PATH variables
-export PYTHONPATH="$HOME/.local/lib/python"
 export GOPATH="$HOME/.go"
 
 # generic $PATH handling
 if (( EUID != 0 )); then
   path=(
+    "${path[@]}"
     $HOME/bin
     $HOME/.local/bin
     $HOME/.cargo/bin
@@ -97,10 +64,10 @@ if (( EUID != 0 )); then
     /usr/local/games
     /usr/games
     "${ADDONS}"
-    "${path[@]}"
   )
 else
   path=(
+    "${path[@]}"
     $HOME/bin
     /usr/local/sbin
     /usr/local/bin
@@ -109,7 +76,6 @@ else
     /usr/sbin
     /usr/bin
     "${ADDONS}"
-    "${path[@]}"
   )
 fi
 
