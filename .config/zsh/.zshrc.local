@@ -45,10 +45,25 @@ fi
 # Pure Prompt: https://github.com/sindresorhus/pure
 if [ -e "$ZDOTDIR/pure" ]; then
     fpath+="$ZDOTDIR/pure"
+
     PURE_PROMPT_SYMBOL='$'
     PURE_PROMPT_VICMD_SYMBOL=':'
+
+    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
+    PURE_PROMPT_SYMBOL='⬢ $'
+    PURE_PROMPT_VICMD_SYMBOL='⬢ :'
+    fi
+
     PURE_CMD_MAX_EXEC_TIME=1
     zstyle :prompt:pure:prompt:success color green
+    zstyle :prompt:pure:git:stash show yes
+
+    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
+    PURE_PROMPT_SYMBOL='⬢ $'
+    PURE_PROMPT_VICMD_SYMBOL='⬢ :'
+    zstyle :prompt:pure:prompt:success color magenta
+    fi
+
     autoload -U promptinit; promptinit
     prompt pure
 fi
@@ -64,6 +79,9 @@ fi
 # Fedora: https://fedoraproject.org/wiki/Features/PackageKitCommandNotFound
 COMMAND_NOT_FOUND=1
 GRML_ZSH_CNF_HANDLER=/usr/libexec/pk-command-not-found
+
+# direnv hook
+eval "$(direnv hook zsh)"
 
 ## ZLE tweaks ##
 
