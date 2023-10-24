@@ -5,8 +5,8 @@
 
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "tray"],
+    //"modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "clock", "tray"],
 
     // Modules configuration
 
