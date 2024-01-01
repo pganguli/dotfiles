@@ -4,6 +4,6 @@ set -euo pipefail
 
 grimshot save area - |           # screenshot a rectangular selection of the visible area
 mogrify -resize 400% PNG:- |     # resize screenshot to 4 times its dimensions, and output as a PNG
-tesseract - - txt quiet -l eng | # OCR PNG on stdin as English text and output text on stdout
+tesseract -l eng - - txt quiet | # OCR PNG on stdin as English text and output text on stdout
 iconv -t ASCII//TRANSLIT -c |    # transliterate stdin to ASCII-only text, dropping characters that cannot be converted
 wl-copy                          # copy stdin to wayland clipboard
