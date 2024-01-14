@@ -1,4 +1,8 @@
 #config {CONNECT RETRY} {1.0}
 #config {COMMAND COLOR} {\e[0;90m}
 #macro {\cs} {#buffer write tt_buffer.txt}
+#macro {\e[1;5A} {n}
+#macro {\e[1;5B} {s}
+#macro {\e[1;5C} {e}
+#macro {\e[1;5D} {w}
 #split
