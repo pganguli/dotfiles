@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
 systemctl --user restart pipewire.service && \
-systemctl --user restart xdg-desktop-portal.service && \
 systemctl --user restart xdg-desktop-portal-gtk.service && \
-systemctl --user restart xdg-desktop-portal-wlr.service
+systemctl --user restart xdg-desktop-portal-wlr.service && \
+systemctl --user restart xdg-desktop-portal.service
 
 if pidof easyeffects > /dev/null; then
   pkill easyeffects
