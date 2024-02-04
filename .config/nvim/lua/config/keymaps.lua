@@ -1,0 +1,14 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+-- create new windows as vertical splits
+vim.keymap.set("n", "<C-w>n", vim.cmd.vnew)
+vim.keymap.set("n", "<C-w><C-n>", vim.cmd.vnew)
+
+-- goto previous / next buffer
+vim.keymap.set("n", "<M-Left>", vim.cmd.bprevious)
+vim.keymap.set("n", "<M-Right>", vim.cmd.bnext)
+
+-- replace visual selection while preserving registers
+vim.keymap.set("x", "<leader>p", '"_dp')

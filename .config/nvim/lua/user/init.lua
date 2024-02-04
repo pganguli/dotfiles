@@ -1,5 +1,0 @@
-require('user.global')
-require('user.packer')
-require('user.option')
-require('user.keymap')
-require('user.command')
