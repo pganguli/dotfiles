@@ -195,7 +195,7 @@ command! cmp : if expand('%%c') == expand('%%f')
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
 
 " Text
-filextype {*.txt},<text/plain> vim %f
+filextype {*.txt} vim %f
 
 " Pdf
 filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
@@ -397,8 +397,10 @@ filetype *.ftp
 
 " Fuse7z and 7z archives
 filetype {*.7z},<application/x-7z-compressed>
-       \ {Mount with fuse-7z}
-       \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR,
+       \ {Mount with archivemount}
+       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
+       "\ {Mount with fuse-7z}
+       "\ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR,
 fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
 
 " Office files
