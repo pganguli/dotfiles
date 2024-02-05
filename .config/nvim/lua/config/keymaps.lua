@@ -12,3 +12,6 @@ vim.keymap.set("n", "<M-Right>", vim.cmd.bnext)
 
 -- replace visual selection while preserving registers
 vim.keymap.set("x", "<leader>p", '"_dp')
+
+-- correct previous spelling mistake in insert mode
+vim.keymap.set("i", "<C-l>", '<C-g>u<Esc>[s1z=`]a<C-g>u')

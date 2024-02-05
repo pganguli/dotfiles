@@ -16,6 +16,7 @@ vim.opt.listchars = { -- Strings to show in 'list' mode
 }
 vim.opt.matchpairs:append("<:>") -- Consider <> to be a matchpair
 vim.opt.showcmdloc = "statusline" -- Display (partially) entered command in status line
+vim.opt.spelllang = "en_us" -- Set language for spellcheck
 vim.opt.title = true -- Set window title to filename
 
 --
