@@ -1,0 +1,2 @@
+set history filename ~/.config/gdb/.gdb_history
+set history save on
