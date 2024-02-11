@@ -17,6 +17,7 @@ vim.opt.listchars = { -- Strings to show in 'list' mode
 vim.opt.matchpairs:append("<:>") -- Consider <> to be a matchpair
 vim.opt.showcmdloc = "statusline" -- Display (partially) entered command in status line
 vim.opt.spelllang = "en_us" -- Set language for spellcheck
+vim.opt.statusline = '%<%f %m%r%=%S [%{&fileencoding} %{&fileformat} %{&filetype}] %02B  %#FoldColumn#%-9.(%l:%v%) %P %L%*'
 vim.opt.title = true -- Set window title to filename
 
 --
@@ -32,6 +33,6 @@ vim.api.nvim_create_user_command("Rtrail", "%s/\\s\\+$//g", {})
 -- Write file with sudo
 vim.api.nvim_create_user_command(
   "Sudow",
-  "set buftype=nowrite | write !SUDO_ASKPASS='/usr/libexec/openssh/lxqt-openssh-askpass' sudo --askpass tee % &> /dev/null",
+  "set buftype=nowrite | silent! write !SUDO_ASKPASS='/usr/libexec/openssh/lxqt-openssh-askpass' sudo --askpass tee % &> /dev/null",
   {}
 )

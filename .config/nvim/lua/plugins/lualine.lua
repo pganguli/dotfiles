@@ -2,6 +2,7 @@ return {
   -- return new options to override all the defaults
   {
     "nvim-lualine/lualine.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = function()
       vim.o.laststatus = vim.g.lualine_laststatus
