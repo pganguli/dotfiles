@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- turn off search highlighting
+vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch)
+
 -- create new windows as vertical splits
 vim.keymap.set("n", "<C-w>n", vim.cmd.vnew)
 vim.keymap.set("n", "<C-w><C-n>", vim.cmd.vnew)
