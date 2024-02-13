@@ -11,11 +11,12 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "pganguli/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
+    { import = "lazyvim.plugins.extras.editor.symbols-outline" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     -- import/override with your plugins
     { import = "plugins" },
@@ -29,8 +30,9 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "moonfly" } },
+  news = { lazyvim = false }, -- When enabled, NEWS.md will be shown when changed.
   checker = { enabled = false }, -- automatically check for plugin updates
+  change_detection = { enabled = false }, -- automatically check for config file changes and reload the ui
   performance = {
     rtp = {
       -- disable some rtp plugins

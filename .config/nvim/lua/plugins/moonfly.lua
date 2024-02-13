@@ -13,5 +13,8 @@ return {
     opts = {
       colorscheme = "moonfly",
     },
+    install = {
+      colorscheme = { "moonfly" },
+    },
   },
 }
