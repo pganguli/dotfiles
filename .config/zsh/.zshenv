@@ -97,6 +97,9 @@ unset lp
 # use NeoVim as man pager
 export MANPAGER="nvim -c Man!"
 
+# Use a default width of 80 for manpages for more convenient reading
+export MANWIDTH=${MANWIDTH:-80}
+
 export READNULLCMD=${PAGER:-/usr/bin/pager}
 
 # allow zeroconf for distcc

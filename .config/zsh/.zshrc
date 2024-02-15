@@ -338,7 +338,7 @@ function zrcautoload () {
     return 0
 }
 
-# The following is the â€˜add-zsh-hookâ€™ function from zsh upstream. It is
+# The following is the ‘add-zsh-hook’ function from zsh upstream. It is
 # included here to make the setup work with older versions of zsh (prior to
 # 4.3.7) in which this function had a bug that triggers annoying errors during
 # shell startup. This is exactly upstreams code from f0068edb4888a4d8fe94def,
@@ -1381,7 +1381,6 @@ zle -N help-zle
 ## complete word from currently visible Screen or Tmux buffer.
 if check_com -c screen || check_com -c tmux; then
     function _complete_screen_display () {
-        [[ "$TERM" != "screen" ]] && return 1
 
         local TMPFILE=$(mktemp)
         local -U -a _screen_display_wordlist
@@ -1392,8 +1391,9 @@ if check_com -c screen || check_com -c tmux; then
             #works, but crashes tmux below version 1.4
             #luckily tmux -V option to ask for version, was also added in 1.4
             tmux -V &>/dev/null || return
-            tmux -q capture-pane \; save-buffer -b 0 $TMPFILE \; delete-buffer -b 0
+            tmux -q capture-pane -b 0 \; save-buffer -b 0 $TMPFILE \; delete-buffer -b 0
         else
+            [[ "$TERM" != "screen" ]] && return
             screen -X hardcopy $TMPFILE
             # screen sucks, it dumps in latin1, apparently always. so recode it
             # to system charset
@@ -1582,7 +1582,7 @@ bind2maps emacs viins       -- -s '^x1' jump_after_first_word
 bind2maps emacs viins       -- -s "^x^x" hist-complete
 
 # insert unicode character
-# usage example: 'ctrl-x i' 00A7 'ctrl-x i' will give you an Â§
+# usage example: 'ctrl-x i' 00A7 'ctrl-x i' will give you an §
 # See for example http://unicode.org/charts/ for unicode characters code
 #k# Insert Unicode character
 bind2maps emacs viins       -- -s '^xi' insert-unicode-char
@@ -2160,7 +2160,7 @@ function grml_prompt_setup () {
     emulate -L zsh
     autoload -Uz vcs_info
     # The following autoload is disabled for now, since this setup includes a
-    # static version of the â€˜add-zsh-hookâ€™ function above. It needs to be
+    # static version of the ‘add-zsh-hook’ function above. It needs to be
     # re-enabled as soon as that static definition is removed again.
     #autoload -Uz add-zsh-hook
     add-zsh-hook precmd prompt_$1_precmd
@@ -2624,7 +2624,7 @@ function grml_control_xterm_title () {
 }
 
 # The following autoload is disabled for now, since this setup includes a
-# static version of the â€˜add-zsh-hookâ€™ function above. It needs to be
+# static version of the ‘add-zsh-hook’ function above. It needs to be
 # re-enabled as soon as that static definition is removed again.
 #zrcautoload add-zsh-hook || add-zsh-hook () { :; }
 if [[ $NOPRECMD -eq 0 ]]; then
@@ -3955,4 +3955,3 @@ unfunction grml_status_feature
 # Local variables:
 # mode: sh
 # End:
-
