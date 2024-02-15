@@ -62,7 +62,5 @@
 	ui = auto
 [init]
 	defaultBranch = master
-[includeIf "gitdir:~/21f1004044/"]
-	path = ~/.config/git/21f1004044/config
 
 # vim:noet
