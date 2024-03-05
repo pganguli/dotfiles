@@ -45,15 +45,14 @@
 [pull]
 	ff = only
 [diff]
-	tool = vimdiff
-[difftool "vimdiff"]
-	cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+	algorithm = histogram
 [merge]
-	tool = vimdiff
-[mergetool "vimdiff"]
-	cmd = "vim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+	tool = nvimdiff2
+	conflitcstyle = zdiff3
 [mergetool]
 	keepBackup = false
+[rerere]
+	enabled = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@salsa.debian.org:"]

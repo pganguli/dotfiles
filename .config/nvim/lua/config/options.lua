@@ -15,6 +15,7 @@ vim.opt.listchars = { -- Strings to show in 'list' mode
   nbsp = "⍽", -- Character to show for a non-breakable space character
 }
 vim.opt.matchpairs:append("<:>") -- Consider <> to be a matchpair
+vim.opt.relativenumber = false -- Do not use relative line numbering
 vim.opt.showcmdloc = "statusline" -- Display (partially) entered command in status line
 vim.opt.spelllang = "en_us" -- Set language for spellcheck
 vim.opt.statusline = '%<%f %m%r%=%S [%{&fileencoding} %{&fileformat} %{&filetype}] %02B  %#FoldColumn#%-9.(%l:%v%) %P %L%*'
