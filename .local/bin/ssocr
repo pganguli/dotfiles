@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -euo pipefail
+set -o errexit -o nounset -o pipefail
 
-grimshot save area - |           # screenshot a rectangular selection of the visible area
-mogrify -resize 400% PNG:- |     # resize screenshot to 4 times its dimensions, and output as a PNG
-tesseract -l eng - - txt quiet | # OCR PNG on stdin as English text and output text on stdout
-iconv -t ASCII//TRANSLIT -c |    # transliterate stdin to ASCII-only text, dropping characters that cannot be converted
-wl-copy                          # copy stdin to wayland clipboard
+grimshot save area - |                       # screenshot a rectangular selection of the visible area
+mogrify -modulate 100,0 -resize 400% PNG:- | # convert to grayscale and resize screenshot to 4 times its dimensions, and output as a PNG
+tesseract -l eng - - txt quiet |             # OCR PNG on stdin as English text and output text on stdout
+iconv -t ASCII//TRANSLIT -c |                # transliterate stdin to ASCII-only text, dropping characters that cannot be converted
+wl-copy                                      # copy stdin to wayland clipboard
