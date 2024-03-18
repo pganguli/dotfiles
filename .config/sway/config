@@ -255,6 +255,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#
+# Color Settings
+#
+# class                  border  bground text    indicator child_border
+client.focused           #A7C080 #A7C080 #2D353B #A7C080   #A7C080
+client.focused_inactive  #3D484D #2D353B #859289 #3D484D   #3D484D
+client.unfocused         #3D484D #2D353B #859289 #3D484D   #3D484D
+client.urgent            #E67E80 #E67E80 #2D353B #E67E80   #E67E80
+
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
 #  - /etc/sway/config.d

@@ -8,7 +8,7 @@ return {
     priority = 1000,
     config = {
       -- Controls the "hardness" of the background.
-      background = "hard", -- Options are "soft", "medium" or "hard".
+      background = "medium", -- Options are "soft", "medium" or "hard".
       -- The contrast of line numbers, indent lines, etc.
       ui_contrast = "high", -- Options are `"high"` or `"low"`.
     },
