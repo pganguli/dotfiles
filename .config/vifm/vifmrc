@@ -104,7 +104,7 @@ set viewcolumns=-{name},{mtime},8{size}
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " List of color schemes to try (picks the first one supported by the terminal)
-colorscheme Default-256 Default
+colorscheme solarized-dark Default-256 Default
 
 " ------------------------------------------------------------------------------
 " Bookmarks
