@@ -3,10 +3,10 @@
 -- Add any additional options here
 
 vim.g.autoformat = false -- Do not autoformat files
-
 vim.opt.autochdir = true -- Always cd to path of current file
 vim.opt.cmdheight = 0 -- Hide command-line unless it is being used
 vim.opt.incsearch = true -- highlight matches as you type
+vim.opt.linespace = -1 -- Reduce space between lines in GUI by 1px
 vim.opt.listchars = { -- Strings to show in 'list' mode
   tab = "› ", -- Character to show for tabs: The '›' is always used, then ' ' as many times as will fit
   trail = "␣", -- Character to show for trailing spaces

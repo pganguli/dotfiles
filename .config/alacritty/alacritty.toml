@@ -76,7 +76,7 @@ y = 0
 style = "Italic"
 
 [font.normal]
-family = "Hack Nerd Font Mono"
+family = "IosevkaFixed Nerd Font"
 style = "Regular"
 
 [font.offset]

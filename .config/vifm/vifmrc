@@ -9,20 +9,15 @@
 " Main settings
 " ------------------------------------------------------------------------------
 
-" Command used to edit files in various contexts.  The default is vim.
-" If you would like to use another vi clone such as Elvis or Vile
-" you will need to change this setting.
-if executable('vim')
-    set vicmd=vim
-elseif executable('nvim')
-    set vicmd=nvim
-elseif executable('elvis')
-    set vicmd=elvis\ -G\ termcap
-elseif executable('vile')
-    set vicmd=vile
-elseif $EDITOR != ''
-    echo 'Note: using `'.$EDITOR.'` as an editor'
-    let &vicmd = $EDITOR
+" Command used to edit files in various contexts.
+if $DISPLAY
+    if executable($VISUAL)
+        let &vicmd=$VISUAL
+    endif
+elseif executable($EDITOR)
+    let &vicmd=$EDITOR
+else
+    set vicmd=vi
 endif
 
 " This makes vifm perform file operations on its own instead of relying on
@@ -194,9 +189,6 @@ command! cmp : if expand('%%c') == expand('%%f')
 "
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
-
-" Text
-filextype {*.txt} vim %f
 
 " Pdf
 filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
@@ -491,10 +483,8 @@ if $DISPLAY
         " Open file in new instance of nvim-qt
         nnoremap o :!nvim-qt %f<cr>
     elseif executable('gvim')
-        " Open file in existing instance of gvim
-        nnoremap o :!gvim --remote-tab-silent %f<cr>
         " Open file in new instance of gvim
-        nnoremap O :!gvim %f<cr>
+        nnoremap o :!gvim %f<cr>
     endif
 endif
 
@@ -542,20 +532,8 @@ nnoremap A cw
 " nnoremap cc cW<c-u>
 " nnoremap A cW
 
-" Open console in current directory
-if $DISPLAY && executable('xterm')
-    nnoremap ,t :!xterm &<cr>
-elseif $TERMINAL
-    nnoremap ,t :!$TERMINAL &<cr>
-endif
-
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
-
-" Open gvim to edit vifmrc
-if $DISPLAY && executable('gvim')
-    nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
-endif
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
