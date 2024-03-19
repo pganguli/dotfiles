@@ -258,11 +258,17 @@ bindsym $mod+r mode "resize"
 #
 # Color Settings
 #
-# class                  border  bground text    indicator child_border
-client.focused           #A7C080 #A7C080 #2D353B #A7C080   #A7C080
-client.focused_inactive  #3D484D #2D353B #859289 #3D484D   #3D484D
-client.unfocused         #3D484D #2D353B #859289 #3D484D   #3D484D
-client.urgent            #E67E80 #E67E80 #2D353B #E67E80   #E67E80
+set $OldLace #FDF5E6
+set $DarkSlateGray #2F4F4F
+set $DimGray #696969
+set $WhiteSmoke #F5F5F5
+set $PaleVioletRed #DB7093
+# class                  border         bground        text           indicator      child_border
+client.focused           $OldLace       $OldLace       $DarkSlateGray $OldLace       $OldLace
+client.focused_inactive  $DimGray       $DimGray       $WhiteSmoke    $DimGray       $DimGray
+client.focused_tab_title $OldLace       $OldLace       $DarkSlateGray
+client.unfocused         $DimGray       $DimGray       $WhiteSmoke    $DimGray       $DimGray
+client.urgent            $PaleVioletRed $PaleVioletRed $DarkSlateGray $PaleVioletRed $PaleVioletRed
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d

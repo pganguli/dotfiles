@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-    background-color: #2D353B;
-    color: #A7C080;
+    background-color: OldLace;
+    color: DarkSlateGray;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -22,13 +22,13 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #A7C080;
+    box-shadow: inset 0 -3px DarkSlateGray;
 }
 
 #workspaces button {
     padding: 0 0;
     background-color: transparent;
-    color: #A7C080;
+    color: DarkSlateGray;
 }
 
 #workspaces button:hover {
@@ -36,12 +36,12 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #859289;
-    box-shadow: inset 0 -3px #A7C080;
+    background-color: Silver;
+    box-shadow: inset 0 -3px DarkSlateGray;
 }
 
 #workspaces button.urgent {
-    background-color: #E67E80;
+    background-color: PaleVioletRed;
 }
 
 #taskbar button {
@@ -49,12 +49,12 @@ button:hover {
 }
 
 #taskbar button.active {
-    background-color: #859289;
+    background-color: Silver;
 }
 
 #window {
     padding: 0 4px;
-    border-left: 1px dashed #859289;
+    border-left: 1px dashed Silver;
 }
 
 #clock,
@@ -74,7 +74,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 8px;
-    color: #A7C080;
+    color: DarkSlateGray;
 }
 
 #clock,
@@ -90,7 +90,7 @@ button:hover {
 #custom-media,
 #tray,
 #mpd {
-    border-left: 1px dashed #859289;
+    border-left: 1px dashed Silver;
 }
 
 #window,
@@ -110,13 +110,13 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: #A7C080;
-        color: #2D353B;
+        background-color: DarkSlateGray;
+        color: OldLace;
     }
 }
 
 #battery.critical:not(.charging) {
-    color: #E67E80;
+    color: PaleVioletRed;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -125,23 +125,23 @@ button:hover {
 }
 
 label:focus {
-    background-color: #2D353B;
+    background-color: OldLace;
 }
 
 #network.disconnected {
-    color: #859289;
+    color: Silver;
 }
 
 #pulseaudio.muted {
-    color: #859289;
+    color: Silver;
 }
 
 #wireplumber.muted {
-    color: #859289;
+    color: Silver;
 }
 
 #temperature.critical {
-    color: #E67E80;
+    color: PaleVioletRed;
 }
 
 #tray > .passive {
@@ -153,9 +153,9 @@ label:focus {
 }
 
 #idle_inhibitor {
-    color: #859289;
+    color: Silver;
 }
 
 #idle_inhibitor.activated {
-    color: #A7C080;
+    color: DarkSlateGray;
 }
