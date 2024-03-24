@@ -12,6 +12,7 @@
 # Your preferred terminal emulator
 # Recommends: foot
     set $term alacritty
+    set $term_cmd alacritty msg create-window || alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -82,7 +83,7 @@
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec $term_cmd
 
     # Kill focused window
     bindsym $mod+Shift+q kill

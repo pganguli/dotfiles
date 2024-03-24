@@ -49,15 +49,12 @@ enabled = true
 mods = "None"
 
 [scrolling]
-history = 0
+history = 100000
 multiplier = 3
 
 [selection]
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
-
-[shell]
-program = "tmux"
 
 [window]
 decorations = "none"
