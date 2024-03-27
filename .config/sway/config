@@ -12,7 +12,8 @@
 # Your preferred terminal emulator
 # Recommends: foot
     set $term alacritty
-    set $term_cmd alacritty msg create-window || alacritty
+    #set $term_cmd alacritty msg create-window || alacritty
+    set $term_cmd alacritty --command tmux
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
