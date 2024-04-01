@@ -1,18 +1,16 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "spacing": 0, // Gaps between modules (0px)
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
 
-    // Choose the order of the modules
+
     "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/window"],
-    //"modules-center": ["clock"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "battery", "clock", "tray"],
 
-    // Modules configuration
 
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": true
     },
 
     "sway/scratchpad": {
@@ -31,7 +29,7 @@
         "format": "{icon}",
         "icon-size": 14,
         "tooltip-format": "{title}",
-        "on-click": "activate",
+        "on-click": "activate"
     },
 
     "idle_inhibitor": {
@@ -71,7 +69,7 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%"
     },
 
     "temperature": {
@@ -108,7 +106,7 @@
                 "days":       "{}",
                 "today":      "<span color='crimson'>{}</span>"
             }
-        },
+        }
     },
 
     "tray": {
@@ -116,4 +114,3 @@
         "spacing": 10
     }
 }
-
