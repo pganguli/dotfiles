@@ -1,0 +1,47 @@
+[[keyboard.bindings]]
+mods = "Shift"
+key = "Insert"
+action = "ReceiveChar"
+
+[[keyboard.bindings]]
+mods = "Shift|Control"
+key = "Space"
+mode = "~Search"
+action = "ReceiveChar"
+
+[[keyboard.bindings]]
+mods = "Control"
+key = "L"
+action = "ReceiveChar"
+
+[[keyboard.bindings]]
+mods = "Control"
+key = "L"
+mode = "~Vi|~Search"
+action = "ReceiveChar"
+
+[[keyboard.bindings]]
+mods = "Control|Shift"
+key = "F"
+mode = "~Search"
+action = "ReceiveChar"
+
+[[keyboard.bindings]]
+mods = "Control|Shift"
+key = "B"
+mode = "~Search"
+action = "ReceiveChar"
+
+[[mouse.bindings]]
+mouse = "Right"
+action = "ReceiveChar"
+
+[[mouse.bindings]]
+mods = "Control"
+mouse = "Right"
+action = "ReceiveChar"
+
+[[mouse.bindings]]
+mouse = "Middle"
+mode = "~Vi"
+action = "ReceiveChar"

@@ -5,35 +5,35 @@
 [core]
 	editor = nvim
 [alias]
-	co = checkout
-	ci = commit
+	ap = add --patch
 	br = branch
 	bm = branch --move --force
+	brh = "!f() { git branch --force \"$1\" HEAD; }; f"
+	co = checkout
 	cb = checkout -b
-	st = status
-	unstage = reset HEAD --
 	re = checkout --
-	ll = log -1 HEAD
-	lo = log --oneline
+	discard = !echo -n 'Remove all untracked files? [y/N]: ' && read 'x' && [ $x = 'y' ] && git checkout --force && git clean -d --interactive
+	ci = commit
+	cia = commit --amend
 	di = diff
 	dl = diff HEAD~1
-	rao = remote add origin
+	ds = diff --staged
 	lg = log --graph
-	rsuo = remote set-url origin
-	sc = switch --create
-	sw = switch
-	discard = !echo -n 'Remove all untracked files? [y/N]: ' && read 'x' && [ $x = 'y' ] && git checkout --force && git clean -d --interactive
+	ll = log -1 HEAD
+	lo = log --oneline
 	lp = log --patch
-	ri = rebase --interactive
-	cia = commit --amend
 	puo = push --set-upstream origin
+	rao = remote add origin
 	rau = remote add upstream
+	rsuo = remote set-url origin
+	ri = rebase --interactive
+	sw = switch
+	sc = switch --create
+	st = status
+	unstage = reset HEAD --
 	ignore = !git update-index --assume-unchanged
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v |grep ^[a-z]
-	brh = "!f() { git branch --force \"$1\" HEAD; }; f"
-	ds = diff --staged
-	ap = add --patch
 [commit]
 	gpgsign = true
 	verbose = true
