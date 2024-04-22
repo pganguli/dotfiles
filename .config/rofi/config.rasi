@@ -2,3 +2,4 @@ configuration {
 	show-icons: true;
 	combi-display-format: "{text}";
 }
+@theme "/usr/share/rofi/themes/dmenu.rasi"

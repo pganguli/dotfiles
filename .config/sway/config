@@ -49,9 +49,9 @@
 # You can get the names of your outputs by running: swaymsg -t get_outputs
     output eDP-1 mode 1920x1080@60Hz
     output HDMI-A-1 mode 1920x1080@60Hz
-# https://github.com/emersion/kanshi/issues/43#issuecomment-812485659
+# https://github.com/alebastr/sway-systemd/issues/10#issuecomment-1063278091
 # Requires: kanshi
-    exec_always "systemctl --user restart kanshi.service"
+    exec_always "systemctl --user try-reload-or-restart kanshi.service"
 
 ### Idle configuration
     set $screen_timeout 60
@@ -259,16 +259,6 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
-
-#
-# Color Settings
-#
-# class                 border    bground   text      indicator child_border
-client.focused          #dddddd   #ffffff   #000000   #ffffff   #dddddd
-client.focused_inactive #dddddd   #dddddd   #000000   #dddddd   #dddddd
-client.unfocused        #dddddd   #dddddd   #000000   #dddddd   #dddddd
-client.urgent           #dddddd   #ff0000   #000000   #ff0000   #dddddd
-client.placeholder      #dddddd   #ffffff   #000000   #ffffff   #dddddd
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d

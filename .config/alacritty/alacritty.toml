@@ -1,7 +1,6 @@
 live_config_reload = false
 
 import = [
-  "~/.config/alacritty/themes/everforest_light.toml",
   "~/.config/alacritty/bindings.toml",
 ]
 
