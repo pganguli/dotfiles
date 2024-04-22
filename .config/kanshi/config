@@ -1,0 +1,10 @@
+profile dual {
+  output eDP-1 disable
+  output "XXX AAA Unknown" enable
+  output "XXX AAA Unknown" mode 1366x768@60Hz position 0,0 scale 1
+}
+
+profile single {
+  output eDP-1 enable
+  output eDP-1 mode 1920x1080@60Hz position 0,0 scale 1
+}
