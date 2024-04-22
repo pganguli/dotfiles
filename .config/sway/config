@@ -39,9 +39,8 @@
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #    font pango:Noto Sans Mono 8
-
-    # Ugly hack to get rid of title bars
-    #font pango:Noto Sans Mono 0
+# Ugly hack to get rid of title bars
+#    font pango:Noto Sans Mono 0
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
