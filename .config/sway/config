@@ -23,7 +23,7 @@
 # executables from PATH.
     set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi -display-combi ''
 # Shows a list of shutdown related commands
-    set $powermenu $rofi_cmd -show p -modi p:"$HOME/.config/rofi/rofi-power-menu --confirm '' --choices 'poweroff/reboot/suspend/hibernate'"
+    set $powermenu $rofi_cmd -show p -modi p:"$HOME/.config/rofi/rofi-power-menu --confirm '' --choices 'shutdown/reboot/suspend/hibernate'"
 # Command to close current notification
     set $notif_close_cmd dunstctl close
 # Command to view past notification
