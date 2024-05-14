@@ -216,6 +216,10 @@ rmdempty() {
     fi
 }
 
+rsyncy() {
+  rsync --recursive --links --times --human-readable --human-readable --verbose --partial --progress --modify-window=1 "$@"
+}
+
 # Merge $2 into $1
 dirmerge() {
     jdupes --soft-abort --recurse --delete --no-prompt --param-order --isolate "$1" "$2"
