@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+
+import base64
+import getpass
+import hashlib
+import json
+import sys
+
+from Cryptodome.Cipher import AES
+from Cryptodome.Random import get_random_bytes
+
+
+def html_template(salt: bytes, nonce: bytes, ciphertext: bytes, iterations: int) -> str:
+    return (
+        """
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self'">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <noscript>
+      JavaScript is required!
+    </noscript>
+    <form action="javascript:;" style="display: none">
+      <label for="password">Password:</label>
+      <input type="password" name="password" autofocus>
+      <input type="submit" value="Download">
+    </form>
+    <script id="data" type="application/json">
+    %s
+    </script>
+    <script>
+      if (window.crypto && !window.crypto.subtle && window.crypto.webkitSubtle) {
+        window.crypto.subtle = window.crypto.webkitSubtle;
+      }
+      function base64ToArray(base64) {
+        return new Uint8Array(atob(base64).split("").map(function (c) { return c.charCodeAt(0); }));
+      }
+      function deriveKey(password, salt, iterations) {
+        let passwordBytes = new TextEncoder("utf-8").encode(password);
+        return window.crypto.subtle.importKey(
+            "raw",
+            passwordBytes,
+            { name: "PBKDF2" },
+            false,
+            ["deriveKey"],
+          )
+          .then(function (baseKey) {
+            return window.crypto.subtle.deriveKey(
+              {
+                name: "PBKDF2",
+                salt: salt,
+                iterations: iterations,
+                hash: { name: "SHA-256" },
+              },
+              baseKey,
+              { name: "AES-GCM", length: 256 },
+              false,
+              ["decrypt"],
+            );
+          });
+      }
+      function decrypt(key, iv, ciphertext) {
+        return window.crypto.subtle.decrypt(
+          {
+            name: "AES-GCM",
+            length: 256,
+            iv: iv,
+          },
+          key,
+          ciphertext,
+        );
+      }
+      function extractFileName(buffer) {
+        let bytes = new Uint8Array(buffer);
+        let slash_pos = Array.prototype.indexOf.call(bytes, "/".charCodeAt(0));
+        if (slash_pos == -1) {
+          throw "Decrypted data is corrupted";
+        } else {
+          let name = new TextDecoder("utf-8").decode(new Uint8Array(Array.prototype.slice.call(bytes, 0, slash_pos)));
+          let content = new Uint8Array(Array.prototype.slice.call(bytes, slash_pos + 1));
+          return {
+            name: name,
+            content: content
+          };
+        }
+      }
+      function download(file) {
+        let a = document.createElement("a");
+        a.style = "display: none";
+        document.body.appendChild(a);
+        let blob = new Blob([file.content]);
+        let url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = file.name;
+        a.click();
+        setTimeout(function () { window.URL.revokeObjectURL(url); }, 10000);
+      }
+      function runDecrypt() {
+        if (!window.crypto) {
+          alert(
+            "WebCrypto API unavailable.",
+          );
+        }
+        setTimeout(function () {
+          let data = JSON.parse(document.getElementById("data").textContent);
+          let salt = base64ToArray(data.salt);
+          let iv = base64ToArray(data.iv);
+          let ciphertext = base64ToArray(data.ciphertext);
+          let iterations = data.iterations;
+          let password = document.querySelector("input[type=password]").value;
+          deriveKey(password, salt, iterations)
+            .then(function (key) {
+              return decrypt(key, iv, ciphertext);
+            })
+            .catch(function () {
+              throw "Wrong password or corrupted file.";
+            })
+            .then(extractFileName)
+            .then(download)
+            .catch(function (e) {
+              alert("Error during decryption: " + e);
+            });
+          }, 0);
+      }
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        runDecrypt();
+      });
+      document.querySelector("form").style.display = "block";
+    </script>
+  </body>
+</html>
+    """.strip()
+        % json.dumps(
+            dict(
+                salt=base64.b64encode(salt).decode("utf-8"),
+                iv=base64.b64encode(nonce).decode("utf-8"),
+                ciphertext=base64.b64encode(ciphertext).decode("utf-8"),
+                iterations=iterations,
+            ),
+        )
+    )
+
+
+def create_html(
+    plaintext: bytes,
+    password: bytes,
+    iterations: int = 5 * 1000 * 1000,
+) -> str:
+    salt = get_random_bytes(32)
+    key = hashlib.pbkdf2_hmac(
+        hash_name="sha256", password=password, salt=salt, iterations=iterations
+    )
+    cipher = AES.new(key=key, mode=AES.MODE_GCM)
+    ciphertext, tag = cipher.encrypt_and_digest(plaintext=plaintext)
+    return html_template(salt, cipher.nonce, ciphertext + tag, iterations)
+
+
+def main():
+    if len(sys.argv) < 3:
+        print(f"{sys.argv[0]} <input-file> <output-html-file>")
+        sys.exit(1)
+
+    password = getpass.getpass("Password: ")
+    confirm = getpass.getpass("Confirm: ")
+
+    assert password == confirm, "Sorry, passwords do not match."
+
+    with open(sys.argv[1], "r") as plainfile:
+        plaintext = plainfile.read()
+        file_name = plainfile.name
+
+    with open(sys.argv[2], "wb") as htmlfile:
+        htmlfile.write(
+            create_html(
+                (file_name + "/" + plaintext).encode("utf-8"),
+                password.encode("utf-8"),
+            ).encode("utf-8"),
+        )
+
+
+if __name__ == "__main__":
+    main()

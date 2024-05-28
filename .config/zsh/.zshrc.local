@@ -131,7 +131,7 @@ is4 && setopt histignorealldups
 ## aliases ##
 
 alias tt++="tt++ -G -r ~/.tintin/config"
-alias yadm="git -C ~/.local/share/yadm/repo.git"
+alias yadm="git -C ~ --git-dir=.local/share/yadm/repo.git"
 
 ## miscellaneous code ##
 
