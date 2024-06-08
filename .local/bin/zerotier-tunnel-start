@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# https://docs.zerotier.com/exitnode/
+
+ZT_IF=ztk4jdxlg # ZeroTier interface
+WAN_IF=wlp0s20f3 # WAN interface
+
+# Enable IPv4 Forwarding
+sudo sysctl net.ipv4.ip_forward=1
+
+# Enable NAT and IP masquerading
+#sudo nft add rule ip nat POSTROUTING oifname $WAN_IF counter masquerade
+sudo iptables -t nat -A POSTROUTING -o $WAN_IF -j MASQUERADE
+
+# Allow traffic forwarding
+#sudo nft add rule ip filter FORWARD ct state related,established counter accept
+sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# Allow traffic forwarding from the ZeroTier interface to the WAN interface
+#sudo nft add rule ip filter FORWARD iifname $ZT_IF oifname $WAN_IF counter accept
+sudo iptables -A FORWARD -i $ZT_IF -o $WAN_IF -j ACCEPT

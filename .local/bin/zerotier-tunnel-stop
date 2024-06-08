@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# https://docs.zerotier.com/exitnode/
+
+ZT_IF=ztk4jdxlg # ZeroTier interface
+WAN_IF=wlp0s20f3 # WAN interface
+
+# Disable IPv4 Forwarding
+sudo sysctl net.ipv4.ip_forward=0
+
+# Disable NAT and IP masquerading
+sudo iptables -t nat -D POSTROUTING -o $WAN_IF -j MASQUERADE
+
+# Disable traffic forwarding
+sudo iptables -D FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# Disable traffic forwarding from the ZeroTier interface to the WAN interface
+sudo iptables -D FORWARD -i $ZT_IF -o $WAN_IF -j ACCEPT
