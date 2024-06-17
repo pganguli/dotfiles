@@ -250,6 +250,10 @@ lcheck() {
     fi
 }
 
+html-tree() {
+    tree -H '.' -L 1 --houtro "" --dirsfirst -T -s -D -T "$(basename $PWD)" --charset utf-8 --timefmt '%Y-%m-%d %H:%M:%S' -I "index.html" -o index.html
+}
+
 # Some quick Perl-hacks aka /useful/ oneliner
 getlinks()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
 gethrefs()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
