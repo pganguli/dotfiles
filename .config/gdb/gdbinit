@@ -1,2 +1,4 @@
 set history filename ~/.config/gdb/.gdb_history
 set history save on
+set debuginfod enabled on
+set auto-load safe-path /

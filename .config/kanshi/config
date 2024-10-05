@@ -1,4 +1,4 @@
 profile single {
   output eDP-1 disable
-  output "XXX AAA Unknown" mode 1366x768@60Hz position 0,0 scale 0.9
+  output "Dell Inc. DELL S2409W Y183D87V1M2U" position 0,0 scale 1
 }

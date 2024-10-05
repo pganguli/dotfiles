@@ -46,6 +46,7 @@ fi
 
 # Other PATH variables
 export GOPATH="$HOME/.go"
+export CARGOPATH="$HOME/.cargo"
 
 # generic $PATH handling
 if (( EUID != 0 )); then
@@ -53,7 +54,7 @@ if (( EUID != 0 )); then
     "${path[@]}"
     $HOME/bin
     $HOME/.local/bin
-    $HOME/.cargo/bin
+    $CARGOPATH/bin
     $GOPATH/bin
     /usr/local/bin
     /usr/bin
