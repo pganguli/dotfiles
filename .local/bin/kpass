@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+KEEPASSCLI="keepassxc-cli"
+DATABASE="${KEEPASS_DB:-$HOME/Passwords.kdbx}"
+EXTENSIONS="add analyze attachment-export attachment-import attachment-rm clip close db-create db-edit db-info diceware edit estimate export generate help import ls merge mkdir mv open rm rmdir search show"
+
+cmd_usage() {
+  "$KEEPASSCLI" help
+}
+
+cmd_list() {
+  "$KEEPASSCLI" ls "$DATABASE"
+}
+
+cmd_init() {
+  "$KEEPASSCLI" db-create -p "$@"
+}
+
+cmd_grep() {
+  "$KEEPASSCLI" search "$DATABASE" "$@"
+}
+
+cmd_extension() {
+  if [[ "$EXTENSIONS" = *"$1"* ]]; then
+		extension="$1"
+	else
+		return 1
+	fi
+	shift
+
+	"$KEEPASSCLI" "$extension" "$@"
+
+	return 0
+}
+
+cmd_extension_or_show() {
+	if ! cmd_extension "$@"; then
+		cmd_show "$@"
+	fi
+}
+
+cmd_show() {
+	local opts clip=0
+	opts="$(getopt -o c -n "$PROGRAM" -- "$@")"
+	eval set -- "$opts"
+	while true; do case $1 in
+		-c) clip=1; shift ;;
+		--) shift; break ;;
+	esac done
+
+	[[ $# -ne 1 ]] && exit 1
+
+  if [[ $clip -eq 1 ]]; then
+    "$KEEPASSCLI" clip "$DATABASE" "$1"
+  else
+    "$KEEPASSCLI" show -s "$DATABASE" "$1"
+  fi
+}
+
+cmd_otp() {
+	local opts clip=0
+	opts="$(getopt -o c -n "$PROGRAM" -- "$@")"
+	eval set -- "$opts"
+	while true; do case $1 in
+		-c) clip=1; shift ;;
+		--) shift; break ;;
+	esac done
+
+	[[ $# -ne 1 ]] && exit 1
+
+  if [[ $clip -eq 1 ]]; then
+    "$KEEPASSCLI" clip -t "$DATABASE" "$1"
+  else
+    "$KEEPASSCLI" show -t "$DATABASE" "$1"
+  fi
+}
+
+cmd_delete() {
+	local opts recursive=0
+	opts="$(getopt -o r -n "$PROGRAM" -- "$@")"
+	eval set -- "$opts"
+	while true; do case $1 in
+		-r) recursive=1; shift ;;
+		--) shift; break ;;
+	esac done
+
+	[[ $# -ne 1 ]] && exit 1
+
+  if [[ $recursive -eq 1 ]]; then
+    "$KEEPASSCLI" rmdir "$DATABASE" "$1"
+  else
+    "$KEEPASSCLI" rm "$DATABASE" "$1"
+  fi
+}
+
+PROGRAM="${0##*/}"
+
+[[ $# -lt 1 ]] && cmd_usage && exit 1
+
+case "$1" in
+	help) shift;       cmd_usage "$@" ;;
+	init) shift;       cmd_init "$@" ;;
+	ls) shift;         cmd_list "$@" ;;
+	otp) shift;        cmd_otp "$@" ;;
+	grep) shift;       cmd_grep "$@" ;;
+	rm) shift;         cmd_delete "$@" ;;
+	mv) shift;         cmd_move "$@" ;;
+	*)                 cmd_extension_or_show "$@" ;;
+esac
+
+exit 0

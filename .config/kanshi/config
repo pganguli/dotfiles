@@ -2,3 +2,8 @@ profile single {
   output eDP-1 disable
   output "Dell Inc. DELL S2409W Y183D87V1M2U" position 0,0 scale 1
 }
+
+profile double {
+  output eDP-1 position 0,1081 scale 1
+  output "Hewlett Packard HP Z24nf CN47210L0Y" position 0,0 scale 1
+}

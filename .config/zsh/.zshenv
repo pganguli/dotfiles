@@ -47,6 +47,7 @@ fi
 # Other PATH variables
 export GOPATH="$HOME/.go"
 export CARGOPATH="$HOME/.cargo"
+export KEEPASS_DB="$HOME/Documents/Passwords.kdbx"
 
 # generic $PATH handling
 if (( EUID != 0 )); then
