@@ -1,5 +1,5 @@
 profile single {
-  output eDP-1 disable
+  output eDP-1 position 1921,0 scale 1
   output "Dell Inc. DELL S2409W Y183D87V1M2U" position 0,0 scale 1
 }
 

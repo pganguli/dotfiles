@@ -23,7 +23,7 @@ cmd_grep() {
 }
 
 cmd_extension() {
-  if [[ "$EXTENSIONS" = *"$1"* ]]; then
+  if [[ " $EXTENSIONS " = *" $1 "* ]]; then
 		extension="$1"
 	else
 		return 1
