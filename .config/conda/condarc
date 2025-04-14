@@ -1,1 +1,7 @@
 auto_activate_base: false
+
+pkgs_dirs:
+ - ~/.config/conda/pkgs
+
+envs_dirs:
+ - ~/.config/conda/envs

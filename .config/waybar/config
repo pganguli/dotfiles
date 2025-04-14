@@ -94,7 +94,8 @@
     },
 
     "clock": {
-        "format": "{:%a %d %b %Y | %R}",
+        "format": "{:%a %d %b %Y | %R %Z}",
+        "timezones": ["", "Europe/Berlin", "Asia/Kolkata"],
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "mode"          : "month",
@@ -106,6 +107,11 @@
                 "days":       "{}",
                 "today":      "<span color='crimson'>{}</span>"
             }
+        },
+        "actions": {
+            "on-click": "tz_up",
+            "on-click-right": "tz_down",
+            "on-click-middle": "mode"
         }
     },
 

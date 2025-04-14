@@ -23,6 +23,7 @@
 	lo = log --oneline
 	lp = log --patch
 	ls = ls-tree --full-tree --name-only -r HEAD
+	pu = push
 	puo = push --set-upstream origin
 	rao = remote add origin
 	rau = remote add upstream
