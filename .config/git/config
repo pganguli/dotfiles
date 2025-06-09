@@ -32,6 +32,8 @@
 	sw = switch
 	sc = switch --create
 	st = status
+	sui = submodule update --init
+	sur = submodule update --recursive
 	unstage = reset HEAD --
 	ignore = !git update-index --assume-unchanged
 	unignore = !git update-index --no-assume-unchanged

@@ -1,11 +1,34 @@
-profile dax-dell {
+profile home-hp {
+  output eDP-1 position 0,1081 scale 1
+  output "Hewlett Packard HP Z24nf CN47210L0Y" position 0,0 scale 1
+}
+
+profile dax-dell-old {
   output eDP-1 position 1921,0 scale 1
   output "Dell Inc. DELL S2409W Y183D87V1M2U" position 0,0 scale 1
 }
 
-profile home-hp {
-  output eDP-1 position 0,1081 scale 1
-  output "Hewlett Packard HP Z24nf CN47210L0Y" position 0,0 scale 1
+profile dax-dell-sx {
+  output eDP-1 position 0,0 scale 1
+  output "Dell Inc. DELL P2422H 83QM9D3" position 1921,0 scale 1
+}
+
+profile dax-dell-lat {
+  output eDP-1 disable
+  output "Dell Inc. DELL S2725QS 2TWB364" mode 3840x2160 position 0,0 scale 1.5
+  #output "Dell Inc. DELL S2725QS 4VWB364" mode 3840x2160 position 0,0 scale 1.5
+}
+
+profile dax-dell-lon {
+  output eDP-1 disable
+  output "Dell Inc. DELL S2725QS 4VWB364" mode 3840x2160 transform 270 position 0,0 scale 1.5
+  #output "Dell Inc. DELL S2725QS 2TWB364" mode 3840x2160 transform 270 position 0,0 scale 1.5
+}
+
+profile dax-dell-lat-lon {
+  output eDP-1 disable
+  output "Dell Inc. DELL S2725QS 2TWB364" mode 3840x2160 position 0,584 scale 1.5
+  output "Dell Inc. DELL S2725QS 4VWB364" mode 3840x2160 position 2561,0 transform 270 scale 1.5
 }
 
 profile mirror-hdmi {

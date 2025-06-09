@@ -57,6 +57,8 @@ if (( EUID != 0 )); then
     $HOME/.local/bin
     $CARGOPATH/bin
     $GOPATH/bin
+    /opt/uppaal-5.0.0/bin
+    /opt/uppaal-5.0.0/lib/app/bin
     /usr/local/bin
     /usr/bin
     /bin
