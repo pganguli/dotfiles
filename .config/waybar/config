@@ -95,7 +95,7 @@
 
     "clock": {
         "format": "{:%a %d %b %Y | %R %Z}",
-        "timezones": ["", "Europe/Berlin", "Asia/Kolkata"],
+        "timezones": ["", "Asia/Kolkata"],
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "mode"          : "month",

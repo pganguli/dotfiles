@@ -1,0 +1,60 @@
+#!/usr/bin/bash
+
+set -euo pipefail
+
+LAPTOP="eDP-1"
+EXTERNAL1="DP-2"
+EXTERNAL2="DP-4-2"
+EXTERNAL3="DP-3"
+
+profile=$1
+
+case "$profile" in
+  home-hp)
+    xrandr \
+      --output "$LAPTOP" --mode 1920x1080 --pos 0x1081 --scale 1x1 --primary \
+      --output "$EXTERNAL1" --mode 1920x1080 --pos 0x0 --scale 1x1
+    ;;
+
+  dax-dell-old)
+    xrandr \
+      --output "$LAPTOP" --mode 1920x1080 --pos 1920x0 --scale 1x1 --primary \
+      --output "$EXTERNAL1" --mode 1920x1080 --pos 0x0 --scale 1x1
+    ;;
+
+  dax-dell-sx)
+    xrandr \
+      --output "$LAPTOP" --mode 1920x1080 --pos 0x0 --scale 1x1 --primary \
+      --output "$EXTERNAL1" --mode 1920x1080 --pos 1921x0 --scale 1x1
+    ;;
+
+  dax-dell-lat)
+    xrandr \
+      --output "$LAPTOP" --off \
+      --output "$EXTERNAL1" --mode 3840x2160 --pos 0x0 --scale 1.5x1.5 --primary
+    ;;
+
+  dax-dell-lon)
+    xrandr \
+      --output "$LAPTOP" --off \
+      --output "$EXTERNAL1" --mode 3840x2160 --rotate right --pos 0x0 --scale 1.5x1.5 --primary
+    ;;
+
+  dax-dell-lat-lon)
+    xrandr \
+      --output "$LAPTOP" --off \
+      --output "$EXTERNAL2" --mode 3840x2160 --pos 0x584 --scale 1.5x1.5  --primary \
+      --output "$EXTERNAL3" --mode 3840x2160 --rotate right --pos 2561x0 --scale 1.5x1.5
+    ;;
+
+  mirror-hdmi)
+    xrandr \
+      --output "$LAPTOP" --mode 1920x1080 --pos 0x0 \
+      --output "$EXTERNAL1" --mode 1920x1080 --same-as "$LAPTOP"
+    ;;
+
+  *)
+    echo "Usage: $0 <profile>"
+    exit 1
+    ;;
+esac
