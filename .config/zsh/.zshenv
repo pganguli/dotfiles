@@ -45,6 +45,7 @@ if [[ -r /etc/gentoo-release ]] ; then
 fi
 
 # Other PATH variables
+export JULIAUPPATH="$HOME/.juliaup"
 export GOPATH="$HOME/.go"
 export CARGOPATH="$HOME/.cargo"
 export KEEPASS_DB="$HOME/Documents/Passwords.kdbx"
@@ -55,6 +56,7 @@ if (( EUID != 0 )); then
     "${path[@]}"
     $HOME/bin
     $HOME/.local/bin
+    $JULIAUPPATH/bin
     $CARGOPATH/bin
     $GOPATH/bin
     /opt/uppaal-5.0.0/bin
