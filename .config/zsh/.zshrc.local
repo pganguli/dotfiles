@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # Filename:      /etc/skel/.zshrc
 # Purpose:       config file for zsh (z shell)
 # Authors:       (c) grml-team (grml.org)
@@ -15,31 +16,11 @@
 # Adjustments would still go to the .zshrc.local file.
 ################################################################################
 
-## Inform users about upgrade path for grml's old zshrc layout, assuming that:
-## /etc/skel/.zshrc was installed as ~/.zshrc,
-## /etc/zsh/zshrc was installed as ~/.zshrc.global and
-## ~/.zshrc.local does not exist yet.
-if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
-    printf '-!-\n'
-    printf '-!- Looks like you are using the old zshrc layout of grml.\n'
-    printf '-!- Please read the notes in the grml-zsh-refcard, being'
-    printf '-!- available at: http://grml.org/zsh/\n'
-    printf '-!-\n'
-    printf '-!- If you just want to get rid of this warning message execute:\n'
-    printf '-!-        touch ~/.zshrc.local\n'
-    printf '-!-\n'
-fi
-
 # Settings for umask
 if (( EUID == 0 )); then
     umask 002
 else
     umask 022
-fi
-
-# Syntax Highlighting
-if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # Pure Prompt: https://github.com/sindresorhus/pure
@@ -50,19 +31,15 @@ if [ -e "$ZDOTDIR/pure" ]; then
     PURE_PROMPT_VICMD_SYMBOL=':'
 
     if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
-    PURE_PROMPT_SYMBOL='⬢ $'
-    PURE_PROMPT_VICMD_SYMBOL='⬢ :'
+        PURE_PROMPT_SYMBOL='⬢ $'
+        PURE_PROMPT_VICMD_SYMBOL='⬢ :'
+        zstyle :prompt:pure:prompt:success color magenta
+    else
+        zstyle :prompt:pure:prompt:success color green
     fi
 
     PURE_CMD_MAX_EXEC_TIME=1
-    zstyle :prompt:pure:prompt:success color green
     zstyle :prompt:pure:git:stash show yes
-
-    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
-    PURE_PROMPT_SYMBOL='⬢ $'
-    PURE_PROMPT_VICMD_SYMBOL='⬢ :'
-    zstyle :prompt:pure:prompt:success color magenta
-    fi
 
     autoload -U promptinit; promptinit
     prompt pure
@@ -80,9 +57,9 @@ fi
 COMMAND_NOT_FOUND=1
 GRML_ZSH_CNF_HANDLER=/usr/libexec/pk-command-not-found
 
-# direnv hook
+# direnv hook (static, avoids fork on every shell start)
 if (( $+commands[direnv] )); then
-    eval "$(direnv hook zsh)"
+    source ~/.config/zsh/direnv_hook.zsh
 fi
 
 ## ZLE tweaks ##
@@ -96,13 +73,11 @@ bindkey -v
 bindkey "^?" backward-delete-char
 
 # define word separators (for stuff like backward-word, forward-word, backward-kill-word,..)
-#WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # the default
 WORDCHARS='*?_-.[]~=/&;:!#$%^(){}<>'
 
 # press ctrl-q to quote line:
 mquote () {
       zle backward-word
-      # RBUFFER="'$RBUFFER'"
       RBUFFER=${(qq)RBUFFER}
       zle end-of-line
 }
@@ -118,7 +93,7 @@ precmd_functions=(ring_bell $precmd_functions)
 # tell gpg-agent to use pinentry on current tty
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -215,8 +190,9 @@ rmdempty() {
     fi
 }
 
-rsyncy() {
-  rsync --recursive --links --times --human-readable --human-readable --verbose --partial --progress --modify-window=1 "$@"
+rscp() {
+    local args=("${@%/}")
+    rsync --archive --compress --human-readable --verbose --partial --progress --modify-window=1 "${args[@]}"
 }
 
 # Merge $2 into $1
@@ -249,7 +225,8 @@ lcheck() {
 }
 
 html-tree() {
-    tree -H '.' -L 1 --houtro "" --dirsfirst -T -s -D -T "$(basename $PWD)" --charset utf-8 --timefmt '%Y-%m-%d %H:%M:%S' -I "index.html" -o index.html
+    tree -H '.' -L 1 --houtro "" --dirsfirst -T -s -D -T "$(basename $PWD)" --charset utf-8 \
+         --timefmt '%Y-%m-%d %H:%M:%S' -I "index.html" -o index.html
 }
 
 # Some quick Perl-hacks aka /useful/ oneliner
@@ -257,10 +234,15 @@ getlinks()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "
 gethrefs()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
 getanames()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
 getforms()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
-getstrings() { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $*}
+getstrings() { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $* }
 
 # Some quick Python-hacks aka /useful/ oneliner
 urlencode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))' $* }
 urldecode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))' $* }
+
+# Syntax Highlighting (must be last)
+if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 ## END OF FILE #################################################################

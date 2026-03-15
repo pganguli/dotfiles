@@ -6,6 +6,8 @@
 	editor = nvim
 [alias]
 	ap = add --patch
+  big = "!git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize:disk) %(rest)' | awk '/^blob/ {print $3, $4}' | sort -rn | numfmt --to=iec-i --suffix=B --padding=10 --field=1 | column -t"
+  big-lfs = "!git lfs ls-files --size --all | awk '{gsub(/[()]/, \"\"); print $(NF-1) $NF, $3}' | sort -rh | column -t"
 	bm = branch --move --force
 	br = branch
 	brh = "!f() { git branch --force \"$1\" HEAD; }; f"
@@ -19,10 +21,10 @@
 	ds = diff --staged
 	ignore = !git update-index --assume-unchanged
 	ignored = !git ls-files -v |grep ^[a-z]
-	lg = log --graph
-	ll = log -1 HEAD
-	lo = log --oneline
-	lp = log --patch
+  lg = log --oneline --decorate --graph --all
+  ll = log -1 HEAD --stat
+  lo = log --oneline --decorate
+  lp = log --patch
 	ls = ls-tree --full-tree --name-only -r HEAD
   mxt = merge -X theirs
 	pu = push
@@ -74,3 +76,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential]
+	helper = store

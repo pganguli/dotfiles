@@ -33,5 +33,7 @@
     <property name="critical-power-level" type="uint" value="5"/>
     <property name="critical-power-action" type="uint" value="2"/>
     <property name="inactivity-sleep-mode-on-ac" type="uint" value="1"/>
+    <property name="profile-on-ac" type="string" value="performance"/>
+    <property name="profile-on-battery" type="string" value="power-saver"/>
   </property>
 </channel>

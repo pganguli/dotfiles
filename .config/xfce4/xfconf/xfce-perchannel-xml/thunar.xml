@@ -7,7 +7,7 @@
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,134,127,97,544,50,50,451,50,50,78,50,253"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,134,125,97,544,50,50,921,50,50,78,50,155"/>
   <property name="last-window-width" type="int" value="640"/>
   <property name="last-window-height" type="int" value="480"/>
   <property name="misc-single-click" type="bool" value="false"/>
@@ -20,17 +20,14 @@
   <property name="misc-open-new-window-as-tab" type="bool" value="true"/>
   <property name="last-restore-tabs" type="bool" value="true"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>
-  <property name="last-splitview-separator-position" type="int" value="850"/>
+  <property name="last-splitview-separator-position" type="int" value="576"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_TREE"/>
   <property name="misc-expandable-folders" type="bool" value="false"/>
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///home/pganguli/Downloads"/>
+    <value type="string" value="trash:///"/>
   </property>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
-  <property name="last-tabs-right" type="array">
-    <value type="string" value="file:///home/pganguli"/>
-  </property>
 </channel>

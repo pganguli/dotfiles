@@ -41,9 +41,6 @@ bindsym Ctrl+Print exec --no-startup-id "sh -c \
    iconv --from-code=UTF-8 --to-code=ASCII//TRANSLIT -c --silent | \
    xclip -selection clipboard -rmlastnl'"
 
-# paste clipboard contents as if it were typed
-#bindsym $mod+Shift+v exec --no-startup-id sleep 0.5s && xdotool type --delay 25 "$(xsel --output --clipboard)"
-
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
