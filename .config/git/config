@@ -1,7 +1,7 @@
 [user]
 	name = Prateek Ganguli
 	email = prateek.ganguli@gmail.com
-	signingkey = prateek.ganguli@gmail.com
+	signingkey = /home/pganguli/.ssh/ssh_ed25519.pub
 [core]
 	editor = nvim
 [alias]
@@ -44,7 +44,7 @@
 	gpgsign = true
 	verbose = true
 [gpg]
-	program = gpg
+	format = ssh
 [push]
 	default = simple
 	autoSetupRemote = true
@@ -56,7 +56,7 @@
 	ff = no
 	commit = no
 	tool = nvimdiff2
-	conflitcstyle = zdiff3
+	conflictstyle = zdiff3
 [mergetool]
 	keepBackup = false
 [rerere]

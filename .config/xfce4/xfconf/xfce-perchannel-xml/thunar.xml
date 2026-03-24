@@ -7,7 +7,7 @@
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,134,125,97,544,50,50,921,50,50,78,50,155"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,133,125,97,544,50,50,1409,50,50,77,50,148"/>
   <property name="last-window-width" type="int" value="640"/>
   <property name="last-window-height" type="int" value="480"/>
   <property name="misc-single-click" type="bool" value="false"/>
@@ -27,6 +27,8 @@
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>
   <property name="last-tabs-left" type="array">
+    <value type="string" value="file:///home/pganguli/Documents/Zoom/2026-03-24%2011.15.47%20Prateek%20Ganguli&apos;s%20Personal%20Meeting%20Room"/>
+    <value type="string" value="file:///home/pganguli/Documents/Zoom/2026-03-24%2011.14.26%20Prateek%20Ganguli&apos;s%20Personal%20Meeting%20Room"/>
     <value type="string" value="trash:///"/>
   </property>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>

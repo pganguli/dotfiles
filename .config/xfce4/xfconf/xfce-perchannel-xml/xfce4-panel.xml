@@ -6,7 +6,7 @@
     <value type="int" value="1"/>
     <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=2;x=1380;y=398"/>
+      <property name="position" type="string" value="p=5;x=960;y=498"/>
       <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
@@ -34,9 +34,13 @@
         <value type="double" value="1"/>
       </property>
       <property name="span-monitors" type="bool" value="false"/>
-      <property name="output-name" type="string" value="Automatic"/>
+      <property name="output-name" type="string" value="Primary"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="enable-struts" type="bool" value="true"/>
+      <property name="leave-reference" type="bool" value="true"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="mode" type="uint" value="0"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -62,6 +66,13 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “home” active: home (74%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (78%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (77%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (76%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (86%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (85%)"/>
+        <value type="string" value="wi-fi network connection “home” active: home (79%)"/>
         <value type="string" value="wi-fi network connection “home” active: home (73%)"/>
         <value type="string" value="wi-fi network connection “eduroam” active: eduroam (73%)"/>
         <value type="string" value="wi-fi network connection “home_nomap” active: home_nomap (75%)"/>
@@ -146,6 +157,7 @@
       <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-time-format" type="string" value="&lt;span foreground=&quot;black&quot;&gt;%a, %b %d, %Y  %R&lt;/span&gt;"/>
       <property name="digital-time-font" type="string" value="Liberation Mono Bold 10"/>
+      <property name="mode" type="uint" value="2"/>
     </property>
     <property name="plugin-3" type="string" value="applicationsmenu">
       <property name="button-title" type="string" value="Applications"/>

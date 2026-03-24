@@ -3,13 +3,18 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# MidnightBlue
+exec --no-startup-id hsetroot -solid "#191970"
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Liberation Mono 16
+font pango:Liberation Mono Bold 15
+
+title_align center
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -23,14 +28,6 @@ workspace_layout tabbed
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # Print Screen
 bindsym Print exec --no-startup-id xfce4-screenshooter --fullscreen --save "$(xdg-user-dir PICTURES)/$(date +%Y%m%d-%H%M%S).png"
@@ -123,19 +120,17 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #000000 #ffffff #000000 #62a0ea   #ffffff
-client.focused_inactive #000000 #deddda #000000 #62a0ea   #deddda
-client.unfocused        #000000 #9a9996 #000000 #62a0ea   #9a9996
-client.urgent           #000000 #62a0ea #000000 #62a0ea   #62a0ea
-client.placeholder      #000000 #ffffff #000000 #ffffff   #ffffff
+client.focused          #ffffff #ffffff #000000 #62a0ea   #ffffff
+client.focused_inactive #deddda #deddda #000000 #62a0ea   #deddda
+client.unfocused        #9a9996 #9a9996 #000000 #62a0ea   #9a9996
+client.urgent           #62a0ea #62a0ea #000000 #62a0ea   #62a0ea
+client.placeholder      #ffffff #ffffff #000000 #ffffff   #ffffff
 client.background       #ffffff
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
