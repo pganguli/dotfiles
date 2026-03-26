@@ -77,4 +77,4 @@
 	process = git-lfs filter-process
 	required = true
 [credential]
-	helper = store
+	helper = libsecret
