@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# export user-level environment variables
-while IFS= read -r var_val; do
-    eval "export ${var_val}"
-done < <(systemctl --user show-environment)
-
 # fix broken $UID on some system...
 if test "x$UID" = "x"; then
   if test -x /usr/xpg4/bin/id; then
@@ -147,6 +142,18 @@ else
       sleep 0.01
     done
   fi
+
+  # 1. Ensure gcr socket is live and set SSH_AUTH_SOCK before xfce4-session checks it
+  systemctl --user start gcr-ssh-agent.socket 2>/dev/null
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gcr/ssh"
+
+  # 2. Import other environment.d vars into X session process tree
+  for var in PASSWORD_STORE_DIR CARGOPATH GOPATH JULIAUPPATH GUROBI_HOME \
+            EDITOR VISUAL MANPAGER TERMINAL QT_SCALE_FACTOR WINIT_X11_SCALE_FACTOR \
+            SSH_ASKPASS GIT_ASKPASS; do
+      val=$(systemctl --user show-environment | grep "^${var}=" | cut -d= -f2-)
+      [ -n "$val" ] && export "${var}=${val}"
+  done
 
   # start xfce4-session normally
   exec ${XFCE4_SESSION_COMPOSITOR:-xfce4-session}

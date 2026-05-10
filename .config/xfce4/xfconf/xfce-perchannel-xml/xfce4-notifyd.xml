@@ -9,7 +9,9 @@
       <value type="string" value="code"/>
       <value type="string" value="com.discordapp.Discord"/>
       <value type="string" value="Fedora Media Writer"/>
+      <value type="string" value="Firefox"/>
       <value type="string" value="org.freedesktop.network-manager-applet"/>
+      <value type="string" value="org.mozilla.firefox"/>
       <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="org.xfce.Thunar"/>
       <value type="string" value="Xfce volume control"/>

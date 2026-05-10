@@ -92,6 +92,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="antimicrox"/>
         <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="obs"/>
         <value type="string" value="steam"/>

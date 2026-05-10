@@ -1,4 +1,3 @@
-zmodload zsh/zprof
 # Filename:      /etc/skel/.zshrc
 # Purpose:       config file for zsh (z shell)
 # Authors:       (c) grml-team (grml.org)
@@ -17,20 +16,23 @@ zmodload zsh/zprof
 ################################################################################
 
 # Settings for umask
-if (( EUID == 0 )); then
-    umask 002
-else
-    umask 022
-fi
+umask $(( EUID == 0 ? 002 : 022 ))
+
+# grml's zshrc only sets SAVEHIST when HISTSIZE==30 (zsh default),
+# but HISTSIZE is auto-exported by zsh, so subshells inherit
+# HISTSIZE=5000 and the condition never triggers, leaving SAVEHIST=0
+# and history unsaved.
+SAVEHIST=10000
 
 # Pure Prompt: https://github.com/sindresorhus/pure
-if [ -e "$ZDOTDIR/pure" ]; then
+if [[ -d "$ZDOTDIR/pure" ]]; then
     fpath+="$ZDOTDIR/pure"
 
     PURE_PROMPT_SYMBOL='$'
     PURE_PROMPT_VICMD_SYMBOL=':'
 
-    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
+    # container-specific styling
+    if [[ -f /run/.containerenv && -f /run/.toolboxenv ]]; then
         PURE_PROMPT_SYMBOL='⬢ $'
         PURE_PROMPT_VICMD_SYMBOL='⬢ :'
         zstyle :prompt:pure:prompt:success color magenta
@@ -47,10 +49,7 @@ fi
 
 # FZF completions and keybindings: https://github.com/junegunn/fzf
 # ^R = history, ^T = file, M-C = cd
-if [ -e "/usr/share/fzf" ]; then
-    source "/usr/share/zsh/site-functions/_fzf"
-    source "/usr/share/fzf/shell/key-bindings.zsh"
-fi
+[[ -d /usr/share/fzf ]] && source /usr/share/fzf/shell/key-bindings.zsh
 
 # Command Not Found handler
 # Fedora: https://fedoraproject.org/wiki/Features/PackageKitCommandNotFound
@@ -58,28 +57,22 @@ COMMAND_NOT_FOUND=1
 GRML_ZSH_CNF_HANDLER=/usr/libexec/pk-command-not-found
 
 # direnv hook (static, avoids fork on every shell start)
-if (( $+commands[direnv] )); then
-    source ~/.config/zsh/direnv_hook.zsh
-fi
+(( $+commands[direnv] )) && source ~/.config/zsh/direnv_hook.zsh
 
 ## ZLE tweaks ##
+[[ -t 0 && $- == *i* ]] && stty -ixon        # Ctrl-S / Ctrl-Q fix
 
-# ctrl-s will no longer freeze the terminal.
-[[ -t 0 && $- = *i* ]] && stty -ixon
-
-# use Vi keybindings
-bindkey -v
-# fix for backspace in Vi Insert-Mode
-bindkey "^?" backward-delete-char
+bindkey -v                                   # vi mode
+bindkey "^?" backward-delete-char            # backspace fix in insert mode
 
 # define word separators (for stuff like backward-word, forward-word, backward-kill-word,..)
 WORDCHARS='*?_-.[]~=/&;:!#$%^(){}<>'
 
-# press ctrl-q to quote line:
-mquote () {
-      zle backward-word
-      RBUFFER=${(qq)RBUFFER}
-      zle end-of-line
+# quote line with Ctrl-Q
+mquote() {
+    zle backward-word
+    RBUFFER=${(qq)RBUFFER}
+    zle end-of-line
 }
 zle -N mquote && bindkey '^q' mquote
 
@@ -90,155 +83,29 @@ bindkey '\eq' push-line-or-edit
 ring_bell() { printf '\a' }
 precmd_functions=(ring_bell $precmd_functions)
 
-# tell gpg-agent to use pinentry on current tty
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
 # alert me if something failed
 setopt printexitvalue
 
 ## aliases ##
-
 alias vi=nvim
 alias tt++="tt++ -G -r ~/.tintin/config"
 
-## miscellaneous code ##
+## utility functions ##
 
-# Record screen in Wayland
-wlrec() {
-    wf-recorder -c libx264rgb -p crf=27 -p preset=ultrafast \
-                -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
-}
-
-# Record screen in X11
-x11rec() {
-    ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
-           -f pulse -ac 2 -i 0 \
-           -codec:a libopus -application voip \
-           -codec:v libx264rgb -crf 27 -preset ultrafast \
-           "$(date +%Y-%m-%d_%H.%M.%S).mkv"
-}
-
-# Record audio in pulseaudio
-pulserec() {
-    ffmpeg -f pulse -ac 2 -i 0 \
-           -codec:a libopus -application voip \
-           "$(date +%Y-%m-%d_%H.%M.%S).opus"
-}
-
-# Concatenate two media files
-ffmpeg-concat() {
-    trap "rm ffmpeg-concat.tmp 2> /dev/null" INT
-    for i in "$@"; do
-        echo "file '$i'" >> ffmpeg-concat.tmp
-    done
-    ffmpeg -f concat -safe 0 -i ffmpeg-concat.tmp -c copy "$(date +%Y-%m-%d_%H.%M.%S).mkv"
-}
-
-# Encrypt a file using GPG
-gpg-enc() {
-    if [[ -n "$1" ]] ; then
-        gpg --symmetric \
-            --s2k-mode 3 \
-            --s2k-count 65011712 \
-            --s2k-digest-algo SHA512 \
-            --s2k-cipher-algo AES256 \
-            "$1"
-    else
-        echo "Usage: $0 <file>" >&2
-    fi
-}
-
-# Decrypt a file using GPG
-gpg-dec() {
-    if [[ -n "$1" ]] ; then
-        gpg --output "${1%.gpg}" --decrypt "$1"
-    else
-        echo "Usage: $0 <file>" >&2
-    fi
-}
-
-# Export GPG key
-gpg-export-key() {
-    if [[ -n "$1" ]] ; then
-        cat <(gpg --output - --export "$1") <(gpg --output - --export-secret-key "$1") |\
-        gpg --armor --output keys.asc --symmetric --cipher-algo AES256
-    else
-        echo "Usage: $0 <key>" >&2
-    fi
-}
-
-# Backup GPG key
-gpg-backup-key() {
-    if [[ -n "$1" ]] ; then
-        gpg --armor --output key.pgp --export-secret-keys --export-options export-backup "$1"
-    else
-        echo "Usage: $0 <key>" >&2
-    fi
-}
-
-# Delete all empty directories
+# Delete empty directories
 rmdempty() {
-    if [[ -n "$1" ]] ; then
-        find "$1" -empty -type d -delete
-    else
-        echo "Usage: $0 <path>" >&2
-    fi
+    [[ -z $1 ]] && { echo "Usage: rmdempty <path>" >&2; return 1; }
+    find "$1" -empty -type d -delete
 }
 
+# Rsync wrapper
 rscp() {
     local args=("${@%/}")
     rsync --archive --compress --human-readable --verbose --partial --progress --modify-window=1 "${args[@]}"
 }
 
-# Merge $2 into $1
-dirmerge() {
-    jdupes --soft-abort --recurse --delete --no-prompt --param-order --isolate "$1" "$2"
-    echo "Removing empty directories..."
-    rmdempty "$2"
-    echo "Copy merging..."
-    rsync -a "$2"/ "$1"/
-    echo "Listing by extension..."
-    ls -lX "$1"/**/**
-}
-
-# Open a ssh tunnel to a remote host
-ssh-tunnel() {
-    if [[ -n "$1" ]] ; then
-        ssh -D "$2" -q -C -N "$1"
-    else
-        echo "Usage: $0 <remote host> <port>" >&2
-    fi
-}
-
-# Find out which libs define a symbol
-lcheck() {
-    if [[ -n "$1" ]] ; then
-        nm -go /usr/lib/lib*.a 2>/dev/null | grep ":[[:xdigit:]]\{8\} . .*$1"
-    else
-        echo "Usage: $0 <function>" >&2
-    fi
-}
-
-html-tree() {
-    tree -H '.' -L 1 --houtro "" --dirsfirst -T -s -D -T "$(basename $PWD)" --charset utf-8 \
-         --timefmt '%Y-%m-%d %H:%M:%S' -I "index.html" -o index.html
-}
-
-# Some quick Perl-hacks aka /useful/ oneliner
-getlinks()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
-gethrefs()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-getanames()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-getforms()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
-getstrings() { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $* }
-
-# Some quick Python-hacks aka /useful/ oneliner
-urlencode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))' $* }
-urldecode()  { python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))' $* }
-
-# Syntax Highlighting (must be last)
-if [ -e "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+# Syntax highlighting (must be last)
+[[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## END OF FILE #################################################################

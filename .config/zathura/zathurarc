@@ -1,2 +1,4 @@
 set incremental-search
 set selection-clipboard "clipboard"
+set synctex true
+set synctex-editor-command "code --goto %{input}:%{line}"

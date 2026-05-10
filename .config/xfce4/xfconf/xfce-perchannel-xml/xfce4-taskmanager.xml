@@ -16,6 +16,6 @@
     <property name="column-vsz" type="bool" value="false"/>
     <property name="column-group-vsz" type="bool" value="false"/>
     <property name="sort-type" type="uint" value="1"/>
-    <property name="sort-id" type="uint" value="9"/>
+    <property name="sort-id" type="uint" value="6"/>
   </property>
 </channel>
