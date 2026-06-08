@@ -66,6 +66,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="no network connection"/>
         <value type="string" value="wi-fi network connection “home” active: home (74%)"/>
         <value type="string" value="wi-fi network connection “home” active: home (78%)"/>
         <value type="string" value="wi-fi network connection “home” active: home (77%)"/>
@@ -92,6 +93,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="KDE Connect Indicator"/>
         <value type="string" value="antimicrox"/>
         <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="obs"/>
@@ -148,7 +150,7 @@
       <property name="enable-mpris" type="bool" value="true"/>
       <property name="volume-max" type="uint" value="200"/>
       <property name="rec-indicator-persistent" type="bool" value="true"/>
-      <property name="known-players" type="string" value="Chromium;chromium.instance54599;org.mozilla.firefox"/>
+      <property name="known-players" type="string" value="Chromium;chromium.instance54599;org.kde.kdeconnect.app;org.mozilla.firefox;spotify"/>
     </property>
     <property name="plugin-1" type="string" value="power-manager-plugin"/>
     <property name="plugin-5" type="string" value="separator">

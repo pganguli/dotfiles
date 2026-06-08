@@ -157,3 +157,6 @@ bindsym $mod+r mode "resize"
 #bar {
 #  status_command i3status
 #}
+
+# Fix KDE Connect Pointer/Presentation Mode
+for_window [class="kdeconnect.daemon"] fullscreen disable floating enable move position 0px 0px resize set 100ppt 100ppt

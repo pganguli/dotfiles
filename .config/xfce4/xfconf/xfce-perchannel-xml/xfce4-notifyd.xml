@@ -11,6 +11,7 @@
       <value type="string" value="Fedora Media Writer"/>
       <value type="string" value="Firefox"/>
       <value type="string" value="org.freedesktop.network-manager-applet"/>
+      <value type="string" value="org.kde.kdeconnect.daemon"/>
       <value type="string" value="org.mozilla.firefox"/>
       <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="org.xfce.Thunar"/>
@@ -24,4 +25,9 @@
   <property name="do-slideout" type="bool" value="false"/>
   <property name="expire-timeout" type="int" value="5"/>
   <property name="initial-opacity" type="double" value="1"/>
+  <property name="do-not-disturb" type="bool" value="false"/>
+  <property name="notification-log" type="bool" value="true"/>
+  <property name="log-level" type="string" value="not-fully-shown"/>
+  <property name="log-level-apps" type="string" value="except-blocked"/>
+  <property name="expire-timeout-allow-override" type="bool" value="false"/>
 </channel>
