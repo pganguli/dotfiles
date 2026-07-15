@@ -33,6 +33,7 @@
 	rau = remote add upstream
 	re = checkout --
 	ri = rebase --interactive
+	rir = rebase --interactive --root
 	rsuo = remote set-url origin
 	sc = switch --create
 	st = status

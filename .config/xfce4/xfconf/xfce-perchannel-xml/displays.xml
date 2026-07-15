@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="displays" version="1.0">
-  <property name="ActiveProfile" type="string" value="Default"/>
+  <property name="ActiveProfile" type="string" value="fb788a03-8ff1-4613-b65d-1880bf8c4cf0"/>
   <property name="Notify" type="int" value="1"/>
   <property name="AutoEnableProfiles" type="int" value="3"/>
   <property name="IdentityPopups" type="bool" value="true"/>
@@ -223,12 +223,12 @@
       </property>
     </property>
   </property>
-  <property name="Default" type="empty">
-    <property name="eDP-1" type="string" value="Laptop">
+  <property name="6fa9905b-ad64-49b4-bd1d-d15d0a853724" type="string" value="emclab">
+    <property name="eDP" type="string" value="Laptop">
       <property name="Active" type="bool" value="false"/>
       <property name="EDID" type="string" value="13c7ca46059da423bd4b648554073722efcee642"/>
     </property>
-    <property name="DP-2" type="string" value="LG Electronics 34&quot;">
+    <property name="DisplayPort-2" type="string" value="LG Electronics 34&quot;">
       <property name="Active" type="bool" value="true"/>
       <property name="EDID" type="string" value="c6507cb4eeb20a2483ce340ae7103b187532c3f7"/>
       <property name="Resolution" type="string" value="2560x1080"/>
@@ -240,6 +240,55 @@
       <property name="Scale" type="double" value="1"/>
       <property name="Position" type="empty">
         <property name="X" type="int" value="0"/>
+        <property name="Y" type="int" value="0"/>
+      </property>
+    </property>
+  </property>
+  <property name="fb788a03-8ff1-4613-b65d-1880bf8c4cf0" type="string" value="default">
+    <property name="eDP" type="string" value="Laptop">
+      <property name="Active" type="bool" value="true"/>
+      <property name="EDID" type="string" value="13c7ca46059da423bd4b648554073722efcee642"/>
+      <property name="Resolution" type="string" value="2880x1920"/>
+      <property name="RefreshRate" type="double" value="60.000581635818428"/>
+      <property name="ModeFlags" type="uint64" value="9"/>
+      <property name="Rotation" type="int" value="0"/>
+      <property name="Reflection" type="string" value="0"/>
+      <property name="Primary" type="bool" value="false"/>
+      <property name="Scale" type="double" value="1"/>
+      <property name="Position" type="empty">
+        <property name="X" type="int" value="0"/>
+        <property name="Y" type="int" value="0"/>
+      </property>
+    </property>
+  </property>
+  <property name="Default" type="empty">
+    <property name="eDP" type="string" value="Laptop">
+      <property name="Active" type="bool" value="true"/>
+      <property name="EDID" type="string" value="13c7ca46059da423bd4b648554073722efcee642"/>
+      <property name="Resolution" type="string" value="2880x1920"/>
+      <property name="RefreshRate" type="double" value="120.00003231310103"/>
+      <property name="ModeFlags" type="uint64" value="10"/>
+      <property name="Rotation" type="int" value="0"/>
+      <property name="Reflection" type="string" value="0"/>
+      <property name="Primary" type="bool" value="false"/>
+      <property name="Scale" type="double" value="1"/>
+      <property name="Position" type="empty">
+        <property name="X" type="int" value="0"/>
+        <property name="Y" type="int" value="0"/>
+      </property>
+    </property>
+    <property name="DisplayPort-3" type="string" value="NEC Corporation ">
+      <property name="Active" type="bool" value="true"/>
+      <property name="EDID" type="string" value="cea2c7181375c47f2c501cee2a0ac215081f7314"/>
+      <property name="Resolution" type="string" value="1920x1080"/>
+      <property name="RefreshRate" type="double" value="60"/>
+      <property name="ModeFlags" type="uint64" value="5"/>
+      <property name="Rotation" type="int" value="0"/>
+      <property name="Reflection" type="string" value="0"/>
+      <property name="Primary" type="bool" value="false"/>
+      <property name="Scale" type="double" value="1"/>
+      <property name="Position" type="empty">
+        <property name="X" type="int" value="2880"/>
         <property name="Y" type="int" value="0"/>
       </property>
     </property>

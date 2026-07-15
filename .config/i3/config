@@ -160,3 +160,19 @@ bindsym $mod+r mode "resize"
 
 # Fix KDE Connect Pointer/Presentation Mode
 for_window [class="kdeconnect.daemon"] fullscreen disable floating enable move position 0px 0px resize set 100ppt 100ppt
+
+# =========================================================================
+# Zoom Fixes: Prevent toolbars from breaking tiling layout & screen sharing
+# =========================================================================
+# 1. Catch-all: Force absolutely everything from Zoom to float by default
+for_window [class="(?i)zoom"] floating enable
+# 2. Re-enable tiling ONLY for the two main primary windows
+for_window [class="(?i)zoom" title="^Meeting$"] floating disable
+for_window [class="(?i)zoom" title="(?i)Zoom Workplace - Licensed account"] floating disable
+# 3. Keep intact: Allow the participant video preview panel to function normally
+for_window [class="(?i)zoom" title="zoom_linux_float_video_window"] floating enable, sticky enable, border none
+# 4. Banish toolbars: Catch toolbars natively by title patterns upon creation
+for_window [class="(?i)zoom" title="annotate_toolbar"] floating enable, border none, move absolute position 9999 9999
+for_window [class="(?i)zoom" title="as_toolbar"] floating enable, border none, move absolute position 9999 9999
+for_window [class="(?i)zoom" title="(?i)sharing"] floating enable, border none, move absolute position 9999 9999
+for_window [class="(?i)zoom" title="Annotation - Zoom"] floating enable, border none, move absolute position 9999 9999
