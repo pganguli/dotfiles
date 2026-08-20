@@ -43,6 +43,11 @@ cyan    = "#93a1a1"
 white   = "#fdf6e3"
 
 [[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
 chars = "\u001B\r"

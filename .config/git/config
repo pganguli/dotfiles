@@ -79,3 +79,5 @@
 	required = true
 [credential]
 	helper = libsecret
+[safe]
+	directory = /workspace

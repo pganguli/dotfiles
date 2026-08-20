@@ -34,7 +34,7 @@ vim.opt.textwidth = 80 -- Set default textwidth to 80 characters
 vim.api.nvim_create_user_command("Rdupe", "%!awk '\\!visited[$0]++'", {})
 
 -- Remove trailing spaces and tabs
-vim.api.nvim_create_user_command("Rtrail", "%s/\\s\\+$//g", {})
+vim.api.nvim_create_user_command("Rtrail", "<line1>,<line2>s/\\s\\+$//e", { range = true })
 
 -- Write file with sudo
 vim.api.nvim_create_user_command(
