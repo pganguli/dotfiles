@@ -7,7 +7,7 @@
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,134,127,97,97,50,50,660,50,50,77,50,156"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,134,127,97,97,50,50,179,50,50,78,50,176"/>
   <property name="last-window-width" type="int" value="640"/>
   <property name="last-window-height" type="int" value="480"/>
   <property name="misc-single-click" type="bool" value="false"/>
@@ -20,15 +20,19 @@
   <property name="misc-open-new-window-as-tab" type="bool" value="true"/>
   <property name="last-restore-tabs" type="bool" value="true"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>
-  <property name="last-splitview-separator-position" type="int" value="927"/>
+  <property name="last-splitview-separator-position" type="int" value="360"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_TREE"/>
   <property name="misc-expandable-folders" type="bool" value="false"/>
-  <property name="last-focused-tab-left" type="int" value="1"/>
+  <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///home/pganguli/Documents/Zoom/2026-08-20%2010.28.45%20Prateek%20Ganguli&apos;s%20Personal%20Meeting%20Room"/>
-    <value type="string" value="file:///home/pganguli/Downloads"/>
+    <value type="string" value="file:///home/pganguli/Documents/Zoom/2026-08-31%2011.22.50%20Prateek%20Ganguli&apos;s%20Personal%20Meeting%20Room"/>
+    <value type="string" value="file:///home/pganguli/Documents/Zoom/2026-08-27%2011.24.43%20Prateek%20Ganguli&apos;s%20Personal%20Meeting%20Room"/>
+    <value type="string" value="file:///home/pganguli"/>
   </property>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
+  <property name="last-tabs-right" type="array">
+    <value type="string" value="file:///home/pganguli/Documents/docs/academic/UNC"/>
+  </property>
 </channel>
