@@ -68,8 +68,6 @@
 	insteadOf = https://salsa.debian.org/
 [color]
 	ui = auto
-[init]
-	defaultBranch = master
 
 # vim:noet
 [filter "lfs"]
