@@ -44,6 +44,7 @@ if (( EUID != 0 )); then
     "${path[@]}"
     "$HOME/bin"
     "$HOME/.local/bin"
+    "$HOME/ti/gcc/bin"
     "${CARGOPATH:-}/bin"
     "${GOPATH:-}/bin"
     "${JULIAUPPATH:-}/bin"

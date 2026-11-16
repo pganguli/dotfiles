@@ -1,0 +1,5 @@
+T 1784688758 18<*sasl>	Username has been set to [username]
+T 1784688758 18<*sasl>	Password has been set to [pgan]
+T 1784688791 20<pgan>30	set password PwwYzVpselJbpqYAxL0bQQ32D
+T 1784688791 18<*sasl>	Username has been set to [password]
+T 1784688791 18<*sasl>	Password has been set to [PwwYzVpselJbpqYAxL0bQQ32D]

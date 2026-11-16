@@ -6,7 +6,7 @@
     <value type="int" value="1"/>
     <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=5;x=960;y=524"/>
+      <property name="position" type="string" value="p=6;x=720;y=8"/>
       <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="false"/>
       <property name="icon-size" type="uint" value="0"/>
@@ -68,6 +68,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="requesting an ethernet network address for “wired connection 1”…"/>
         <value type="string" value="wi-fi network connection “eduroam” active: eduroam (74%)"/>
         <value type="string" value="jlinkguiserverexe"/>
         <value type="string" value="hexchat"/>

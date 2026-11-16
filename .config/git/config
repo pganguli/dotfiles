@@ -66,6 +66,8 @@
 	insteadOf = https://github.com/
 [url "git@salsa.debian.org:"]
 	insteadOf = https://salsa.debian.org/
+[url "git@es-git.cs.uni-tuebingen.de:"]
+	insteadOf = https://es-git.cs.uni-tuebingen.de/
 [color]
 	ui = auto
 
@@ -79,3 +81,5 @@
 	helper = libsecret
 [safe]
 	directory = /workspace
+[init]
+	defaultBranch = main

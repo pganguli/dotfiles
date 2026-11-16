@@ -1,0 +1,447 @@
+**** BEGIN LOGGING AT Wed Jul 22 10:48:51 2026
+
+Jul 22 10:48:51 *	Capabilities supported: batch cap-notify echo-message multi-prefix server-time userhost-in-names znc.in/batch znc.in/self-message znc.in/server-time-iso
+Jul 22 10:48:51 *	Capabilities requested: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso 
+Jul 22 10:48:51 *	Capabilities acknowledged: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso
+Jul 22 10:48:52 *	Password required
+Jul 22 10:48:52 *	*** You need to send your password. Configure your client to send a server password.
+Jul 22 10:48:52 *	*** To connect now, you can use /quote PASS <username>:<password>, or /quote PASS <username>/<network>:<password> to connect to a specific network.
+**** BEGIN LOGGING AT Wed Jul 22 10:50:21 2026
+
+Jul 22 10:50:21 *	Welcome to ZNC
+Jul 22 10:34:20 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:35:52 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:36:24 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:36:56 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:37:28 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:39:30 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:40:32 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:41:04 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:42:36 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:44:37 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:45:40 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:47:13 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:47:46 *	Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+**** ENDING LOGGING AT Wed Jul 22 10:50:45 2026
+
+**** ENDING LOGGING AT Wed Jul 22 10:50:48 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 10:50:54 2026
+
+Jul 22 10:50:54 *	Welcome to ZNC
+Jul 22 10:52:16 No channel joined. Try /join #<channel>
+Jul 22 10:52:38 *	*** Checking Ident
+Jul 22 10:52:38 *	*** Looking up your hostname...
+Jul 22 10:52:38 *	*** Couldn't look up your hostname
+Jul 22 10:52:43 *	*** No Ident response
+Jul 22 10:52:53 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:52:53 *	Capabilities removed: account-notify
+Jul 22 10:52:53 *	Capabilities removed: account-tag
+Jul 22 10:52:53 *	Capabilities removed: away-notify
+Jul 22 10:52:53 *	Capabilities removed: extended-join
+Jul 22 10:55:09 *	*** Checking Ident
+Jul 22 10:55:09 *	*** Looking up your hostname...
+Jul 22 10:55:09 *	*** Couldn't look up your hostname
+Jul 22 10:55:14 *	*** No Ident response
+Jul 22 10:55:24 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:55:24 *	Capabilities removed: account-notify
+Jul 22 10:55:24 *	Capabilities removed: account-tag
+Jul 22 10:55:24 *	Capabilities removed: away-notify
+Jul 22 10:55:24 *	Capabilities removed: extended-join
+Jul 22 10:55:39 *	*** Checking Ident
+Jul 22 10:55:39 *	*** Looking up your hostname...
+Jul 22 10:55:39 *	*** Couldn't look up your hostname
+Jul 22 10:55:45 *	*** No Ident response
+Jul 22 10:55:55 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:55:55 *	Capabilities removed: account-notify
+Jul 22 10:55:55 *	Capabilities removed: account-tag
+Jul 22 10:55:55 *	Capabilities removed: away-notify
+Jul 22 10:55:55 *	Capabilities removed: extended-join
+Jul 22 10:58:11 *	*** Checking Ident
+Jul 22 10:58:11 *	*** Looking up your hostname...
+Jul 22 10:58:11 *	*** Couldn't look up your hostname
+Jul 22 10:58:16 *	*** No Ident response
+Jul 22 10:58:26 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:58:26 *	Capabilities removed: account-notify
+Jul 22 10:58:26 *	Capabilities removed: account-tag
+Jul 22 10:58:26 *	Capabilities removed: away-notify
+Jul 22 10:58:26 *	Capabilities removed: extended-join
+Jul 22 10:58:41 *	*** Checking Ident
+Jul 22 10:58:41 *	*** Looking up your hostname...
+Jul 22 10:58:41 *	*** Couldn't look up your hostname
+Jul 22 10:58:47 *	*** No Ident response
+Jul 22 10:58:57 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:58:57 *	Capabilities removed: account-notify
+Jul 22 10:58:57 *	Capabilities removed: account-tag
+Jul 22 10:58:57 *	Capabilities removed: away-notify
+Jul 22 10:58:57 *	Capabilities removed: extended-join
+Jul 22 10:59:13 *	*** Checking Ident
+Jul 22 10:59:13 *	*** Looking up your hostname...
+Jul 22 10:59:13 *	*** Couldn't look up your hostname
+Jul 22 10:59:18 *	*** No Ident response
+Jul 22 10:59:28 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 10:59:28 *	Capabilities removed: account-notify
+Jul 22 10:59:28 *	Capabilities removed: account-tag
+Jul 22 10:59:28 *	Capabilities removed: away-notify
+Jul 22 10:59:28 *	Capabilities removed: extended-join
+Jul 22 11:00:44 *	*** Checking Ident
+Jul 22 11:00:44 *	*** Looking up your hostname...
+Jul 22 11:00:44 *	*** Couldn't look up your hostname
+Jul 22 11:00:50 *	*** No Ident response
+Jul 22 11:01:00 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 11:01:00 *	Capabilities removed: account-notify
+Jul 22 11:01:00 *	Capabilities removed: account-tag
+Jul 22 11:01:00 *	Capabilities removed: away-notify
+Jul 22 11:01:00 *	Capabilities removed: extended-join
+Jul 22 11:01:45 *	*** Checking Ident
+Jul 22 11:01:45 *	*** Looking up your hostname...
+Jul 22 11:01:45 *	*** Couldn't look up your hostname
+Jul 22 11:01:51 *	*** No Ident response
+Jul 22 11:02:01 *	*** Notice -- SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.
+Jul 22 11:02:01 *	Capabilities removed: account-notify
+Jul 22 11:02:01 *	Capabilities removed: account-tag
+Jul 22 11:02:01 *	Capabilities removed: away-notify
+Jul 22 11:02:01 *	Capabilities removed: extended-join
+**** ENDING LOGGING AT Wed Jul 22 11:03:00 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 11:03:06 2026
+
+Jul 22 11:03:05 *	Welcome to ZNC
+Jul 22 11:03:47 *	*** Checking Ident
+Jul 22 11:03:47 *	*** Looking up your hostname...
+Jul 22 11:03:47 *	*** Couldn't look up your hostname
+Jul 22 11:03:52 *	*** No Ident response
+Jul 22 11:04:00 *	You are now logged in as pgan
+Jul 22 11:04:02 *	Capabilities supported: account-notify
+Jul 22 11:04:02 *	Capabilities requested: account-notify 
+Jul 22 11:04:02 *	Capabilities supported: account-tag
+Jul 22 11:04:02 *	Capabilities requested: account-tag 
+Jul 22 11:04:02 *	Capabilities supported: away-notify
+Jul 22 11:04:02 *	Capabilities requested: away-notify 
+Jul 22 11:04:02 *	Capabilities supported: extended-join
+Jul 22 11:04:02 *	Capabilities requested: extended-join 
+**** ENDING LOGGING AT Wed Jul 22 11:04:02 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 11:04:02 2026
+
+Jul 22 11:04:02 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 11:04:02 *	Your host is mercury.libera.chat[51.89.226.78/6697], running version solanum-1.0-dev
+Jul 22 11:04:02 *	This server was created Wed Jul 15 2026 at 01:05:27 UTC
+Jul 22 11:04:02 *	mercury.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 11:04:02 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+**** BEGIN LOGGING AT Wed Jul 22 11:46:04 2026
+
+Jul 22 11:04:02 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 11:04:02 *	Your host is mercury.libera.chat[51.89.226.78/6697], running version solanum-1.0-dev
+Jul 22 11:04:02 *	This server was created Wed Jul 15 2026 at 01:05:27 UTC
+Jul 22 11:04:02 *	mercury.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 11:04:02 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 11:04:02 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 11:04:02 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 11:04:02 *	There are 58 users and 30302 invisible on 29 servers
+Jul 22 11:04:02 *	36 :IRC Operators online
+Jul 22 11:04:02 *	22627 :channels formed
+Jul 22 11:04:02 *	I have 1622 clients and 1 servers
+Jul 22 11:04:02 *	1622 1991 :Current local users 1622, max 1991
+Jul 22 11:04:02 *	30360 32856 :Current global users 30360, max 32856
+Jul 22 11:04:02 *	Highest connection count: 1992 (1991 clients) (40888 connections received)
+Jul 22 11:04:02 *	- mercury.libera.chat Message of the Day - 
+Jul 22 11:04:02 *	- -[ Mercury ]-[ Atomic number: 80 ]-[ Chemical symbol: Hg ]-
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- Known since antiquity, Mercury is a heavy, liquid metal
+Jul 22 11:04:02 *	- element at room temperature - the only such element. Despite
+Jul 22 11:04:02 *	- the wide ranging use, mercury is a relatively rare element,
+Jul 22 11:04:02 *	- though this is mitigated by its ore deposits tending to be
+Jul 22 11:04:02 *	- highly concentrated.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- The uses of mercury include medical applications such as
+Jul 22 11:04:02 *	- dental amalgams, topical antiseptic compounds, and blood
+Jul 22 11:04:02 *	- pressure meters.  Outside of medicine, mercury can be found
+Jul 22 11:04:02 *	- in telescopes to form flat mirror surfaces, as well as
+Jul 22 11:04:02 *	- parabolic surfaces when their container is spun. Mercury has
+Jul 22 11:04:02 *	- historically and continues to be used in many other
+Jul 22 11:04:02 *	- industries and applications.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 11:04:02 *	- free & open-source software and peer directed projects.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- To reduce network abuses we perform open proxy checks
+Jul 22 11:04:02 *	- on hosts at connection time.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- Please visit us in #libera for questions and support.
+Jul 22 11:04:02 *	-  
+Jul 22 11:04:02 *	- Website and documentation:  https://libera.chat
+Jul 22 11:04:02 *	- Webchat:                    https://web.libera.chat
+Jul 22 11:04:02 *	- Network policies:           https://libera.chat/policies
+Jul 22 11:04:02 *	- Email:                      support@libera.chat
+Jul 22 11:04:02 *	End of /MOTD command.
+Jul 22 11:46:04 *	pgan sets mode +Z on pgan
+Jul 22 11:46:04 *	pgan sets mode +i on pgan
+Jul 22 11:46:04 *	pgan sets mode +w on pgan
+Jul 22 11:46:04 *	Capabilities supported: account-notify
+Jul 22 11:46:04 *	Capabilities requested: account-notify 
+Jul 22 11:46:04 *	Capabilities supported: account-tag
+Jul 22 11:46:04 *	Capabilities requested: account-tag 
+Jul 22 11:46:04 *	Capabilities supported: away-notify
+Jul 22 11:46:04 *	Capabilities requested: away-notify 
+Jul 22 11:46:04 *	Capabilities supported: extended-join
+Jul 22 11:46:04 *	Capabilities requested: extended-join 
+Jul 22 11:46:06 *	Capabilities acknowledged: account-notify
+Jul 22 11:46:10 *	Capabilities acknowledged: account-tag
+Jul 22 11:46:14 *	Capabilities acknowledged: away-notify
+Jul 22 11:46:18 *	Capabilities acknowledged: extended-join
+Jul 22 11:46:43 Sysinfo plugin unloaded
+Jul 22 11:46:43 Perl interface unloaded
+Jul 22 11:46:43 FiSHLiM plugin unloaded
+Jul 22 11:46:43 Checksum plugin unloaded
+**** ENDING LOGGING AT Wed Jul 22 11:46:43 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:21:21 2026
+
+Jul 22 12:20:55 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:20:55 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:20:55 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:20:55 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:20:55 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:20:55 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:20:55 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:20:55 *	There are 59 users and 30282 invisible on 29 servers
+Jul 22 12:20:55 *	36 :IRC Operators online
+Jul 22 12:20:55 *	22614 :channels formed
+Jul 22 12:20:55 *	I have 1613 clients and 1 servers
+Jul 22 12:20:55 *	1613 1825 :Current local users 1613, max 1825
+Jul 22 12:20:55 *	30341 32525 :Current global users 30341, max 32525
+Jul 22 12:20:55 *	Highest connection count: 1826 (1825 clients) (10622 connections received)
+Jul 22 12:20:55 *	- zinc.libera.chat Message of the Day - 
+Jul 22 12:20:55 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:20:55 *	- free & open-source software and peer directed projects.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:20:55 *	- on hosts at connection time.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Please visit us in #libera for questions and support.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Website and documentation:  https://libera.chat
+Jul 22 12:20:55 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:20:55 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:20:55 *	- Email:                      support@libera.chat
+Jul 22 12:20:55 *	End of /MOTD command.
+Jul 22 12:21:21 *	pgan sets mode +Z on pgan
+Jul 22 12:21:21 *	pgan sets mode +i on pgan
+Jul 22 12:21:21 *	pgan sets mode +w on pgan
+Jul 22 12:21:21 *	You have been marked as being away
+Jul 22 12:21:21 *	Capabilities supported: account-notify
+Jul 22 12:21:21 *	Capabilities requested: account-notify 
+Jul 22 12:21:21 *	Capabilities supported: account-tag
+Jul 22 12:21:21 *	Capabilities requested: account-tag 
+Jul 22 12:21:21 *	Capabilities supported: away-notify
+Jul 22 12:21:21 *	Capabilities requested: away-notify 
+Jul 22 12:21:21 *	Capabilities supported: extended-join
+Jul 22 12:21:21 *	Capabilities requested: extended-join 
+Jul 22 12:21:21 *	You are no longer marked as being away
+Jul 22 12:21:23 *	Capabilities acknowledged: account-notify
+Jul 22 12:21:27 *	Capabilities acknowledged: account-tag
+Jul 22 12:21:31 *	Capabilities acknowledged: away-notify
+Jul 22 12:21:35 *	Capabilities acknowledged: extended-join
+**** BEGIN LOGGING AT Wed Jul 22 12:22:00 2026
+
+Jul 22 12:20:55 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:20:55 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:20:55 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:20:55 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:20:55 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:20:55 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:20:55 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:20:55 *	There are 59 users and 30282 invisible on 29 servers
+Jul 22 12:20:55 *	36 :IRC Operators online
+Jul 22 12:20:55 *	22614 :channels formed
+Jul 22 12:20:55 *	I have 1613 clients and 1 servers
+Jul 22 12:20:55 *	1613 1825 :Current local users 1613, max 1825
+Jul 22 12:20:55 *	30341 32525 :Current global users 30341, max 32525
+Jul 22 12:20:55 *	Highest connection count: 1826 (1825 clients) (10622 connections received)
+Jul 22 12:20:55 *	- zinc.libera.chat Message of the Day - 
+Jul 22 12:20:55 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:20:55 *	- free & open-source software and peer directed projects.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:20:55 *	- on hosts at connection time.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Please visit us in #libera for questions and support.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Website and documentation:  https://libera.chat
+Jul 22 12:20:55 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:20:55 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:20:55 *	- Email:                      support@libera.chat
+Jul 22 12:20:55 *	End of /MOTD command.
+Jul 22 12:22:00 *	pgan sets mode +Z on pgan
+Jul 22 12:22:00 *	pgan sets mode +i on pgan
+Jul 22 12:22:00 *	pgan sets mode +w on pgan
+Jul 22 12:22:00 *	Capabilities supported: account-notify
+Jul 22 12:22:00 *	Capabilities requested: account-notify 
+Jul 22 12:22:00 *	Capabilities supported: account-tag
+Jul 22 12:22:00 *	Capabilities requested: account-tag 
+Jul 22 12:22:00 *	Capabilities supported: away-notify
+Jul 22 12:22:00 *	Capabilities requested: away-notify 
+Jul 22 12:22:00 *	Capabilities supported: extended-join
+Jul 22 12:22:00 *	Capabilities requested: extended-join 
+Jul 22 12:22:01 *	Capabilities acknowledged: account-notify
+**** ENDING LOGGING AT Wed Jul 22 12:22:05 2026
+
+Jul 22 12:22:05 *	Capabilities acknowledged: account-tag
+**** ENDING LOGGING AT Wed Jul 22 12:22:07 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:22:13 2026
+
+Jul 22 12:20:55 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:20:55 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:20:55 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:20:55 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:20:55 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:20:55 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:20:55 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:20:55 *	There are 59 users and 30282 invisible on 29 servers
+Jul 22 12:20:55 *	36 :IRC Operators online
+Jul 22 12:20:55 *	22614 :channels formed
+Jul 22 12:20:55 *	I have 1613 clients and 1 servers
+Jul 22 12:20:55 *	1613 1825 :Current local users 1613, max 1825
+Jul 22 12:20:55 *	30341 32525 :Current global users 30341, max 32525
+Jul 22 12:20:55 *	Highest connection count: 1826 (1825 clients) (10622 connections received)
+Jul 22 12:20:55 *	- zinc.libera.chat Message of the Day - 
+Jul 22 12:20:55 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:20:55 *	- free & open-source software and peer directed projects.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:20:55 *	- on hosts at connection time.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Please visit us in #libera for questions and support.
+Jul 22 12:20:55 *	-  
+Jul 22 12:20:55 *	- Website and documentation:  https://libera.chat
+Jul 22 12:20:55 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:20:55 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:20:55 *	- Email:                      support@libera.chat
+Jul 22 12:20:55 *	End of /MOTD command.
+Jul 22 12:22:13 *	pgan sets mode +Z on pgan
+Jul 22 12:22:13 *	pgan sets mode +i on pgan
+Jul 22 12:22:13 *	pgan sets mode +w on pgan
+Jul 22 12:22:13 *	Capabilities supported: account-notify
+Jul 22 12:22:13 *	Capabilities requested: account-notify 
+Jul 22 12:22:13 *	Capabilities supported: account-tag
+Jul 22 12:22:13 *	Capabilities requested: account-tag 
+Jul 22 12:22:13 *	Capabilities supported: away-notify
+Jul 22 12:22:13 *	Capabilities requested: away-notify 
+Jul 22 12:22:13 *	Capabilities supported: extended-join
+Jul 22 12:22:13 *	Capabilities requested: extended-join 
+Jul 22 12:22:14 *	Capabilities acknowledged: account-notify
+Jul 22 12:22:18 *	Capabilities acknowledged: account-tag
+Jul 22 12:22:22 *	Capabilities acknowledged: away-notify
+Jul 22 12:22:26 *	Capabilities acknowledged: extended-join
+Jul 22 12:35:43 *	Capabilities removed: account-notify
+Jul 22 12:35:43 *	Capabilities removed: account-tag
+Jul 22 12:35:43 *	Capabilities removed: away-notify
+Jul 22 12:35:43 *	Capabilities removed: extended-join
+Jul 22 12:35:43 *	Disconnected (Remote host closed socket)
+Jul 22 12:35:53 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:35:53 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:35:53 *	Connection failed (Connection refused)
+Jul 22 12:36:03 Cycling to next server in ZNC...
+Jul 22 12:36:03 *	Disconnected ()
+Jul 22 12:36:03 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:36:03 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:36:04 *	Connection failed (Connection refused)
+Jul 22 12:36:14 Cycling to next server in ZNC...
+Jul 22 12:36:14 *	Disconnected ()
+Jul 22 12:36:14 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:36:14 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:36:14 *	Connection failed (Connection refused)
+Jul 22 12:36:24 Cycling to next server in ZNC...
+Jul 22 12:36:24 *	Disconnected ()
+Jul 22 12:36:24 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:36:24 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:36:25 *	* Subject: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:36:25 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:36:25 *	* Subject: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:36:25 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:36:25 *	* Subject: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:36:25 *	* Issuer: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:36:25 *	* Subject: /CN=kitsune.prateekganguli.com
+Jul 22 12:36:25 *	* Issuer: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:36:25 *	* Certification info:
+Jul 22 12:36:25 *	  Subject:
+Jul 22 12:36:25 *	    CN=kitsune.prateekganguli.com
+Jul 22 12:36:25 *	  Issuer:
+Jul 22 12:36:25 *	    C=US
+Jul 22 12:36:25 *	    O=Let's Encrypt
+Jul 22 12:36:25 *	    CN=YE1
+Jul 22 12:36:25 *	  Public key algorithm: id-ecPublicKey (256 bits)
+Jul 22 12:36:25 *	  Sign algorithm ecdsa-with-SHA384
+Jul 22 12:36:25 *	  Valid since Jul 22 03:21:40 2026 GM to Oct 20 03:21:39 2026 GM
+Jul 22 12:36:25 *	* Cipher info:
+Jul 22 12:36:25 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 12:36:25 *	Connected. Now logging in.
+Jul 22 12:36:26 *	Capabilities supported: batch cap-notify echo-message multi-prefix server-time userhost-in-names znc.in/batch znc.in/self-message znc.in/server-time-iso
+Jul 22 12:36:26 *	Capabilities requested: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso 
+Jul 22 12:36:26 *	Capabilities acknowledged: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso
+Jul 22 12:36:26 *	Welcome to ZNC
+Jul 22 12:36:28 *	*** No Ident response
+Jul 22 12:36:35 *	You are now logged in as pgan
+Jul 22 12:36:37 *	Capabilities supported: account-notify
+Jul 22 12:36:37 *	Capabilities requested: account-notify 
+Jul 22 12:36:37 *	Capabilities supported: account-tag
+Jul 22 12:36:37 *	Capabilities requested: account-tag 
+Jul 22 12:36:37 *	Capabilities supported: away-notify
+Jul 22 12:36:37 *	Capabilities requested: away-notify 
+Jul 22 12:36:37 *	Capabilities supported: extended-join
+Jul 22 12:36:37 *	Capabilities requested: extended-join 
+Jul 22 12:36:37 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:36:37 *	Your host is silver.libera.chat[108.181.132.149/6697], running version solanum-1.0-dev
+Jul 22 12:36:37 *	This server was created __DATE__ at __TIME__
+Jul 22 12:36:37 *	silver.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:36:37 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:36:37 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:36:37 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:36:37 *	There are 59 users and 30300 invisible on 29 servers
+Jul 22 12:36:37 *	36 :IRC Operators online
+Jul 22 12:36:37 *	94 :unknown connection(s)
+Jul 22 12:36:37 *	22610 :channels formed
+Jul 22 12:36:37 *	I have 1702 clients and 1 servers
+Jul 22 12:36:37 *	1702 2496 :Current local users 1702, max 2496
+Jul 22 12:36:37 *	30359 32872 :Current global users 30359, max 32872
+Jul 22 12:36:37 *	Highest connection count: 2497 (2496 clients) (52492 connections received)
+Jul 22 12:36:37 *	- silver.libera.chat Message of the Day - 
+Jul 22 12:36:37 *	- This server is provided by Psychz Networks.
+Jul 22 12:36:37 *	-  
+Jul 22 12:36:37 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:36:37 *	- free & open-source software and peer directed projects.
+Jul 22 12:36:37 *	-  
+Jul 22 12:36:37 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:36:37 *	-  
+Jul 22 12:36:37 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:36:37 *	- on hosts at connection time.
+Jul 22 12:36:37 *	-  
+Jul 22 12:36:37 *	- Please visit us in #libera for questions and support.
+Jul 22 12:36:37 *	-  
+Jul 22 12:36:37 *	- Website and documentation:  https://libera.chat
+Jul 22 12:36:37 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:36:37 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:36:37 *	- Email:                      support@libera.chat
+Jul 22 12:36:37 *	End of /MOTD command.
+Jul 22 12:36:37 *	Capabilities acknowledged: account-notify
+Jul 22 12:36:37 *	Capabilities acknowledged: account-tag
+Jul 22 12:36:37 *	Capabilities acknowledged: away-notify
+Jul 22 12:36:40 *	Capabilities acknowledged: extended-join
+Jul 22 12:36:43 *	* ~pgan 141.148.7.36 silver.libera.chat pgan H :0 ZNC - https://znc.in
+Jul 22 12:36:43 *	pgan :End of /WHO list.
+Jul 22 12:44:44 Sysinfo plugin unloaded
+Jul 22 12:44:44 Perl interface unloaded
+Jul 22 12:44:44 Checksum plugin unloaded
+**** ENDING LOGGING AT Wed Jul 22 12:44:44 2026
+

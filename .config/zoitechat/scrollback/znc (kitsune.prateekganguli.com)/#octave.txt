@@ -1,0 +1,59 @@
+T 1784695939 19*	Now talking on 22#octave
+T 1784724259 19*	Now talking on 22#octave
+T 1784896299 19*	Now talking on 22#octave
+T 1788803754 19*	Now talking on 22#octave
+T 1784927421 18<specing18>	Is it just me or did Octave suffer a stroke?
+T 1784927423 18<specing18>	0xc3 -235
+T 1784927425 18<specing18>	ans = 0
+T 1784927442 18<specing18>	Seems it really does not want to go negative when one component was given in hex.
+T 1785258821 18<lispmacs[work]18>	is this channel for GNU Octave?
+T 1785259030 18<bremner18>	yes
+T 1785259036 18<bremner18>	but it is _very_ quiet
+T 1785260052 18<lispmacs[work]18>	I am new to Octave. I have this code file: http://dpaste.com/7TNXFRRDC
+T 1785260058 18<lispmacs[work]18>	err, script file
+T 1785260075 18<lispmacs[work]18>	if I try to publish it using the publish function, I get error
+T 1785260087 18<lispmacs[work]18>	publish: only script files can be published
+T 1785260119 18<lispmacs[work]18>	publish ("higher-order.m")
+T 1785260148 18<lispmacs[work]18>	it runs correctly, producing the desired plots
+T 1785260159 18<lispmacs[work]18>	but wanted to try out the publish feature also
+T 1785273475 18<lispmacs[work]18>	does Octave have something like odeToVectorField in MATLAB, to save you the trouble of converting the ODEs from higher order to first order?
+T 1785321749 18<Laurenceb_18>	hi, anyone here used mkoctfile  ?
+T 1785321772 18<Laurenceb_18>	I'm trying the example and I get  error while loading shared libraries: liboctinterp.so.11
+T 1785321792 18<Laurenceb_18>	then if I try this it doesnt compile
+T 1785321793 18<Laurenceb_18>	error while loading shared libraries: liboctinterp.so.11
+T 1785321796 18<Laurenceb_18>	oops
+T 1785321803 18<Laurenceb_18>	sudo mkoctfile --link-stand-alone -l /usr/lib/x86_64-linux-gnu/octave/8.4.0/liboctinterp.so.11.0.2 embedded.cpp -o embedded
+T 1785321836 18<Laurenceb_18>	mkoctfile: unrecognized argument
+T 1785322520 18<specing18>	yeah, it worked 10 years ago :P
+T 1785323449 18<Laurenceb_18>	lol
+T 1785324127 18<Laurenceb_18>	ok that was irrelevant
+T 1785324132 18<Laurenceb_18>	-loctinterp is already used
+T 1785324839 18<Laurenceb_18>	holy shit it works
+T 1785324852 18<Laurenceb_18>	sudo mkoctfile -verbose --link-stand-alone  -Wl,-rpath=/usr/lib/x86_64-linux-gnu/octave/8.4.0/ embedded.cpp -o embedded
+T 1785324866 18<Laurenceb_18>	starce output does not look pleasant, bet this is slow
+T 1785324872 18<Laurenceb_18>	""""embedded""""
+T 1785325800 18<Laurenceb_18>	ouch
+T 1785325812 18<Laurenceb_18>	>250ms for basic demo code to run
+T 1785326241 18<specing18>	Octave has/had no JIT
+T 1785326257 18<specing18>	keep your use of loops to a minimum, vectorise instead
+T 1785326639 18<Laurenceb_18>	it should compile to cpp, but why is it calling the interpretter in that case...
+T 1785326653 18<Laurenceb_18>	octave::feval only takes 250us tho, for some matrix manipulation
+T 1785326665 18<Laurenceb_18>	looks like thet time was in startup and shutdown
+T 1785326826 18<specing18>	ah yeah, that also takes a while
+T 1785326981 18<Laurenceb_18>	wait I could use octave coder
+T 1785326988 18<Laurenceb_18>	this could actually run with high performance
+T 1785327027 18<Laurenceb_18>	250us is already fast enough, but I would have to keep interpretter aliver, maybe connect to it via a localhost socket
+T 1785421013 18<Laurenceb_18>	hi, anyone here used embedded interpretter?
+T 1785421038 18<Laurenceb_18>	I'm trying to load packages but I get this error:  terminate called after throwing an instance of 'octave::execution_exception'
+T 1785421038 18<Laurenceb_18>	  what():  'local_packages' undefined near line 417, column 11
+T 1785425222 18<Guest7718>	anyone?
+T 1785425726 18<lispmacs[work]18>	Guest77: hi
+T 1786535108 18<RobertLM7818>	hello - has 'toascii' been dropped from octave?
+T 1786536794 18<RobertLM7818>	i see... i guess now they use unicode2native.... ugh... shame when keywords are dropped... 
+T 1788475107 18<RobertLM7818>	just for fun :D
+T 1788475111 18<RobertLM7818>	https://pastebin.com/AHSc5DVS
+T 1788480349 18<JordiGH18>	RobertLM78: heh, cute.
+T 1788480405 18<RobertLM7818>	heh -- thought it might be appreciated by those who know ;) 
+T 1787110026 -29She/Wallops-	It's upgrade time again! Services are going to go offline in a few minutes. You may want to op up just in case.
+T 1787509746 -18SaslServ-	Last login from: ~pgan@141.148.7.36 on Aug 23 18:27:49 2026 +0000.
+T 1788804076 FiSHLiM plugin unloaded

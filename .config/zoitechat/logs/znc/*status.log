@@ -1,0 +1,301 @@
+**** BEGIN LOGGING AT Wed Jul 22 10:50:37 2026
+
+[*status has address status@znc.in]
+Jul 22 10:50:37 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+**** ENDING LOGGING AT Wed Jul 22 10:50:48 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 10:51:07 2026
+
+[*status has address status@znc.in]
+Jul 22 10:51:07 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:51:37 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:52:07 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:52:26 <*status>	Loaded module sasl: [/usr/lib/znc/sasl.so]
+Jul 22 10:52:38 >*sasl<	set username pgan
+Jul 22 10:52:53 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:52:53 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:53:08 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:53:25 <*status>	Connecting to irc.libera.chat...
+Jul 22 10:53:38 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:54:08 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:54:38 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:55:24 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:55:24 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:55:55 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:55:55 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:56:10 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:56:40 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:57:10 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:57:40 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 10:58:26 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:58:26 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:58:57 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:58:57 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:59:28 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 10:59:28 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 10:59:43 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:00:13 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:01:00 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 11:01:00 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 11:01:15 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:02:01 <*status>	Error from server: Closing Link: 141.148.7.36 (SASL authentication to a NickServ account with a verified email address is required to connect from your current network. Please see https://libera.chat/guides/sasl for configuration assistance.)
+Jul 22 11:02:01 <*status>	Disconnected from IRC. Reconnecting...
+Jul 22 11:02:16 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:02:46 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:02:56 <*status>	Connecting to irc.libera.chat...
+**** ENDING LOGGING AT Wed Jul 22 11:03:00 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 11:03:13 2026
+
+[*status has address status@znc.in]
+Jul 22 11:03:13 <*status>	Connecting to irc.libera.chat...
+Jul 22 11:03:16 <*status>	Cannot connect to IRC (Network is unreachable). Retrying...
+Jul 22 11:04:02 <*status>	Connected!
+Jul 22 11:08:10 <pgan>	ListBuffers
+Jul 22 11:08:10 <*status>	Unknown command, try 'Help'
+Jul 22 11:08:18 <pgan>	ListBuffers
+Jul 22 11:08:19 <*status>	Unknown command, try 'Help'
+Jul 22 11:08:21 <pgan>	Help
+Jul 22 11:08:22 <*status>	In the following list all occurrences of <#chan> support wildcards (* and ?) except ListNicks
+Jul 22 11:08:22 <*status>	Version: Print which version of ZNC this is
+Jul 22 11:08:22 <*status>	ListMods: List all loaded modules
+Jul 22 11:08:22 <*status>	ListAvailMods: List all available modules
+Jul 22 11:08:22 <*status>	ListNicks <#chan>: List all nicks on a channel
+Jul 22 11:08:22 <*status>	ListServers: List all servers of current IRC network
+Jul 22 11:08:22 <*status>	AddNetwork <name>: Add a network to your user
+Jul 22 11:08:22 <*status>	DelNetwork <name>: Delete a network from your user
+Jul 22 11:08:22 <*status>	ListNetworks: List all networks
+Jul 22 11:08:22 <*status>	MoveNetwork <old user> <old network> <new user> [new network]: Move an IRC network from one user to another
+Jul 22 11:08:22 <*status>	JumpNetwork <network>: Jump to another network (Alternatively, you can connect to ZNC several times, using `user/network` as username)
+Jul 22 11:08:22 <*status>	AddServer <host> [[+]port] [pass]: Add a server to the list of alternate/backup servers of current IRC network.
+Jul 22 11:08:22 <*status>	DelServer <host> [port] [pass]: Remove a server from the list of alternate/backup servers of current IRC network
+Jul 22 11:08:22 <*status>	AddTrustedServerFingerprint <fi:ng:er>: Add a trusted server SSL certificate fingerprint (SHA-256) to current IRC network.
+Jul 22 11:08:22 <*status>	DelTrustedServerFingerprint <fi:ng:er>: Delete a trusted server SSL certificate from current IRC network.
+Jul 22 11:08:22 <*status>	ListTrustedServerFingerprints: List all trusted server SSL certificates of current IRC network.
+Jul 22 11:08:22 <*status>	EnableChan <#chans>: Enable channels
+Jul 22 11:08:22 <*status>	DisableChan <#chans>: Disable channels
+Jul 22 11:08:22 <*status>	MoveChan <#chan> <index>: Move channel in sort order
+Jul 22 11:08:22 <*status>	SwapChans <#chan1> <#chan2>: Swap channels in sort order
+Jul 22 11:08:22 <*status>	Attach <#chans>: Attach to channels
+Jul 22 11:08:22 <*status>	Detach <#chans>: Detach from channels
+Jul 22 11:08:22 <*status>	Topics: Show topics in all your channels
+Jul 22 11:08:22 <*status>	PlayBuffer <#chan|query>: Play back the specified buffer
+Jul 22 11:08:22 <*status>	ClearBuffer <#chan|query>: Clear the specified buffer
+Jul 22 11:08:22 <*status>	ClearAllBuffers: Clear all channel and query buffers
+Jul 22 11:08:22 <*status>	ClearAllChannelBuffers: Clear the channel buffers
+Jul 22 11:08:22 <*status>	ClearAllQueryBuffers: Clear the query buffers
+Jul 22 11:08:22 <*status>	SetBuffer <#chan|query> [linecount]: Set the buffer count
+Jul 22 11:08:22 <*status>	SetBindHost <host (IP preferred)>: Set the bind host for this network
+Jul 22 11:08:22 <*status>	SetUserBindHost <host (IP preferred)>: Set the default bind host for this user
+Jul 22 11:08:22 <*status>	ClearBindHost: Clear the bind host for this network
+Jul 22 11:08:22 <*status>	ClearUserBindHost: Clear the default bind host for this user
+Jul 22 11:08:22 <*status>	ShowBindHost: Show currently selected bind host
+Jul 22 11:08:22 <*status>	Jump [server]: Jump to the next or the specified server
+Jul 22 11:08:22 <*status>	Disconnect [message]: Disconnect from IRC
+Jul 22 11:08:22 <*status>	Connect: Reconnect to IRC
+Jul 22 11:08:22 <*status>	Uptime: Show for how long ZNC has been running
+Jul 22 11:08:22 <*status>	LoadMod [--type=global|user|network] <module> [args]: Load a module
+Jul 22 11:08:22 <*status>	UnloadMod [--type=global|user|network] <module>: Unload a module
+Jul 22 11:08:22 <*status>	ReloadMod [--type=global|user|network] <module> [args]: Reload a module
+Jul 22 11:08:22 <*status>	UpdateMod <module>: Reload a module everywhere
+Jul 22 11:08:22 <*status>	ShowMOTD: Show ZNC's message of the day
+Jul 22 11:08:22 <*status>	SetMOTD <message>: Set ZNC's message of the day
+Jul 22 11:08:22 <*status>	AddMOTD <message>: Append <message> to ZNC's MOTD
+Jul 22 11:08:22 <*status>	ClearMOTD: Clear ZNC's MOTD
+Jul 22 11:08:22 <*status>	ListPorts: Show all active listeners
+Jul 22 11:08:22 <*status>	AddPort <[+]port> <ipv4|ipv6|all> <web|irc|all> [bindhost [uriprefix]]: Add another port for ZNC to listen on
+Jul 22 11:08:22 <*status>	DelPort <port> <ipv4|ipv6|all> [bindhost]: Remove a port from ZNC
+Jul 22 11:08:22 <*status>	Rehash: Reload global settings, modules, and listeners from znc.conf
+Jul 22 11:08:22 <*status>	SaveConfig: Save the current settings to disk
+Jul 22 11:08:22 <*status>	ListUsers: List all ZNC users and their connection status
+Jul 22 11:08:22 <*status>	ListAllUserNetworks: List all ZNC users and their networks
+Jul 22 11:08:22 <*status>	ListChans [user <network>]: List all channels
+Jul 22 11:08:22 <*status>	ListClients [user]: List all connected clients
+Jul 22 11:08:22 <*status>	Traffic: Show basic traffic stats for all ZNC users
+Jul 22 11:08:22 <*status>	Broadcast [message]: Broadcast a message to all ZNC users
+Jul 22 11:08:22 <*status>	Shutdown [message]: Shut down ZNC completely
+Jul 22 11:08:22 <*status>	Restart [message]: Restart ZNC
+Jul 22 11:45:52 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Wed Jul 22 11:45:52 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:22:39 2026
+
+[*status has address status@znc.in]
+Jul 22 12:22:39 <*status>	In the following list all occurrences of <#chan> support wildcards (* and ?) except ListNicks
+Jul 22 12:22:39 <*status>	Version: Print which version of ZNC this is
+Jul 22 12:22:39 <*status>	ListMods: List all loaded modules
+Jul 22 12:22:39 <*status>	ListAvailMods: List all available modules
+Jul 22 12:22:39 <*status>	ListNicks <#chan>: List all nicks on a channel
+Jul 22 12:22:39 <*status>	ListServers: List all servers of current IRC network
+Jul 22 12:22:39 <*status>	AddNetwork <name>: Add a network to your user
+Jul 22 12:22:39 <*status>	DelNetwork <name>: Delete a network from your user
+Jul 22 12:22:39 <*status>	ListNetworks: List all networks
+Jul 22 12:22:39 <*status>	MoveNetwork <old user> <old network> <new user> [new network]: Move an IRC network from one user to another
+Jul 22 12:22:39 <*status>	JumpNetwork <network>: Jump to another network (Alternatively, you can connect to ZNC several times, using `user/network` as username)
+Jul 22 12:22:39 <*status>	AddServer <host> [[+]port] [pass]: Add a server to the list of alternate/backup servers of current IRC network.
+Jul 22 12:22:39 <*status>	DelServer <host> [port] [pass]: Remove a server from the list of alternate/backup servers of current IRC network
+Jul 22 12:22:39 <*status>	AddTrustedServerFingerprint <fi:ng:er>: Add a trusted server SSL certificate fingerprint (SHA-256) to current IRC network.
+Jul 22 12:22:39 <*status>	DelTrustedServerFingerprint <fi:ng:er>: Delete a trusted server SSL certificate from current IRC network.
+Jul 22 12:22:39 <*status>	ListTrustedServerFingerprints: List all trusted server SSL certificates of current IRC network.
+Jul 22 12:22:39 <*status>	EnableChan <#chans>: Enable channels
+Jul 22 12:22:39 <*status>	DisableChan <#chans>: Disable channels
+Jul 22 12:22:39 <*status>	MoveChan <#chan> <index>: Move channel in sort order
+Jul 22 12:22:39 <*status>	SwapChans <#chan1> <#chan2>: Swap channels in sort order
+Jul 22 12:22:39 <*status>	Attach <#chans>: Attach to channels
+Jul 22 12:22:39 <*status>	Detach <#chans>: Detach from channels
+Jul 22 12:22:39 <*status>	Topics: Show topics in all your channels
+Jul 22 12:22:39 <*status>	PlayBuffer <#chan|query>: Play back the specified buffer
+Jul 22 12:22:39 <*status>	ClearBuffer <#chan|query>: Clear the specified buffer
+Jul 22 12:22:39 <*status>	ClearAllBuffers: Clear all channel and query buffers
+Jul 22 12:22:39 <*status>	ClearAllChannelBuffers: Clear the channel buffers
+Jul 22 12:22:39 <*status>	ClearAllQueryBuffers: Clear the query buffers
+Jul 22 12:22:39 <*status>	SetBuffer <#chan|query> [linecount]: Set the buffer count
+Jul 22 12:22:39 <*status>	SetBindHost <host (IP preferred)>: Set the bind host for this network
+Jul 22 12:22:39 <*status>	SetUserBindHost <host (IP preferred)>: Set the default bind host for this user
+Jul 22 12:22:39 <*status>	ClearBindHost: Clear the bind host for this network
+Jul 22 12:22:39 <*status>	ClearUserBindHost: Clear the default bind host for this user
+Jul 22 12:22:39 <*status>	ShowBindHost: Show currently selected bind host
+Jul 22 12:22:39 <*status>	Jump [server]: Jump to the next or the specified server
+Jul 22 12:22:39 <*status>	Disconnect [message]: Disconnect from IRC
+Jul 22 12:22:39 <*status>	Connect: Reconnect to IRC
+Jul 22 12:22:39 <*status>	Uptime: Show for how long ZNC has been running
+Jul 22 12:22:39 <*status>	LoadMod [--type=global|user|network] <module> [args]: Load a module
+Jul 22 12:22:39 <*status>	UnloadMod [--type=global|user|network] <module>: Unload a module
+Jul 22 12:22:39 <*status>	ReloadMod [--type=global|user|network] <module> [args]: Reload a module
+Jul 22 12:22:39 <*status>	UpdateMod <module>: Reload a module everywhere
+Jul 22 12:22:39 <*status>	ShowMOTD: Show ZNC's message of the day
+Jul 22 12:22:39 <*status>	SetMOTD <message>: Set ZNC's message of the day
+Jul 22 12:22:39 <*status>	AddMOTD <message>: Append <message> to ZNC's MOTD
+Jul 22 12:22:39 <*status>	ClearMOTD: Clear ZNC's MOTD
+Jul 22 12:22:39 <*status>	ListPorts: Show all active listeners
+Jul 22 12:22:39 <*status>	AddPort <[+]port> <ipv4|ipv6|all> <web|irc|all> [bindhost [uriprefix]]: Add another port for ZNC to listen on
+Jul 22 12:22:40 <*status>	DelPort <port> <ipv4|ipv6|all> [bindhost]: Remove a port from ZNC
+Jul 22 12:22:40 <*status>	Rehash: Reload global settings, modules, and listeners from znc.conf
+Jul 22 12:22:40 <*status>	SaveConfig: Save the current settings to disk
+Jul 22 12:22:40 <*status>	ListUsers: List all ZNC users and their connection status
+Jul 22 12:22:40 <*status>	ListAllUserNetworks: List all ZNC users and their networks
+Jul 22 12:22:40 <*status>	ListChans [user <network>]: List all channels
+Jul 22 12:22:40 <*status>	ListClients [user]: List all connected clients
+Jul 22 12:22:40 <*status>	Traffic: Show basic traffic stats for all ZNC users
+Jul 22 12:22:40 <*status>	Broadcast [message]: Broadcast a message to all ZNC users
+Jul 22 12:22:40 <*status>	Shutdown [message]: Shut down ZNC completely
+Jul 22 12:22:40 <*status>	Restart [message]: Restart ZNC
+Jul 22 12:22:55 <pgan>	ListPorts
+Jul 22 12:22:55 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:22:55 <*status>	| Port | BindHost | SSL | Protocol      | IRC | Web       |
+Jul 22 12:22:55 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:22:55 <*status>	| 6697 | *        | yes | IPv4 and IPv6 | yes | yes, on / |
+Jul 22 12:22:55 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:23:12 <pgan>	AddPort 8443 all web
+Jul 22 12:23:13 <*status>	Port added
+Jul 22 12:26:53 <pgan>	DelPort 6697 all
+Jul 22 12:26:53 <*status>	Deleted Port
+Jul 22 12:26:55 <pgan>	AddPort 6697 all irc
+Jul 22 12:26:55 <*status>	Port added
+Jul 22 12:26:58 <pgan>	ListPorts
+Jul 22 12:26:58 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:26:58 <*status>	| Port | BindHost | SSL | Protocol      | IRC | Web       |
+Jul 22 12:26:58 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:26:58 <*status>	| 8443 | *        | no  | IPv4 and IPv6 | no  | yes, on / |
+Jul 22 12:26:58 <*status>	| 6697 | *        | no  | IPv4 and IPv6 | yes | no        |
+Jul 22 12:26:58 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:28:16 <pgan>	DelPort 8443 all
+Jul 22 12:28:17 <*status>	Deleted Port
+Jul 22 12:28:18 <pgan>	AddPort +8443 all web
+Jul 22 12:28:18 <*status>	Port added
+Jul 22 12:31:37 -*status-	A client from 61.222.134.50 attempted to login as you, but was rejected: Invalid Password
+Jul 22 12:35:43 *	pgan sets mode -Z on pgan
+Jul 22 12:35:43 *	pgan sets mode -i on pgan
+Jul 22 12:35:43 *	pgan sets mode -w on pgan
+Jul 22 12:35:43 *	Disconnected (Remote host closed socket)
+Jul 22 12:36:37 <*status>	Connected!
+Jul 22 12:36:37 *	pgan sets mode +Z on pgan
+Jul 22 12:36:37 *	pgan sets mode +i on pgan
+Jul 22 12:36:37 *	pgan sets mode +w on pgan
+Jul 22 12:36:37 -SaslServ-	Last login from: ~pgan@141.148.7.36 on Jul 22 04:35:43 2026 +0000.
+Jul 22 12:37:27 <pgan>	Hlep
+Jul 22 12:37:27 <*status>	Unknown command, try 'Help'
+Jul 22 12:37:29 <pgan>	Help
+Jul 22 12:37:29 <*status>	In the following list all occurrences of <#chan> support wildcards (* and ?) except ListNicks
+Jul 22 12:37:29 <*status>	Version: Print which version of ZNC this is
+Jul 22 12:37:29 <*status>	ListMods: List all loaded modules
+Jul 22 12:37:29 <*status>	ListAvailMods: List all available modules
+Jul 22 12:37:29 <*status>	ListNicks <#chan>: List all nicks on a channel
+Jul 22 12:37:29 <*status>	ListServers: List all servers of current IRC network
+Jul 22 12:37:29 <*status>	AddNetwork <name>: Add a network to your user
+Jul 22 12:37:29 <*status>	DelNetwork <name>: Delete a network from your user
+Jul 22 12:37:29 <*status>	ListNetworks: List all networks
+Jul 22 12:37:29 <*status>	MoveNetwork <old user> <old network> <new user> [new network]: Move an IRC network from one user to another
+Jul 22 12:37:29 <*status>	JumpNetwork <network>: Jump to another network (Alternatively, you can connect to ZNC several times, using `user/network` as username)
+Jul 22 12:37:29 <*status>	AddServer <host> [[+]port] [pass]: Add a server to the list of alternate/backup servers of current IRC network.
+Jul 22 12:37:29 <*status>	DelServer <host> [port] [pass]: Remove a server from the list of alternate/backup servers of current IRC network
+Jul 22 12:37:29 <*status>	AddTrustedServerFingerprint <fi:ng:er>: Add a trusted server SSL certificate fingerprint (SHA-256) to current IRC network.
+Jul 22 12:37:29 <*status>	DelTrustedServerFingerprint <fi:ng:er>: Delete a trusted server SSL certificate from current IRC network.
+Jul 22 12:37:29 <*status>	ListTrustedServerFingerprints: List all trusted server SSL certificates of current IRC network.
+Jul 22 12:37:29 <*status>	EnableChan <#chans>: Enable channels
+Jul 22 12:37:29 <*status>	DisableChan <#chans>: Disable channels
+Jul 22 12:37:29 <*status>	MoveChan <#chan> <index>: Move channel in sort order
+Jul 22 12:37:29 <*status>	SwapChans <#chan1> <#chan2>: Swap channels in sort order
+Jul 22 12:37:29 <*status>	Attach <#chans>: Attach to channels
+Jul 22 12:37:29 <*status>	Detach <#chans>: Detach from channels
+Jul 22 12:37:29 <*status>	Topics: Show topics in all your channels
+Jul 22 12:37:29 <*status>	PlayBuffer <#chan|query>: Play back the specified buffer
+Jul 22 12:37:29 <*status>	ClearBuffer <#chan|query>: Clear the specified buffer
+Jul 22 12:37:29 <*status>	ClearAllBuffers: Clear all channel and query buffers
+Jul 22 12:37:29 <*status>	ClearAllChannelBuffers: Clear the channel buffers
+Jul 22 12:37:29 <*status>	ClearAllQueryBuffers: Clear the query buffers
+Jul 22 12:37:29 <*status>	SetBuffer <#chan|query> [linecount]: Set the buffer count
+Jul 22 12:37:29 <*status>	SetBindHost <host (IP preferred)>: Set the bind host for this network
+Jul 22 12:37:29 <*status>	SetUserBindHost <host (IP preferred)>: Set the default bind host for this user
+Jul 22 12:37:29 <*status>	ClearBindHost: Clear the bind host for this network
+Jul 22 12:37:29 <*status>	ClearUserBindHost: Clear the default bind host for this user
+Jul 22 12:37:29 <*status>	ShowBindHost: Show currently selected bind host
+Jul 22 12:37:29 <*status>	Jump [server]: Jump to the next or the specified server
+Jul 22 12:37:29 <*status>	Disconnect [message]: Disconnect from IRC
+Jul 22 12:37:29 <*status>	Connect: Reconnect to IRC
+Jul 22 12:37:29 <*status>	Uptime: Show for how long ZNC has been running
+Jul 22 12:37:29 <*status>	LoadMod [--type=global|user|network] <module> [args]: Load a module
+Jul 22 12:37:29 <*status>	UnloadMod [--type=global|user|network] <module>: Unload a module
+Jul 22 12:37:29 <*status>	ReloadMod [--type=global|user|network] <module> [args]: Reload a module
+Jul 22 12:37:29 <*status>	UpdateMod <module>: Reload a module everywhere
+Jul 22 12:37:29 <*status>	ShowMOTD: Show ZNC's message of the day
+Jul 22 12:37:29 <*status>	SetMOTD <message>: Set ZNC's message of the day
+Jul 22 12:37:29 <*status>	AddMOTD <message>: Append <message> to ZNC's MOTD
+Jul 22 12:37:29 <*status>	ClearMOTD: Clear ZNC's MOTD
+Jul 22 12:37:29 <*status>	ListPorts: Show all active listeners
+Jul 22 12:37:29 <*status>	AddPort <[+]port> <ipv4|ipv6|all> <web|irc|all> [bindhost [uriprefix]]: Add another port for ZNC to listen on
+Jul 22 12:37:30 <*status>	DelPort <port> <ipv4|ipv6|all> [bindhost]: Remove a port from ZNC
+Jul 22 12:37:30 <*status>	Rehash: Reload global settings, modules, and listeners from znc.conf
+Jul 22 12:37:30 <*status>	SaveConfig: Save the current settings to disk
+Jul 22 12:37:30 <*status>	ListUsers: List all ZNC users and their connection status
+Jul 22 12:37:30 <*status>	ListAllUserNetworks: List all ZNC users and their networks
+Jul 22 12:37:30 <*status>	ListChans [user <network>]: List all channels
+Jul 22 12:37:30 <*status>	ListClients [user]: List all connected clients
+Jul 22 12:37:30 <*status>	Traffic: Show basic traffic stats for all ZNC users
+Jul 22 12:37:30 <*status>	Broadcast [message]: Broadcast a message to all ZNC users
+Jul 22 12:37:30 <*status>	Shutdown [message]: Shut down ZNC completely
+Jul 22 12:37:30 <*status>	Restart [message]: Restart ZNC
+Jul 22 12:37:38 <pgan>	ListPorts
+Jul 22 12:37:38 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:37:38 <*status>	| Port | BindHost | SSL | Protocol      | IRC | Web       |
+Jul 22 12:37:38 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:37:38 <*status>	| 6697 | *        | yes | IPv4 and IPv6 | yes | yes, on / |
+Jul 22 12:37:38 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:38:10 <pgan>	DelPort 6697 all
+Jul 22 12:38:10 <*status>	Deleted Port
+Jul 22 12:38:15 <pgan>	AddPort 6697 all irc
+Jul 22 12:38:15 <*status>	Port added
+Jul 22 12:38:17 <pgan>	AddPort +8443 all web
+Jul 22 12:38:18 <*status>	Port added
+Jul 22 12:38:19 <pgan>	ListPorts
+Jul 22 12:38:19 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:38:20 <*status>	| Port | BindHost | SSL | Protocol      | IRC | Web       |
+Jul 22 12:38:20 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:38:20 <*status>	| 6697 | *        | no  | IPv4 and IPv6 | yes | no        |
+Jul 22 12:38:20 <*status>	| 8443 | *        | yes | IPv4 and IPv6 | no  | yes, on / |
+Jul 22 12:38:20 <*status>	+------+----------+-----+---------------+-----+-----------+
+Jul 22 12:38:34 -*status-	A client from 61.222.134.50 attempted to login as you, but was rejected: Invalid Password
+Jul 22 12:39:52 -*status-	A client from 61.222.134.50 attempted to login as you, but was rejected: Invalid Password
+Jul 22 12:44:44 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Wed Jul 22 12:44:44 2026
+

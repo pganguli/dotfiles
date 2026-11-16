@@ -1,0 +1,122 @@
+T 1784695933 18<*status>	Connected!
+T 1784695951 20<pgan>30	Help
+T 1784695963 18<*status>	In the following list all occurrences of <#chan> support wildcards (* and ?) except ListNicks
+T 1784695963 18<*status>	Version: Print which version of ZNC this is
+T 1784695963 18<*status>	ListMods: List all loaded modules
+T 1784695963 18<*status>	ListAvailMods: List all available modules
+T 1784695963 18<*status>	ListNicks <#chan>: List all nicks on a channel
+T 1784695963 18<*status>	ListServers: List all servers of current IRC network
+T 1784695963 18<*status>	AddNetwork <name>: Add a network to your user
+T 1784695963 18<*status>	DelNetwork <name>: Delete a network from your user
+T 1784695963 18<*status>	ListNetworks: List all networks
+T 1784695963 18<*status>	MoveNetwork <old user> <old network> <new user> [new network]: Move an IRC network from one user to another
+T 1784695963 18<*status>	JumpNetwork <network>: Jump to another network (Alternatively, you can connect to ZNC several times, using `user/network` as username)
+T 1784695963 18<*status>	AddServer <host> [[+]port] [pass]: Add a server to the list of alternate/backup servers of current IRC network.
+T 1784695963 18<*status>	DelServer <host> [port] [pass]: Remove a server from the list of alternate/backup servers of current IRC network
+T 1784695963 18<*status>	AddTrustedServerFingerprint <fi:ng:er>: Add a trusted server SSL certificate fingerprint (SHA-256) to current IRC network.
+T 1784695963 18<*status>	DelTrustedServerFingerprint <fi:ng:er>: Delete a trusted server SSL certificate from current IRC network.
+T 1784695963 18<*status>	ListTrustedServerFingerprints: List all trusted server SSL certificates of current IRC network.
+T 1784695963 18<*status>	EnableChan <#chans>: Enable channels
+T 1784695963 18<*status>	DisableChan <#chans>: Disable channels
+T 1784695963 18<*status>	MoveChan <#chan> <index>: Move channel in sort order
+T 1784695963 18<*status>	SwapChans <#chan1> <#chan2>: Swap channels in sort order
+T 1784695963 18<*status>	Attach <#chans>: Attach to channels
+T 1784695963 18<*status>	Detach <#chans>: Detach from channels
+T 1784695963 18<*status>	Topics: Show topics in all your channels
+T 1784695963 18<*status>	PlayBuffer <#chan|query>: Play back the specified buffer
+T 1784695963 18<*status>	ClearBuffer <#chan|query>: Clear the specified buffer
+T 1784695963 18<*status>	ClearAllBuffers: Clear all channel and query buffers
+T 1784695963 18<*status>	ClearAllChannelBuffers: Clear the channel buffers
+T 1784695963 18<*status>	ClearAllQueryBuffers: Clear the query buffers
+T 1784695963 18<*status>	SetBuffer <#chan|query> [linecount]: Set the buffer count
+T 1784695963 18<*status>	SetBindHost <host (IP preferred)>: Set the bind host for this network
+T 1784695963 18<*status>	SetUserBindHost <host (IP preferred)>: Set the default bind host for this user
+T 1784695963 18<*status>	ClearBindHost: Clear the bind host for this network
+T 1784695963 18<*status>	ClearUserBindHost: Clear the default bind host for this user
+T 1784695963 18<*status>	ShowBindHost: Show currently selected bind host
+T 1784695963 18<*status>	Jump [server]: Jump to the next or the specified server
+T 1784695963 18<*status>	Disconnect [message]: Disconnect from IRC
+T 1784695963 18<*status>	Connect: Reconnect to IRC
+T 1784695963 18<*status>	Uptime: Show for how long ZNC has been running
+T 1784695963 18<*status>	LoadMod [--type=global|user|network] <module> [args]: Load a module
+T 1784695963 18<*status>	UnloadMod [--type=global|user|network] <module>: Unload a module
+T 1784695963 18<*status>	ReloadMod [--type=global|user|network] <module> [args]: Reload a module
+T 1784695963 18<*status>	UpdateMod <module>: Reload a module everywhere
+T 1784695963 18<*status>	ShowMOTD: Show ZNC's message of the day
+T 1784695963 18<*status>	SetMOTD <message>: Set ZNC's message of the day
+T 1784695963 18<*status>	AddMOTD <message>: Append <message> to ZNC's MOTD
+T 1784695963 18<*status>	ClearMOTD: Clear ZNC's MOTD
+T 1784695963 18<*status>	ListPorts: Show all active listeners
+T 1784695963 18<*status>	AddPort <[+]port> <ipv4|ipv6|all> <web|irc|all> [bindhost [uriprefix]]: Add another port for ZNC to listen on
+T 1784695963 18<*status>	DelPort <port> <ipv4|ipv6|all> [bindhost]: Remove a port from ZNC
+T 1784695963 18<*status>	Rehash: Reload global settings, modules, and listeners from znc.conf
+T 1784695963 18<*status>	SaveConfig: Save the current settings to disk
+T 1784695963 18<*status>	ListUsers: List all ZNC users and their connection status
+T 1784695963 18<*status>	ListAllUserNetworks: List all ZNC users and their networks
+T 1784695963 18<*status>	ListChans [user <network>]: List all channels
+T 1784695963 18<*status>	ListClients [user]: List all connected clients
+T 1784695963 18<*status>	Traffic: Show basic traffic stats for all ZNC users
+T 1784695963 18<*status>	Broadcast [message]: Broadcast a message to all ZNC users
+T 1784695963 18<*status>	Shutdown [message]: Shut down ZNC completely
+T 1784695963 18<*status>	Restart [message]: Restart ZNC
+T 1784695984 20<pgan>30	Help
+T 1784695984 18<*status>	In the following list all occurrences of <#chan> support wildcards (* and ?) except ListNicks
+T 1784695984 18<*status>	Version: Print which version of ZNC this is
+T 1784695984 18<*status>	ListMods: List all loaded modules
+T 1784695984 18<*status>	ListAvailMods: List all available modules
+T 1784695984 18<*status>	ListNicks <#chan>: List all nicks on a channel
+T 1784695984 18<*status>	ListServers: List all servers of current IRC network
+T 1784695984 18<*status>	AddNetwork <name>: Add a network to your user
+T 1784695984 18<*status>	DelNetwork <name>: Delete a network from your user
+T 1784695984 18<*status>	ListNetworks: List all networks
+T 1784695984 18<*status>	MoveNetwork <old user> <old network> <new user> [new network]: Move an IRC network from one user to another
+T 1784695984 18<*status>	JumpNetwork <network>: Jump to another network (Alternatively, you can connect to ZNC several times, using `user/network` as username)
+T 1784695984 18<*status>	AddServer <host> [[+]port] [pass]: Add a server to the list of alternate/backup servers of current IRC network.
+T 1784695984 18<*status>	DelServer <host> [port] [pass]: Remove a server from the list of alternate/backup servers of current IRC network
+T 1784695984 18<*status>	AddTrustedServerFingerprint <fi:ng:er>: Add a trusted server SSL certificate fingerprint (SHA-256) to current IRC network.
+T 1784695984 18<*status>	DelTrustedServerFingerprint <fi:ng:er>: Delete a trusted server SSL certificate from current IRC network.
+T 1784695984 18<*status>	ListTrustedServerFingerprints: List all trusted server SSL certificates of current IRC network.
+T 1784695984 18<*status>	EnableChan <#chans>: Enable channels
+T 1784695984 18<*status>	DisableChan <#chans>: Disable channels
+T 1784695984 18<*status>	MoveChan <#chan> <index>: Move channel in sort order
+T 1784695984 18<*status>	SwapChans <#chan1> <#chan2>: Swap channels in sort order
+T 1784695984 18<*status>	Attach <#chans>: Attach to channels
+T 1784695984 18<*status>	Detach <#chans>: Detach from channels
+T 1784695984 18<*status>	Topics: Show topics in all your channels
+T 1784695984 18<*status>	PlayBuffer <#chan|query>: Play back the specified buffer
+T 1784695984 18<*status>	ClearBuffer <#chan|query>: Clear the specified buffer
+T 1784695984 18<*status>	ClearAllBuffers: Clear all channel and query buffers
+T 1784695984 18<*status>	ClearAllChannelBuffers: Clear the channel buffers
+T 1784695984 18<*status>	ClearAllQueryBuffers: Clear the query buffers
+T 1784695984 18<*status>	SetBuffer <#chan|query> [linecount]: Set the buffer count
+T 1784695984 18<*status>	SetBindHost <host (IP preferred)>: Set the bind host for this network
+T 1784695984 18<*status>	SetUserBindHost <host (IP preferred)>: Set the default bind host for this user
+T 1784695984 18<*status>	ClearBindHost: Clear the bind host for this network
+T 1784695984 18<*status>	ClearUserBindHost: Clear the default bind host for this user
+T 1784695984 18<*status>	ShowBindHost: Show currently selected bind host
+T 1784695984 18<*status>	Jump [server]: Jump to the next or the specified server
+T 1784695984 18<*status>	Disconnect [message]: Disconnect from IRC
+T 1784695984 18<*status>	Connect: Reconnect to IRC
+T 1784695984 18<*status>	Uptime: Show for how long ZNC has been running
+T 1784695984 18<*status>	LoadMod [--type=global|user|network] <module> [args]: Load a module
+T 1784695984 18<*status>	UnloadMod [--type=global|user|network] <module>: Unload a module
+T 1784695984 18<*status>	ReloadMod [--type=global|user|network] <module> [args]: Reload a module
+T 1784695984 18<*status>	UpdateMod <module>: Reload a module everywhere
+T 1784695984 18<*status>	ShowMOTD: Show ZNC's message of the day
+T 1784695984 18<*status>	SetMOTD <message>: Set ZNC's message of the day
+T 1784695984 18<*status>	AddMOTD <message>: Append <message> to ZNC's MOTD
+T 1784695984 18<*status>	ClearMOTD: Clear ZNC's MOTD
+T 1784695984 18<*status>	ListPorts: Show all active listeners
+T 1784695984 18<*status>	AddPort <[+]port> <ipv4|ipv6|all> <web|irc|all> [bindhost [uriprefix]]: Add another port for ZNC to listen on
+T 1784695984 18<*status>	DelPort <port> <ipv4|ipv6|all> [bindhost]: Remove a port from ZNC
+T 1784695984 18<*status>	Rehash: Reload global settings, modules, and listeners from znc.conf
+T 1784695984 18<*status>	SaveConfig: Save the current settings to disk
+T 1784695984 18<*status>	ListUsers: List all ZNC users and their connection status
+T 1784695984 18<*status>	ListAllUserNetworks: List all ZNC users and their networks
+T 1784695984 18<*status>	ListChans [user <network>]: List all channels
+T 1784695984 18<*status>	ListClients [user]: List all connected clients
+T 1784695984 18<*status>	Traffic: Show basic traffic stats for all ZNC users
+T 1784695984 18<*status>	Broadcast [message]: Broadcast a message to all ZNC users
+T 1784695984 18<*status>	Shutdown [message]: Shut down ZNC completely
+T 1784695984 18<*status>	Restart [message]: Restart ZNC
+T 1784696069 FiSHLiM plugin unloaded

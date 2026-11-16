@@ -1,0 +1,83 @@
+**** BEGIN LOGGING AT Wed Jul 22 12:52:19 2026
+
+Jul 22 12:52:19 *	Now talking on #octave
+**** ENDING LOGGING AT Wed Jul 22 12:54:29 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 20:44:19 2026
+
+Jul 22 20:44:19 *	Now talking on #octave
+**** ENDING LOGGING AT Wed Jul 22 20:44:26 2026
+
+**** BEGIN LOGGING AT Fri Jul 24 20:31:39 2026
+
+Jul 24 20:31:39 *	Now talking on #octave
+**** ENDING LOGGING AT Fri Jul 24 20:31:57 2026
+
+**** BEGIN LOGGING AT Mon Sep  7 13:55:54 2026
+
+Sep 07 13:55:54 *	Now talking on #octave
+Jul 24 17:10:21 <specing>	Is it just me or did Octave suffer a stroke?
+Jul 24 17:10:23 <specing>	0xc3 -235
+Jul 24 17:10:25 <specing>	ans = 0
+Jul 24 17:10:42 <specing>	Seems it really does not want to go negative when one component was given in hex.
+Jul 28 13:13:41 <lispmacs[work]>	is this channel for GNU Octave?
+Jul 28 13:17:10 <bremner>	yes
+Jul 28 13:17:16 <bremner>	but it is _very_ quiet
+Jul 28 13:34:12 <lispmacs[work]>	I am new to Octave. I have this code file: http://dpaste.com/7TNXFRRDC
+Jul 28 13:34:18 <lispmacs[work]>	err, script file
+Jul 28 13:34:35 <lispmacs[work]>	if I try to publish it using the publish function, I get error
+Jul 28 13:34:47 <lispmacs[work]>	publish: only script files can be published
+Jul 28 13:35:19 <lispmacs[work]>	publish ("higher-order.m")
+Jul 28 13:35:48 <lispmacs[work]>	it runs correctly, producing the desired plots
+Jul 28 13:35:59 <lispmacs[work]>	but wanted to try out the publish feature also
+Jul 28 17:17:55 <lispmacs[work]>	does Octave have something like odeToVectorField in MATLAB, to save you the trouble of converting the ODEs from higher order to first order?
+Jul 29 06:42:29 <Laurenceb_>	hi, anyone here used mkoctfile  ?
+Jul 29 06:42:52 <Laurenceb_>	I'm trying the example and I get  error while loading shared libraries: liboctinterp.so.11
+Jul 29 06:43:12 <Laurenceb_>	then if I try this it doesnt compile
+Jul 29 06:43:13 <Laurenceb_>	error while loading shared libraries: liboctinterp.so.11
+Jul 29 06:43:16 <Laurenceb_>	oops
+Jul 29 06:43:23 <Laurenceb_>	sudo mkoctfile --link-stand-alone -l /usr/lib/x86_64-linux-gnu/octave/8.4.0/liboctinterp.so.11.0.2 embedded.cpp -o embedded
+Jul 29 06:43:56 <Laurenceb_>	mkoctfile: unrecognized argument
+Jul 29 06:55:20 <specing>	yeah, it worked 10 years ago :P
+Jul 29 07:10:49 <Laurenceb_>	lol
+Jul 29 07:22:07 <Laurenceb_>	ok that was irrelevant
+Jul 29 07:22:12 <Laurenceb_>	-loctinterp is already used
+Jul 29 07:33:59 <Laurenceb_>	holy shit it works
+Jul 29 07:34:12 <Laurenceb_>	sudo mkoctfile -verbose --link-stand-alone  -Wl,-rpath=/usr/lib/x86_64-linux-gnu/octave/8.4.0/ embedded.cpp -o embedded
+Jul 29 07:34:26 <Laurenceb_>	starce output does not look pleasant, bet this is slow
+Jul 29 07:34:32 <Laurenceb_>	""""embedded""""
+Jul 29 07:50:00 <Laurenceb_>	ouch
+Jul 29 07:50:12 <Laurenceb_>	>250ms for basic demo code to run
+Jul 29 07:57:21 <specing>	Octave has/had no JIT
+Jul 29 07:57:37 <specing>	keep your use of loops to a minimum, vectorise instead
+Jul 29 08:03:59 <Laurenceb_>	it should compile to cpp, but why is it calling the interpretter in that case...
+Jul 29 08:04:13 <Laurenceb_>	octave::feval only takes 250us tho, for some matrix manipulation
+Jul 29 08:04:25 <Laurenceb_>	looks like thet time was in startup and shutdown
+Jul 29 08:07:06 <specing>	ah yeah, that also takes a while
+Jul 29 08:09:41 <Laurenceb_>	wait I could use octave coder
+Jul 29 08:09:48 <Laurenceb_>	this could actually run with high performance
+Jul 29 08:10:27 <Laurenceb_>	250us is already fast enough, but I would have to keep interpretter aliver, maybe connect to it via a localhost socket
+Jul 30 10:16:53 <Laurenceb_>	hi, anyone here used embedded interpretter?
+Jul 30 10:17:18 <Laurenceb_>	I'm trying to load packages but I get this error:  terminate called after throwing an instance of 'octave::execution_exception'
+Jul 30 10:17:18 <Laurenceb_>	  what():  'local_packages' undefined near line 417, column 11
+Jul 30 11:27:02 <Guest77>	anyone?
+Jul 30 11:35:26 <lispmacs[work]>	Guest77: hi
+Aug 12 07:45:08 <RobertLM78>	hello - has 'toascii' been dropped from octave?
+Aug 12 08:13:14 <RobertLM78>	i see... i guess now they use unicode2native.... ugh... shame when keywords are dropped... 
+Sep 03 18:38:27 <RobertLM78>	just for fun :D
+Sep 03 18:38:31 <RobertLM78>	https://pastebin.com/AHSc5DVS
+Sep 03 20:05:49 <JordiGH>	RobertLM78: heh, cute.
+Sep 03 20:06:45 <RobertLM78>	heh -- thought it might be appreciated by those who know ;) 
+Aug 18 23:27:06 -She/Wallops-	It's upgrade time again! Services are going to go offline in a few minutes. You may want to op up just in case.
+Aug 23 14:29:06 -SaslServ-	Last login from: ~pgan@141.148.7.36 on Aug 23 18:27:49 2026 +0000.
+**** ENDING LOGGING AT Mon Sep  7 13:56:22 2026
+
+**** BEGIN LOGGING AT Mon Sep  7 13:56:22 2026
+
+**** ENDING LOGGING AT Mon Sep  7 13:56:47 2026
+
+**** BEGIN LOGGING AT Mon Sep  7 13:56:47 2026
+
+Sep 07 14:01:16 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Mon Sep  7 14:01:16 2026
+

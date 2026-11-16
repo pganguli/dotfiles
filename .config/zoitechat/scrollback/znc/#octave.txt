@@ -1,0 +1,9 @@
+T 1784690085 19*	Now talking on 22#octave
+T 1784691964 19*	Now talking on 22#octave
+T 1784694081 19*	Now talking on 22#octave
+T 1784694055 -18SaslServ-	Last login from: ~pgan@141.148.7.36 on Jul 22 04:19:32 2026 +0000.
+T 1784694120 19*	Now talking on 22#octave
+T 1784694133 19*	Now talking on 22#octave
+T 1784694159 >18*status<	Help
+T 1784694943 20*	Disconnected (20Remote host closed socket)
+T 1784695003 19*	Now talking on 22#octave

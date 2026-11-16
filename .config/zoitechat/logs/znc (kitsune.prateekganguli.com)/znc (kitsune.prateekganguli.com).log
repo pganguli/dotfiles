@@ -1,0 +1,197 @@
+**** BEGIN LOGGING AT Wed Jul 22 12:52:07 2026
+
+Jul 22 12:52:07 *	Capabilities supported: batch cap-notify echo-message multi-prefix server-time userhost-in-names znc.in/batch znc.in/self-message znc.in/server-time-iso
+Jul 22 12:52:07 *	Capabilities requested: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso 
+Jul 22 12:52:07 *	Capabilities acknowledged: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso
+**** ENDING LOGGING AT Wed Jul 22 12:52:07 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:52:07 2026
+
+Jul 22 12:52:07 *	Welcome to ZNC
+Jul 22 12:52:07 *	Capabilities supported: account-notify
+Jul 22 12:52:07 *	Capabilities requested: account-notify 
+Jul 22 12:52:07 *	Capabilities supported: account-tag
+Jul 22 12:52:07 *	Capabilities requested: account-tag 
+Jul 22 12:52:07 *	Capabilities supported: away-notify
+Jul 22 12:52:07 *	Capabilities requested: away-notify 
+Jul 22 12:52:07 *	Capabilities supported: extended-join
+Jul 22 12:52:07 *	Capabilities requested: extended-join 
+Jul 22 12:52:08 *	Capabilities acknowledged: account-notify
+Jul 22 12:52:11 *	Capabilities acknowledged: account-tag
+Jul 22 12:52:11 *	You are now logged in as pgan
+Jul 22 12:52:13 *	Capabilities supported: account-notify
+Jul 22 12:52:13 *	Capabilities requested: account-notify 
+Jul 22 12:52:13 *	Capabilities supported: account-tag
+Jul 22 12:52:13 *	Capabilities requested: account-tag 
+Jul 22 12:52:13 *	Capabilities supported: away-notify
+Jul 22 12:52:13 *	Capabilities requested: away-notify 
+Jul 22 12:52:13 *	Capabilities supported: extended-join
+Jul 22 12:52:13 *	Capabilities requested: extended-join 
+**** ENDING LOGGING AT Wed Jul 22 12:52:13 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:52:13 2026
+
+Jul 22 12:52:13 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:52:13 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:52:13 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:52:13 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:52:13 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+**** BEGIN LOGGING AT Wed Jul 22 20:44:19 2026
+
+Jul 22 12:52:13 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:52:13 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:52:13 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:52:13 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:52:13 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:52:13 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:52:13 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:52:13 *	There are 57 users and 30316 invisible on 29 servers
+Jul 22 12:52:13 *	36 :IRC Operators online
+Jul 22 12:52:13 *	22588 :channels formed
+Jul 22 12:52:13 *	I have 1617 clients and 1 servers
+Jul 22 12:52:13 *	1617 1825 :Current local users 1617, max 1825
+Jul 22 12:52:13 *	30373 32525 :Current global users 30373, max 32525
+Jul 22 12:52:13 *	Highest connection count: 1826 (1825 clients) (10695 connections received)
+Jul 22 12:52:13 *	- zinc.libera.chat Message of the Day - 
+Jul 22 12:52:13 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:52:13 *	- free & open-source software and peer directed projects.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:52:13 *	- on hosts at connection time.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Please visit us in #libera for questions and support.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Website and documentation:  https://libera.chat
+Jul 22 12:52:13 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:52:13 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:52:13 *	- Email:                      support@libera.chat
+Jul 22 12:52:13 *	End of /MOTD command.
+Jul 22 20:44:19 *	pgan sets mode +Z on pgan
+Jul 22 20:44:19 *	pgan sets mode +i on pgan
+Jul 22 20:44:19 *	pgan sets mode +w on pgan
+Jul 22 20:44:19 *	You have been marked as being away
+Jul 22 20:44:19 *	Capabilities supported: account-notify
+Jul 22 20:44:19 *	Capabilities requested: account-notify 
+Jul 22 20:44:19 *	Capabilities supported: account-tag
+Jul 22 20:44:19 *	Capabilities requested: account-tag 
+Jul 22 20:44:19 *	Capabilities supported: away-notify
+Jul 22 20:44:19 *	Capabilities requested: away-notify 
+Jul 22 20:44:19 *	Capabilities supported: extended-join
+Jul 22 20:44:19 *	Capabilities requested: extended-join 
+Jul 22 20:44:19 *	You are no longer marked as being away
+Jul 22 20:44:21 *	Capabilities acknowledged: account-notify
+Jul 22 20:44:25 *	Capabilities acknowledged: account-tag
+Jul 22 20:44:26 Sysinfo plugin unloaded
+Jul 22 20:44:26 Perl interface unloaded
+Jul 22 20:44:26 FiSHLiM plugin unloaded
+Jul 22 20:44:26 Checksum plugin unloaded
+**** ENDING LOGGING AT Wed Jul 22 20:44:26 2026
+
+**** BEGIN LOGGING AT Fri Jul 24 20:31:39 2026
+
+Jul 22 12:52:13 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Jul 22 12:52:13 *	Your host is zinc.libera.chat[195.148.124.80/6697], running version solanum-1.0-dev
+Jul 22 12:52:13 *	This server was created Mon Jul 20 2026 at 18:38:18 UTC
+Jul 22 12:52:13 *	zinc.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Jul 22 12:52:13 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Jul 22 12:52:13 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Jul 22 12:52:13 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Jul 22 12:52:13 *	There are 57 users and 30316 invisible on 29 servers
+Jul 22 12:52:13 *	36 :IRC Operators online
+Jul 22 12:52:13 *	22588 :channels formed
+Jul 22 12:52:13 *	I have 1617 clients and 1 servers
+Jul 22 12:52:13 *	1617 1825 :Current local users 1617, max 1825
+Jul 22 12:52:13 *	30373 32525 :Current global users 30373, max 32525
+Jul 22 12:52:13 *	Highest connection count: 1826 (1825 clients) (10695 connections received)
+Jul 22 12:52:13 *	- zinc.libera.chat Message of the Day - 
+Jul 22 12:52:13 *	- Welcome to Libera Chat, the IRC network for
+Jul 22 12:52:13 *	- free & open-source software and peer directed projects.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Use of Libera Chat is governed by our network policies.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- To reduce network abuses we perform open proxy checks
+Jul 22 12:52:13 *	- on hosts at connection time.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Please visit us in #libera for questions and support.
+Jul 22 12:52:13 *	-  
+Jul 22 12:52:13 *	- Website and documentation:  https://libera.chat
+Jul 22 12:52:13 *	- Webchat:                    https://web.libera.chat
+Jul 22 12:52:13 *	- Network policies:           https://libera.chat/policies
+Jul 22 12:52:13 *	- Email:                      support@libera.chat
+Jul 22 12:52:13 *	End of /MOTD command.
+Jul 24 20:31:39 *	pgan sets mode +Z on pgan
+Jul 24 20:31:39 *	pgan sets mode +i on pgan
+Jul 24 20:31:39 *	pgan sets mode +w on pgan
+Jul 24 20:31:39 *	You have been marked as being away
+Jul 24 20:31:39 *	Capabilities supported: account-notify
+Jul 24 20:31:39 *	Capabilities requested: account-notify 
+Jul 24 20:31:39 *	Capabilities supported: account-tag
+Jul 24 20:31:39 *	Capabilities requested: account-tag 
+Jul 24 20:31:39 *	Capabilities supported: away-notify
+Jul 24 20:31:39 *	Capabilities requested: away-notify 
+Jul 24 20:31:39 *	Capabilities supported: extended-join
+Jul 24 20:31:39 *	Capabilities requested: extended-join 
+Jul 24 20:31:39 *	You are no longer marked as being away
+Jul 24 20:31:40 *	Capabilities acknowledged: account-notify
+Jul 24 20:31:44 *	Capabilities acknowledged: account-tag
+Jul 24 20:31:48 *	Capabilities acknowledged: away-notify
+Jul 24 20:31:52 *	Capabilities acknowledged: extended-join
+Jul 24 20:31:57 Sysinfo plugin unloaded
+Jul 24 20:31:57 Perl interface unloaded
+Jul 24 20:31:57 FiSHLiM plugin unloaded
+Jul 24 20:31:57 Checksum plugin unloaded
+**** ENDING LOGGING AT Fri Jul 24 20:31:57 2026
+
+**** BEGIN LOGGING AT Mon Sep  7 13:55:54 2026
+
+Aug 23 14:29:06 *	Welcome to the Libera.Chat Internet Relay Chat Network pgan
+Aug 23 14:29:06 *	Your host is calcium.libera.chat[64.86.243.186/6697], running version solanum-1.0-dev
+Aug 23 14:29:06 *	This server was created Wed Aug 19 2026 at 04:31:46 UTC
+Aug 23 14:29:06 *	calcium.libera.chat solanum-1.0-dev DGIMQRSZaghiopsuwz CFILMPQRSTbcefgijklmnopqrstuvz bkloveqjfI
+Aug 23 14:29:06 *	ETRACE KNOCK SAFELIST ELIST=CMNTU MONITOR=100 FNC WHOX CALLERID=g ACCOUNTEXTBAN=a CHANTYPES=# EXCEPTS INVEX :are supported by this server
+Aug 23 14:29:06 *	CHANMODES=eIbq,k,flj,CFLMPQRSTcgimnprstuz CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 :are supported by this server
+Aug 23 14:29:06 *	DEAF=D TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,agjrxz CLIENTTAGDENY=*,-typing :are supported by this server
+Aug 23 14:29:06 *	There are 65 users and 30724 invisible on 30 servers
+Aug 23 14:29:06 *	34 :IRC Operators online
+Aug 23 14:29:06 *	22029 :channels formed
+Aug 23 14:29:06 *	I have 2323 clients and 1 servers
+Aug 23 14:29:06 *	2323 2422 :Current local users 2323, max 2422
+Aug 23 14:29:06 *	30789 35853 :Current global users 30789, max 35853
+Aug 23 14:29:06 *	Highest connection count: 2423 (2422 clients) (22690 connections received)
+Aug 23 14:29:06 *	- calcium.libera.chat Message of the Day - 
+Aug 23 14:29:06 *	- Welcome to Libera Chat, the IRC network for
+Aug 23 14:29:06 *	- free & open-source software and peer directed projects.
+Aug 23 14:29:06 *	-  
+Aug 23 14:29:06 *	- Use of Libera Chat is governed by our network policies.
+Aug 23 14:29:06 *	-  
+Aug 23 14:29:06 *	- To reduce network abuses we perform open proxy checks
+Aug 23 14:29:06 *	- on hosts at connection time.
+Aug 23 14:29:06 *	-  
+Aug 23 14:29:06 *	- Please visit us in #libera for questions and support.
+Aug 23 14:29:06 *	-  
+Aug 23 14:29:06 *	- Website and documentation:  https://libera.chat
+Aug 23 14:29:06 *	- Webchat:                    https://web.libera.chat
+Aug 23 14:29:06 *	- Network policies:           https://libera.chat/policies
+Aug 23 14:29:06 *	- Email:                      support@libera.chat
+Aug 23 14:29:06 *	End of /MOTD command.
+Sep 07 13:55:54 *	pgan sets mode +Z on pgan
+Sep 07 13:55:54 *	pgan sets mode +i on pgan
+Sep 07 13:55:54 *	pgan sets mode +w on pgan
+Sep 07 13:55:54 *	You have been marked as being away
+Sep 07 13:55:54 *	Capabilities supported: account-notify
+Sep 07 13:55:54 *	Capabilities requested: account-notify 
+Sep 07 13:55:54 *	Capabilities supported: account-tag
+Sep 07 13:55:54 *	Capabilities requested: account-tag 
+Sep 07 13:55:54 *	Capabilities supported: away-notify
+Sep 07 13:55:54 *	Capabilities requested: away-notify 
+Sep 07 13:55:54 *	Capabilities supported: extended-join
+Sep 07 13:55:54 *	Capabilities requested: extended-join 
+Sep 07 13:55:54 *	You are no longer marked as being away
+Sep 07 13:55:55 *	Capabilities acknowledged: account-notify
+Sep 07 13:55:59 *	Capabilities acknowledged: account-tag
+Sep 07 13:56:03 *	Capabilities acknowledged: away-notify
+Sep 07 13:56:07 *	Capabilities acknowledged: extended-join
+**** ENDING LOGGING AT Mon Sep  7 13:56:22 2026
+

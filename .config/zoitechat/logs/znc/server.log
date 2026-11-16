@@ -1,0 +1,62 @@
+**** BEGIN LOGGING AT Wed Jul 22 10:47:55 2026
+
+Jul 22 10:47:55 *	Looking up 141.148.7.36
+**** BEGIN LOGGING AT Wed Jul 22 10:50:19 2026
+
+Jul 22 10:50:19 *	Looking up 141.148.7.36
+Jul 22 10:50:19 *	Connecting to 141.148.7.36 (141.148.7.36:6697)
+Jul 22 10:50:19 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	* Certification info:
+Jul 22 10:50:19 *	  Subject:
+Jul 22 10:50:19 *	    OU=znc
+Jul 22 10:50:19 *	    CN=host.unknown
+Jul 22 10:50:19 *	    emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	  Issuer:
+Jul 22 10:50:19 *	    OU=znc
+Jul 22 10:50:19 *	    CN=host.unknown
+Jul 22 10:50:19 *	    emailAddress=znc@host.unknown
+Jul 22 10:50:19 *	  Public key algorithm: rsaEncryption (2048 bits)
+Jul 22 10:50:19 *	  Sign algorithm sha256WithRSAEncryption
+Jul 22 10:50:19 *	  Valid since Jul 22 02:32:04 2026 GM to Jul 19 02:32:04 2036 GM
+Jul 22 10:50:19 *	* Cipher info:
+Jul 22 10:50:19 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 10:50:19 *	* Verify E: self-signed certificate.? (18) -- Ignored
+Jul 22 10:50:19 *	Connected. Now logging in.
+Jul 22 10:50:20 *	Capabilities supported: batch cap-notify echo-message multi-prefix server-time userhost-in-names znc.in/batch znc.in/self-message znc.in/server-time-iso
+Jul 22 10:50:20 *	Capabilities requested: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso 
+Jul 22 10:50:21 *	Capabilities acknowledged: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso
+**** ENDING LOGGING AT Wed Jul 22 10:50:21 2026
+
+**** BEGIN LOGGING AT Wed Jul 22 12:21:56 2026
+
+Jul 22 12:21:56 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:21:56 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:21:58 *	* Subject: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:21:58 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:21:58 *	* Subject: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:21:58 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:21:58 *	* Subject: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:21:58 *	* Issuer: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:21:58 *	* Subject: /CN=kitsune.prateekganguli.com
+Jul 22 12:21:58 *	* Issuer: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:21:58 *	* Certification info:
+Jul 22 12:21:58 *	  Subject:
+Jul 22 12:21:58 *	    CN=kitsune.prateekganguli.com
+Jul 22 12:21:58 *	  Issuer:
+Jul 22 12:21:58 *	    C=US
+Jul 22 12:21:58 *	    O=Let's Encrypt
+Jul 22 12:21:58 *	    CN=YE1
+Jul 22 12:21:58 *	  Public key algorithm: id-ecPublicKey (256 bits)
+Jul 22 12:21:58 *	  Sign algorithm ecdsa-with-SHA384
+Jul 22 12:21:58 *	  Valid since Jul 22 03:21:40 2026 GM to Oct 20 03:21:39 2026 GM
+Jul 22 12:21:58 *	* Cipher info:
+Jul 22 12:21:58 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 12:21:58 *	Connected. Now logging in.
+Jul 22 12:21:59 *	Capabilities supported: batch cap-notify echo-message multi-prefix server-time userhost-in-names znc.in/batch znc.in/self-message znc.in/server-time-iso
+Jul 22 12:21:59 *	Capabilities requested: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso 
+Jul 22 12:22:00 *	Capabilities acknowledged: cap-notify multi-prefix server-time userhost-in-names znc.in/server-time-iso
+**** ENDING LOGGING AT Wed Jul 22 12:22:00 2026
+

@@ -1,0 +1,44 @@
+**** BEGIN LOGGING AT Wed Jul 22 10:47:55 2026
+
+Jul 22 10:47:55 *	Connecting to 141.148.7.36 (141.148.7.36:6697)
+Jul 22 10:47:58 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	* Certification info:
+Jul 22 10:47:58 *	  Subject:
+Jul 22 10:47:58 *	    OU=znc
+Jul 22 10:47:58 *	    CN=host.unknown
+Jul 22 10:47:58 *	    emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	  Issuer:
+Jul 22 10:47:58 *	    OU=znc
+Jul 22 10:47:58 *	    CN=host.unknown
+Jul 22 10:47:58 *	    emailAddress=znc@host.unknown
+Jul 22 10:47:58 *	  Public key algorithm: rsaEncryption (2048 bits)
+Jul 22 10:47:58 *	  Sign algorithm sha256WithRSAEncryption
+Jul 22 10:47:58 *	  Valid since Jul 22 02:32:04 2026 GM to Jul 19 02:32:04 2036 GM
+Jul 22 10:47:58 *	* Cipher info:
+Jul 22 10:47:58 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 10:47:58 *	Connection failed (self-signed certificate.? (18))
+Jul 22 10:48:49 *	Looking up 141.148.7.36
+Jul 22 10:48:49 *	Connecting to 141.148.7.36 (141.148.7.36:6697)
+Jul 22 10:48:50 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	* Subject: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	* Issuer: /OU=znc/CN=host.unknown/emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	* Certification info:
+Jul 22 10:48:50 *	  Subject:
+Jul 22 10:48:50 *	    OU=znc
+Jul 22 10:48:50 *	    CN=host.unknown
+Jul 22 10:48:50 *	    emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	  Issuer:
+Jul 22 10:48:50 *	    OU=znc
+Jul 22 10:48:50 *	    CN=host.unknown
+Jul 22 10:48:50 *	    emailAddress=znc@host.unknown
+Jul 22 10:48:50 *	  Public key algorithm: rsaEncryption (2048 bits)
+Jul 22 10:48:50 *	  Sign algorithm sha256WithRSAEncryption
+Jul 22 10:48:50 *	  Valid since Jul 22 02:32:04 2026 GM to Jul 19 02:32:04 2036 GM
+Jul 22 10:48:50 *	* Cipher info:
+Jul 22 10:48:50 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 10:48:50 *	* Verify E: self-signed certificate.? (18) -- Ignored
+Jul 22 10:48:50 *	Connected. Now logging in.

@@ -1,0 +1,25 @@
+**** BEGIN LOGGING AT Wed Jul 22 12:52:04 2026
+
+Jul 22 12:52:04 *	Looking up kitsune.prateekganguli.com
+Jul 22 12:52:04 *	Connecting to kitsune.prateekganguli.com (141.148.7.36:6697)
+Jul 22 12:52:06 *	* Subject: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:52:06 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:52:06 *	* Subject: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:52:06 *	* Issuer: /C=US/O=Internet Security Research Group/CN=ISRG Root X2
+Jul 22 12:52:06 *	* Subject: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:52:06 *	* Issuer: /C=US/O=ISRG/CN=Root YE
+Jul 22 12:52:06 *	* Subject: /CN=kitsune.prateekganguli.com
+Jul 22 12:52:06 *	* Issuer: /C=US/O=Let's Encrypt/CN=YE1
+Jul 22 12:52:06 *	* Certification info:
+Jul 22 12:52:06 *	  Subject:
+Jul 22 12:52:06 *	    CN=kitsune.prateekganguli.com
+Jul 22 12:52:06 *	  Issuer:
+Jul 22 12:52:06 *	    C=US
+Jul 22 12:52:06 *	    O=Let's Encrypt
+Jul 22 12:52:06 *	    CN=YE1
+Jul 22 12:52:06 *	  Public key algorithm: id-ecPublicKey (256 bits)
+Jul 22 12:52:06 *	  Sign algorithm ecdsa-with-SHA384
+Jul 22 12:52:06 *	  Valid since Jul 22 03:21:40 2026 GM to Oct 20 03:21:39 2026 GM
+Jul 22 12:52:06 *	* Cipher info:
+Jul 22 12:52:06 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jul 22 12:52:06 *	Connected. Now logging in.
